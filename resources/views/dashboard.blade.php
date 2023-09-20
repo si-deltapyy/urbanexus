@@ -1,76 +1,126 @@
 @extends('layout.master')
 
 @push('plugin-styles')
-    <link href="{{ asset('assets/plugins/select2/select2.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/jquery-tags-input/jquery.tagsinput.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/pickr/themes/classic.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/flatpickr/flatpickr.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/flatpickr/flatpickr.min.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')
-    <nav class="page-breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Forms</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Advanced Elements</li>
-        </ol>
-    </nav>
 
-    <div class="row">
-        <div class="col-lg grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Dashboard</h4>
-                    <div>{{ Auth::user()->name }}</div>
-                </div>
+
+<div class="row">
+  <div class="col-12 col-xl-12 stretch-card">
+    <div class="row flex-grow-1">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class=" col-md col-xl">
+                <div class="row mb-3">
+                    <div class="col-12 col-xl stretch-card">
+                      <div class="row flex-grow-1">
+                          <h3>Selamat Datang Kembali! <span class="text-primary">Ajik</span></h3>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</div> <!-- row -->
+
+<div class="row">
+  <div class="col-8 col-xl-9 grid-margin stretch-card">
+    <div class="card overflow-hidden">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+          <h6 class="card-title mb-0">Grafik</h6>
+        </div>
+        <div class="row align-items-start mb-2">
+          <div class="col-md-7">
+            <p class="text-muted tx-13 mb-3 mb-md-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eum rem nihil sint pariatur sapiente quo! Recusandae, assumenda non? Facere culpa nam, nemo error sed deleniti minus cupiditate odit quam.</p>
+          </div>
+          <div class="col-md-5 d-flex justify-content-md-end">
+            <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-primary">Today</button>
+              <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
+              <button type="button" class="btn btn-primary">Month</button>
+              <button type="button" class="btn btn-outline-primary">Year</button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5" id="apexLine"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xl-3 grid-margin grid-margin-xl-0 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-baseline mb-2">
+          <h6 class="card-title mb-0">History</h6>
+        </div>
+        <div class="d-flex flex-column">
+          <a href="javascript:;" class="d-flex align-items-center border-bottom pb-3">
+            <div class="me-3">
+              <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35" alt="user">
+            </div>
+            <div class="w-100">
+              <div class="d-flex justify-content-between">
+                <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 1</h6>
+                <p class="text-muted tx-12">12.30 PM</p>
+              </div>
+            </div>
+          </a>
+          <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+            <div class="me-3">
+              <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35" alt="user">
+            </div>
+            <div class="w-100">
+              <div class="d-flex justify-content-between">
+                <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 2</h6>
+                <p class="text-muted tx-12">08.22 PM</p>
+              </div>
+            </div>
+          </a>
+          <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+            <div class="me-3">
+              <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35" alt="user">
+            </div>
+            <div class="w-100">
+              <div class="d-flex justify-content-between">
+                <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 2</h6>
+                <p class="text-muted tx-12">05.49 AM</p>
+              </div>
+              <p class="text-muted tx-13">Mengisi Kuesioner 2</p>
+            </div>
+          </a>
+          <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+            <div class="me-3">
+              <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35" alt="user">
+            </div>
+            <div class="w-100">
+              <div class="d-flex justify-content-between">
+                <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 2</h6>
+                <p class="text-muted tx-12">01.19 AM</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- row -->
+
 @endsection
 
 @push('plugin-scripts')
-    <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/inputmask/jquery.inputmask.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/typeahead-js/typeahead.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/pickr/pickr.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/flatpickr/flatpickr.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/flatpickr/flatpickr.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
-    <script src="{{ asset('assets/js/form-validation.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap-maxlength.js') }}"></script>
-    <script src="{{ asset('assets/js/inputmask.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
-    <script src="{{ asset('assets/js/typeahead.js') }}"></script>
-    <script src="{{ asset('assets/js/tags-input.js') }}"></script>
-    <script src="{{ asset('assets/js/dropzone.js') }}"></script>
-    <script src="{{ asset('assets/js/dropify.js') }}"></script>
-    <script src="{{ asset('assets/js/pickr.js') }}"></script>
-    <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
+  <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+  <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
 @endpush
-
-
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout> --}}
