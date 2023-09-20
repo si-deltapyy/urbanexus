@@ -1,68 +1,70 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layout.master2')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('content')
+<div class="page-content d-flex align-items-center justify-content-center">
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+  <div class="row w-100 mx-0 auth-page">
+    <div class="col-md-8 col-xl-6 mx-auto">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-4 pe-md-0">
+            <div class="auth-side-wrapper" style="background-image: url({{ url('https://via.placeholder.com/219x452') }})">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+          </div>
+          <div class="col-md-8 ps-md-0">
+            <div class="auth-form-wrapper px-4 py-5">
+              <a href="#" class="noble-ui-logo d-block mb-2">Urba<span>Nexus</span></a>
+              <h5 class="text-muted fw-normal mb-4">Daftarkan akun anda.</h5>
+              <form class="forms-sample">
+                <div class="mb-3">
+                  <label for="name" :value="__('Name')" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama" autocomplete="nama" placeholder="Nama" name="name" :value="old('name')" required autofocus>
+                </div>
+                <div class="mb-3">
+                  <label for="email" :value="__('Email')" class="form-label">Alamat Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email" name="email" :value="old('email')" required>
+                </div>
+                <div class="mb-3">
+                    <x-label for="role" :value="__('Role')" />
+                    <select id="role" name="role" class="block mt-1 w-full">
+                        @foreach ($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                {{-- Nomor Telepon --}}
+                {{-- <div class="mb-3">
+                  <label for="no_telp" class="form-label">Nomor Telepon</label>
+                  <input type="tel" class="form-control" id="no_telp" placeholder="Nomor Telepon">
+                </div> --}}
+                <div class="mb-3">
+                    <label for="password" :value="__('Password')" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                    required autocomplete="new-password">
+                </div>
+                <div class="mb-3">
+                    <label for="password_confirmation" :value="__('Confirm Password')" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password_confirmation" autocomplete="Password"  type="password"
+                    name="password_confirmation" required />
+                </div>
+                <div class="form-check mb-3">
+                  <input type="checkbox" class="form-check-input" id="authCheck">
+                  <label class="form-check-label" for="authCheck">
+                    Ingat Saya
+                  </label>
+                </div>
+                <div>
+                  <a href="{{ url('/') }}" class="btn btn-primary me-2 mb-2 mb-md-0">Daftar</a>
+                </div>
+                <a href="{{ url('login') }}" class="d-block mt-3 text-muted">Sudah mempunyai akun?<span class="text-primary"> Masuk sekarang</span></a>
+              </form>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <div class="mt-4">
-                <x-label for="role" :value="__('Role')" />
-                <select id="role" name="role" class="block mt-1 w-full">
-                    @foreach ($roles as $role)
-                        <option value="{{ $role->id }}">{{ $role->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</div>
+@endsection
