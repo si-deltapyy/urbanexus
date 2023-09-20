@@ -15,6 +15,10 @@ Route::get('/login', function () {
     return view('auth/login');
 });
 
+Route::get('/send/message', function () {
+    return view('send-api');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
