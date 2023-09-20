@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('code_pertanyaan');
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('rw_id')->constrained('rws');
-            $table->foreignId('rt_id')->constrained('rws');
+            $table->foreignId('rw_id')->constrained('rw');
+            $table->foreignId('rt_id')->constrained('rt');
             $table->text('resp1');
             $table->text('resp2');
             $table->text('resp3');

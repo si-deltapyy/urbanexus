@@ -19,6 +19,7 @@ class VerifyEmailController extends Controller
     {
         if ($request->user()->hasVerifiedEmail()) {
             return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+            // return view('send-api');
         }
 
         if ($request->user()->markEmailAsVerified()) {
@@ -26,5 +27,6 @@ class VerifyEmailController extends Controller
         }
 
         return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+        // return view('send-api');
     }
 }
