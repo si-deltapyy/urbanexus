@@ -13,6 +13,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
+Route::get('/send/message', function () {
+    return view('send-api');
+});
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
