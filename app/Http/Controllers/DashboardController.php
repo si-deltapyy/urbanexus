@@ -12,8 +12,8 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $data = Rw::where('users_id', $user->id)->first();
-        $rt = Rt::where('users_id', $user->id)->first();
+        $data = Rw::where('user_id', $user->id)->first();
+        $rt = Rt::where('user_id', $user->id)->first();
         // dd($data);
         return view('dashboard', compact('data', 'rt'));
     }
