@@ -16,7 +16,7 @@ class RwController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $data = Rw::where('users_id', $user->id)->first();
+        $data = Rw::where('user_id', $user->id)->first();
         return view('rw.data', compact('data'));
     }
 
@@ -28,7 +28,7 @@ class RwController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $data = Rw::where('users_id', $user->id)->first();
+        $data = Rw::where('user_id', $user->id)->first();
         return view('rw.form', compact('user', 'data'));
     }
 
@@ -51,7 +51,7 @@ class RwController extends Controller
 
         Rw::create([
             'id' => $request->id,
-            'users_id' => $user->id,
+            'user_id' => $user->id,
             'nama_rw' => $user->name,
             'email' => $user->email,
             'pekerjaan' => $request->pekerjaan,

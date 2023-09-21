@@ -17,7 +17,7 @@ class RtController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $rt = Rt::where('users_id', $user->id)->first();
+        $rt = Rt::where('user_id', $user->id)->first();
         return view('rt.data', compact('rt'));
     }
 
@@ -29,7 +29,7 @@ class RtController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $rt = Rt::where('users_id', $user->id)->first();
+        $rt = Rt::where('user_id', $user->id)->first();
         $rws = Rw::get();
         return view('rt.form', compact('user', 'rt', 'rws'));
     }
@@ -55,7 +55,7 @@ class RtController extends Controller
         Rt::create([
             'id' => $request->id,
             'rw_id' => $request->rw_id,
-            'users_id' => $user->id,
+            'user_id' => $user->id,
             'nama_rt' => $user->name,
             'email' => $user->email,
             'pekerjaan' => $request->pekerjaan,

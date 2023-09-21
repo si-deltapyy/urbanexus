@@ -139,21 +139,7 @@
                                                             <div class="flex items-center">
                                                                 @if ($user->roles)
                                                                     @foreach ($user->roles as $user_role)
-                                                                        @if ($user_role->name == 'rw')
-                                                                            {{ $user_role->name }}
-                                                                            @foreach ($user->rw as $rw)
-                                                                                {{ $rw->id ?? 'N/A' }}
-                                                                            @endforeach
-                                                                        @else
-                                                                            RW
-                                                                            @foreach ($user->rt as $rt)
-                                                                                {{ $rt->rw->id ?? 'N/A' }},
-                                                                            @endforeach
-                                                                            {{ $user_role->name }}
-                                                                            @foreach ($user->rt as $rt)
-                                                                                {{ $rt->id ?? 'N/A' }}
-                                                                            @endforeach
-                                                                        @endif
+                                                                    {{ $user_role->name }}
                                                                     @endforeach
                                                                 @endif
 

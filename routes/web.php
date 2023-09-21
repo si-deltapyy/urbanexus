@@ -41,11 +41,11 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
 });
 
-Route::middleware(['auth',  'verified', 'role:rw'])->name('rw.')->prefix('rw')->group(function () {
+Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
     Route::resource('/daftar_rw', RwController::class);
 });
 
-Route::middleware(['auth',  'verified', 'role:rt'])->name('rt.')->prefix('rt')->group(function () {
+Route::middleware(['auth',  'verified', 'role:RT'])->name('rt.')->prefix('rt')->group(function () {
     Route::resource('/daftar_rt', RtController::class);
 });
 

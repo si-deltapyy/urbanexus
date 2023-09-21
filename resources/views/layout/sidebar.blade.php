@@ -19,10 +19,10 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            @role('rw')
+            @role('RW')
                 <li class="nav-item nav-category">Biodata</li>
                 <li class="nav-item">
-                    @if (is_null($data) || $data->users_id !== auth()->user()->id)
+                    @if (is_null($data) || $data->user_id !== auth()->user()->id)
                         <a href="{{ route('rw.daftar_rw.create') }}" class="nav-link">
                             <i class="link-icon" data-feather="user"></i>
                             <span class="link-title">Data RW</span>
@@ -35,10 +35,10 @@
                     @endif
                 </li>
             @endrole
-            @role('rt')
+            @role('RT')
                 <li class="nav-item nav-category">Biodata</li>
                 <li class="nav-item">
-                    @if (is_null($rt) || $rt->users_id !== auth()->user()->id)
+                    @if (is_null($rt) || $rt->user_id !== auth()->user()->id)
                         <a href="{{ route('rt.daftar_rt.create') }}" class="nav-link">
                             <i class="link-icon" data-feather="user"></i>
                             <span class="link-title">Data RT</span>
