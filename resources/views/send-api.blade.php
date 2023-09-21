@@ -26,5 +26,5 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 
-echo '<script>window.location="auth/verify-email"</script>';
+echo '<script>window.location="../verify-email"</script>';
 exit;
