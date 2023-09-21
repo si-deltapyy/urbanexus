@@ -12,7 +12,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => array(
-'target' => '085229933072',
+'target' => '085876204872',
 'message' => 'test message', 
 'countryCode' => '62', //optional
 ),
@@ -26,4 +26,5 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 
-{{ route('login') }};
+echo '<script>window.location="auth/verify-email"</script>';
+exit;
