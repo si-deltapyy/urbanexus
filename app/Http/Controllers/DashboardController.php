@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,8 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $data = Rw::where('users_id', $user->id)->first();
+        $rt = Rt::where('users_id', $user->id)->first();
         // dd($data);
-        return view('dashboard', compact('data'));
+        return view('dashboard', compact('data', 'rt'));
     }
 }

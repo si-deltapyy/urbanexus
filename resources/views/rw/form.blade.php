@@ -12,8 +12,8 @@
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Forms</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Advanced Elements</li>
+            <li class="breadcrumb-item"><a href="#">Data RW</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Update Data</li>
         </ol>
     </nav>
 
@@ -21,7 +21,7 @@
         <div class="col-lg grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Asset Buat Form</h4>
+                    <h4 class="card-title">Update Data RW</h4>
                     <form class="form form-horizontal needs-validation" novalidate method="POST"
                         enctype="multipart/form-data" action="{{ route('rw.daftar_rw.store') }}">
                         @csrf
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4">
-                                        <label>alamat kantor</label>
+                                        <label>Alamat kantor</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text"
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4">
-                                        <label>alamat rumah</label>
+                                        <label>Alamat rumah</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text"

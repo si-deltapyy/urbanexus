@@ -17,7 +17,7 @@ class RwController extends Controller
     {
         $user = Auth::user();
         $data = Rw::where('users_id', $user->id)->first();
-        return view('data', compact('data'));
+        return view('rw.data', compact('data'));
     }
 
     /**
@@ -29,7 +29,7 @@ class RwController extends Controller
     {
         $user = Auth::user();
         $data = Rw::where('users_id', $user->id)->first();
-        return view('form', compact('user', 'data'));
+        return view('rw.form', compact('user', 'data'));
     }
 
     /**

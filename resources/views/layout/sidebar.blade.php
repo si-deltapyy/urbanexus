@@ -1,13 +1,13 @@
 <nav class="sidebar">
     <div class="sidebar-header">
-      <a href="#" class="sidebar-brand">
-        Urba<span>Nexus</span>
-      </a>
-      <div class="sidebar-toggler not-active">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        <a href="#" class="sidebar-brand">
+            Urba<span>Nexus</span>
+        </a>
+        <div class="sidebar-toggler not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 
     <div class="sidebar-body">
@@ -35,41 +35,75 @@
                     @endif
                 </li>
             @endrole
+            @role('rt')
+                <li class="nav-item nav-category">Biodata</li>
+                <li class="nav-item">
+                    @if (is_null($rt) || $rt->users_id !== auth()->user()->id)
+                        <a href="{{ route('rt.daftar_rt.create') }}" class="nav-link">
+                            <i class="link-icon" data-feather="user"></i>
+                            <span class="link-title">Data RT</span>
+                        </a>
+                    @else
+                        <a href="{{ route('rt.daftar_rt.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="user"></i>
+                            <span class="link-title">Data RT</span>
+                        </a>
+                    @endif
+                </li>
+            @endrole
 
-            <li class="nav-item nav-category">Kuisioner</li>
+            @role('admin')
+                <li class="nav-item nav-category">User</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.users.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="users"></i>
+                        <span class="link-title">Daftar User</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.roles.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="user-check"></i>
+                        <span class="link-title">Role</span>
+                    </a>
+                </li>
+            @endrole
+            <li class="nav-item nav-category">Menu</li>
+            {{-- <li class="nav-item {{ active_class(['email/*']) }}">
+                <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button"
+                    aria-expanded="{{ is_active_route(['email/*']) }}" aria-controls="email">
+                    <i class="link-icon" data-feather="mail"></i>
+                    <span class="link-title">Kuesioner</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="email">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ url('/user-page/kuesioner') }}"
+                                class="nav-link {{ active_class(['user-page/kuesioner']) }}">Kuesioner 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/user-page/kuesioner') }}"
+                                class="nav-link {{ active_class(['user-page/kuesioner']) }}">Kuesioner 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/user-page/kuesioner') }}"
+                                class="nav-link {{ active_class(['user-page/kuesioner']) }}">Kuesioner 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </li> --}}
+            <li class="nav-item">
+                <a href="{{ url('/input') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">Input Data</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="" class="nav-link">
                     <i class="link-icon" data-feather="folder-plus"></i>
                     <span class="link-title">Kuisioner</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">Menu</li>
-        <li class="nav-item {{ active_class(['email/*']) }}">
-          <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button" aria-expanded="{{ is_active_route(['email/*']) }}" aria-controls="email">
-            <i class="link-icon" data-feather="mail"></i>
-            <span class="link-title">Kuesioner</span>
-            <i class="link-arrow" data-feather="chevron-down"></i>
-          </a>
-          <div class="collapse" id="email">
-            <ul class="nav sub-menu">
-              <li class="nav-item">
-                <a href="{{ url('/user-page/kuesioner') }}" class="nav-link {{ active_class(['user-page/kuesioner']) }}">Kuesioner 1</a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('/user-page/kuesioner') }}" class="nav-link {{ active_class(['user-page/kuesioner']) }}">Kuesioner 2</a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('/user-page/kuesioner') }}" class="nav-link {{ active_class(['user-page/kuesioner']) }}">Kuesioner 3</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="{{ url('/input') }}" class="nav-link">
-            <i class="link-icon" data-feather="message-square"></i>
-            <span class="link-title">Input Data</span>
-          </a>
-        </li>
             <li class="nav-item nav-category">web apps</li>
             {{-- <li class="nav-item {{ active_class(['email/*']) }}">
               <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button" aria-expanded="{{ is_active_route(['email/*']) }}" aria-controls="email">

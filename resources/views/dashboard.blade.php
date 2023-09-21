@@ -18,7 +18,7 @@
                 <div class="row mb-3">
                     <div class="col-12 col-xl stretch-card">
                       <div class="row flex-grow-1">
-                          <h3>Selamat Datang Kembali! <span class="text-primary">Ajik</span></h3>
+                          <h3>Selamat Datang Kembali! <span class="text-primary">{{ Auth::user()->name }}</span></h3>
                       </div>
                     </div>
                   </div>

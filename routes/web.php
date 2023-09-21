@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RtController;
 use App\Http\Controllers\RwController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,10 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
 
 Route::middleware(['auth',  'verified', 'role:rw'])->name('rw.')->prefix('rw')->group(function () {
     Route::resource('/daftar_rw', RwController::class);
+});
+
+Route::middleware(['auth',  'verified', 'role:rt'])->name('rt.')->prefix('rt')->group(function () {
+    Route::resource('/daftar_rt', RtController::class);
 });
 
 require __DIR__ . '/auth.php';

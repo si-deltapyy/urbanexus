@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('rt', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('rw_id');
             $table->string('nama_rt');
             $table->string('email');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('alamat_rumah');
             $table->timestamps();
 
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('rw_id')->references('id')->on('rw')->onDelete('CASCADE');
         });
     }
