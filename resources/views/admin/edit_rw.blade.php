@@ -23,8 +23,9 @@
                 <div class="card-body">
                     <h4 class="card-title">Update Data RW</h4>
                     <form class="form form-horizontal needs-validation" novalidate method="POST"
-                        enctype="multipart/form-data" action="{{ route('rw.daftar_rw.store') }}">
+                        enctype="multipart/form-data" action="{{ route('admin.admin_rw.update', $rw->id) }}">
                         @csrf
+                        @method('PUT')
                         <div class="form-body">
                             <div class="row">
                                 <div class="row mt-3">
@@ -33,7 +34,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('nama_rw') is-invalid @enderror"
-                                            id="nama_rw" name="nama_rw" value="{{ $user->name }}" disabled>
+                                            id="nama_rw" name="nama_rw" value="{{ $rw->user->name }}" disabled>
                                         @error('nama_rw')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -45,7 +46,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                            id="email" name="email" value="{{ $user->email }}" disabled>
+                                            id="email" name="email" value="{{ $rw->user->email }}" disabled>
                                         @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -57,7 +58,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="number" class="form-control @error('id') is-invalid @enderror"
-                                            id="id" name="id" required>
+                                            id="id" name="id" value="{{ old('id', $rw->id) }}" required>
                                         @error('id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -69,7 +70,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror"
-                                            id="pekerjaan" name="pekerjaan" required>
+                                            id="pekerjaan" name="pekerjaan" value="{{ old('pekerjaan', $rw->pekerjaan) }}" required>
                                         @error('pekerjaan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -82,7 +83,7 @@
                                     <div class="col-md-8 form-group">
                                         <input type="text"
                                             class="form-control @error('alamat_kantor') is-invalid @enderror"
-                                            id="alamat_kantor" name="alamat_kantor" required>
+                                            id="alamat_kantor" name="alamat_kantor" value="{{ old('alamat_kantor', $rw->alamat_kantor) }}" required>
                                         @error('alamat_kantor')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -95,7 +96,7 @@
                                     <div class="col-md-8 form-group">
                                         <input type="text"
                                             class="form-control @error('alamat_rumah') is-invalid @enderror"
-                                            id="alamat_rumah" name="alamat_rumah" required>
+                                            id="alamat_rumah" name="alamat_rumah" value="{{ old('alamat_rumah', $rw->alamat_rumah) }}" required>
                                         @error('alamat_rumah')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -140,3 +141,4 @@
     <script src="{{ asset('assets/js/pickr.js') }}"></script>
     <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
 @endpush
+

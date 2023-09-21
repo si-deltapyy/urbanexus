@@ -139,7 +139,7 @@
                                                             <div class="flex items-center">
                                                                 @if ($user->roles)
                                                                     @foreach ($user->roles as $user_role)
-                                                                    {{ $user_role->name }}
+                                                                        {{ $user_role->name }}
                                                                     @endforeach
                                                                 @endif
 
@@ -225,10 +225,15 @@
                                                                     <div class="flex space-x-2">
                                                                         {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
+                                                                        <a class="btn icon btn-sm btn-warning"
+                                                                            href="{{ route('admin.admin_rw.edit', $rw->id) }}"
+                                                                            title="Edit">
+                                                                            <i class="bi bi-pencil-fill"></i>
+                                                                        </a>
                                                                         <form
                                                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                             method="POST"
-                                                                            action="{{ route('admin.users.destroy', $user->id) }}"
+                                                                            action="{{ route('admin.admin_rw.destroy', $rw->id) }}"
                                                                             onsubmit="return confirm('Are you sure?');">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -301,10 +306,15 @@
                                                                     <div class="flex space-x-2">
                                                                         {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
+                                                                        <a class="btn icon btn-sm btn-warning"
+                                                                            href="{{ route('admin.admin_rt.edit', $rt->id) }}"
+                                                                            title="Edit">
+                                                                            <i class="bi bi-pencil-fill"></i>
+                                                                        </a>
                                                                         <form
                                                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                             method="POST"
-                                                                            action="{{ route('admin.users.destroy', $user->id) }}"
+                                                                            action="{{ route('admin.admin_rt.destroy', $rt->id) }}"
                                                                             onsubmit="return confirm('Are you sure?');">
                                                                             @csrf
                                                                             @method('DELETE')

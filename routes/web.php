@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\AdminRTController;
+use App\Http\Controllers\AdminRWController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\RwController;
@@ -39,6 +41,9 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::delete('/users/{user}/roles/{role}', [UserController::class, 'removeRole'])->name('users.roles.remove');
     Route::post('/users/{user}/permissions', [UserController::class, 'givePermission'])->name('users.permissions');
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
+
+    Route::resource('/admin_rw', AdminRWController::class);
+    Route::resource('/admin_rt', AdminRTController::class);
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
