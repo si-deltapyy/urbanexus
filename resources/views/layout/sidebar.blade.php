@@ -66,6 +66,13 @@
                         <span class="link-title">Role</span>
                     </a>
                 </li>
+                <li class="nav-item nav-category">Kuisioner</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.pertanyaan.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="folder-plus"></i>
+                        <span class="link-title">Kuisioner</span>
+                    </a>
+                </li>
             @endrole
             <li class="nav-item nav-category">Menu</li>
             {{-- <li class="nav-item {{ active_class(['email/*']) }}">
@@ -98,12 +105,7 @@
                     <span class="link-title">Input Data</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="link-icon" data-feather="folder-plus"></i>
-                    <span class="link-title">Kuisioner</span>
-                </a>
-            </li>
+            
             <li class="nav-item nav-category">web apps</li>
             {{-- <li class="nav-item {{ active_class(['email/*']) }}">
               <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button" aria-expanded="{{ is_active_route(['email/*']) }}" aria-controls="email">

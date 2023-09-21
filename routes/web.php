@@ -7,8 +7,10 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AdminRTController;
 use App\Http\Controllers\AdminRWController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\RwController;
+use App\Models\OpsiJawaban;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,6 +46,8 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
 
     Route::resource('/admin_rw', AdminRWController::class);
     Route::resource('/admin_rt', AdminRTController::class);
+    Route::resource('/pertanyaan', PertanyaanController::class);
+    Route::resource('/opsi_jawaban', OpsiJawaban::class);
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
