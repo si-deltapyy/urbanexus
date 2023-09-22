@@ -1,31 +1,67 @@
-<x-admin-layout>
+@extends('layout.master')
 
-    <div class="py-12 w-full">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
-                <div class="flex p-2">
-                    <a href="{{ route('admin.roles.index') }}" class="px-4 py-2 bg-green-700 hover:bg-green-500 text-slate-100 rounded-md">Role Index</a>
-                </div>
-                <div class="flex flex-col">
-                    <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                        <form method="POST" action="{{ route('admin.roles.store') }}">
-                            @csrf
-                          <div class="sm:col-span-6">
-                            <label for="name" class="block text-sm font-medium text-gray-700"> Role name </label>
-                            <div class="mt-1">
-                              <input type="text" id="name" name="name" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                            </div>
-                            @error('name') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
-                          </div>
-                          <div class="sm:col-span-6 pt-5">
-                            <button type="submit" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md">Create</button>
-                          </div>
-                        </form>
-                      </div>
-                      
-                </div>
-  
-            </div>
-        </div>
+@push('plugin-styles')
+  <link href="{{ asset('assets/plugins/select2/select2.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/jquery-tags-input/jquery.tagsinput.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/pickr/themes/classic.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/plugins/flatpickr/flatpickr.min.css') }}" rel="stylesheet" />
+@endpush
+
+@section('content')
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Advanced Elements</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-lg grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Asset Buat Form</h4>
+        <form method="POST" action="{{ route('admin.roles.store') }}">
+            @csrf
+          <div class="mb-3">
+            <label for="Text" class="form-label">Nama Role</label>
+            <input class="form-control" type="text" id="name" name="name" placeholder="Masukan Nama Role...">
+          </div>
+
+          @error('name') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
+          <button class="btn btn-primary" type="submit" value="Submit" >Buat Role</button>
+        </form>
+      </div>
     </div>
-</x-admin-layout>
+  </div>
+</div>
+
+@endsection
+
+@push('plugin-scripts')
+  <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/inputmask/jquery.inputmask.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/typeahead-js/typeahead.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/pickr/pickr.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/flatpickr/flatpickr.min.js') }}"></script>
+@endpush
+
+@push('custom-scripts')
+  <script src="{{ asset('assets/js/form-validation.js') }}"></script>
+  <script src="{{ asset('assets/js/bootstrap-maxlength.js') }}"></script>
+  <script src="{{ asset('assets/js/inputmask.js') }}"></script>
+  <script src="{{ asset('assets/js/select2.js') }}"></script>
+  <script src="{{ asset('assets/js/typeahead.js') }}"></script>
+  <script src="{{ asset('assets/js/tags-input.js') }}"></script>
+  <script src="{{ asset('assets/js/dropzone.js') }}"></script>
+  <script src="{{ asset('assets/js/dropify.js') }}"></script>
+  <script src="{{ asset('assets/js/pickr.js') }}"></script>
+  <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
+@endpush

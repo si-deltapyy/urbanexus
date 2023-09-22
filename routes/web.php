@@ -68,3 +68,8 @@ Route::get('/user', function () {
 Route::get('/kuesioner', function () {
     return view('pages/user-page/user-kuesioner');
 })->name('kuesioner');
+
+
+Route::get('/welcome-2', function () {
+    return view('welcome-2');
+})->name('welcome-2');
