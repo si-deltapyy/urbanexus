@@ -12,7 +12,7 @@ class OpsiJawaban extends Model
     public $timestamps = true;
     protected $guarded = ['id'];
 
-    public function kuisioner()
+    public function pertanyaan()
     {
         return $this->belongsTo(Pertanyaan::class);
     }

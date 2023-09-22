@@ -35,7 +35,17 @@ class OpsiJawabanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'pertanyaan_id' => 'required',
+            'opsi_jawaban' => 'required',
+        ]);
+
+        OpsiJawaban::create([
+            'pertanyaan_id' => $request->pertanyaan_id,
+            'opsi_jawaban' => $request->opsi_jawaban,
+        ]);
+
+        return redirect()->route('admin.pertanyaan.index');
     }
 
     /**
@@ -67,9 +77,19 @@ class OpsiJawabanController extends Controller
      * @param  \App\Models\OpsiJawaban  $opsiJawaban
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OpsiJawaban $opsiJawaban)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'pertanyaan_id' => 'required',
+            'opsi_jawaban' => 'required',
+        ]);
+
+        OpsiJawaban::where('id', $id)->update([
+            'pertanyaan_id' => $request->pertanyaan_id,
+            'opsi_jawaban' => $request->opsi_jawaban,
+        ]);
+
+        return redirect()->route('admin.pertanyaan.index');
     }
 
     /**
@@ -78,8 +98,10 @@ class OpsiJawabanController extends Controller
      * @param  \App\Models\OpsiJawaban  $opsiJawaban
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OpsiJawaban $opsiJawaban)
+    public function destroy($id)
     {
-        //
+        OpsiJawaban::where('id', $id)->delete();
+
+        return redirect(route('admin.pertanyaan.index'));
     }
 }

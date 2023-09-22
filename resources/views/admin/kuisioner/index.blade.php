@@ -66,14 +66,7 @@
                                                                     <td class="text-center d-flex justify-content-center in-line align-top"
                                                                         data-kt-menu="true">
                                                                         <a href=""
-                                                                            class="btn icon btn-sm btn-light me-1"
-                                                                            data-bs-target="#show{{ $opsi->id }}"
-                                                                            data-id="{{ $opsi->id }}"
-                                                                            data-bs-toggle="modal" title="show"><i
-                                                                                class="bi bi-eye-fill"></i>
-                                                                        </a>
-                                                                        <a href=""
-                                                                            class="btn icon btn-sm btn-light me-1"
+                                                                            class="btn icon btn-sm btn-warning"
                                                                             data-bs-target="#edit{{ $opsi->id }}"
                                                                             data-id="{{ $opsi->id }}"
                                                                             data-bs-toggle="modal" title="Edit"><i
@@ -84,7 +77,7 @@
                                                                             method="POST" class="d-inline">
                                                                             @method('delete')
                                                                             @csrf
-                                                                            <button class="btn icon btn-sm btn-light me-1"
+                                                                            <button class="btn icon btn-sm btn-danger"
                                                                                 title="Hapus"
                                                                                 onclick="return confirm('Are you sure?')"><i
                                                                                     class="bi bi-trash3-fill"></i></button>
@@ -104,18 +97,17 @@
                                                     title="Detail kuisioner">
                                                     <i class="bi bi-plus-lg"></i>
                                                 </a>
-                                                <a class="btn icon btn-sm btn-primary"
+                                                {{-- <a class="btn icon btn-sm btn-primary"
                                                     href="{{ route('admin.pertanyaan.show', $kuisioner->id) }}"
                                                     title="Detail kuisioner">
                                                     <i class="bi bi-eye-fill"></i>
-                                                </a>
+                                                </a> --}}
                                                 <a class="btn icon btn-sm btn-warning"
                                                     href="{{ route('admin.pertanyaan.edit', $kuisioner->id) }}"
                                                     title="Edit kuisioner">
                                                     <i class="bi bi-pencil-fill"></i>
                                                 </a>
-                                                <form
-                                                    action="{{ route('admin.pertanyaan.destroy', $kuisioner->id) }}"
+                                                <form action="{{ route('admin.pertanyaan.destroy', $kuisioner->id) }}"
                                                     method="POST" class="d-inline">
                                                     @method('delete')
                                                     @csrf
@@ -157,9 +149,9 @@
                                                     @csrf
                                                     <div class="form-body">
                                                         <div class="row">
-                                                            <input type="hidden" id="kuisioner1_id"
-                                                                class="form-control mt-1" name="kuisioner1_id"
-                                                                value="{{ old('kuisioner1_id', $kuisioner->id) }}">
+                                                            <input type="hidden" id="pertanyaan_id"
+                                                                class="form-control mt-1" name="pertanyaan_id"
+                                                                value="{{ old('pertanyaan_id', $kuisioner->id) }}">
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="pertanyaan">Pertanyaan</label>
@@ -173,8 +165,8 @@
                                                                     <label for="opsi_jawaban">Opsi Jawaban</label>
                                                                     <input type="text" id="opsi_jawaban"
                                                                         class="form-control mt-1 @error('opsi_jawaban') is-invalid @enderror"
-                                                                        name="opsi_jawaban"
-                                                                        placeholder="Opsi Jawaban" required>
+                                                                        name="opsi_jawaban" placeholder="Opsi Jawaban"
+                                                                        required>
                                                                     @error('opsi_jawaban')
                                                                         <div class="invalid-feedback">{{ $message }}
                                                                         </div>
@@ -197,15 +189,15 @@
                             @endforeach
                         @endif
 
-                        {{-- @if (!@empty($subKategoris))
+                        @if (!@empty($opsiJawabans))
                             <!--Basic Modal -->
-                            @foreach ($subKategoris as $subkat)
-                                <div class="modal fade text-left" id="edit{{ $subkat->id }}" tabindex="-1"
-                                    role="dialog" aria-labelledby="tambahLabel{{ $subkat->id }}" aria-hidden="true">
+                            @foreach ($opsiJawabans as $opsi)
+                                <div class="modal fade text-left" id="edit{{ $opsi->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="tambahLabel{{ $opsi->id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="myModalLabel1">Edit Sub Kategori</h5>
+                                                <h5 class="modal-title" id="myModalLabel1">Edit Opsi Jawaban</h5>
                                                 <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <i data-feather="x"></i>
@@ -214,43 +206,29 @@
                                             <div class="modal-body">
                                                 <form class="form form-vertical" novalidate method="POST"
                                                     enctype="multipart/form-data"
-                                                    action="{{ route('super_admin.subkategori.update', $subkat->id) }}">
+                                                    action="{{ route('admin.opsi_jawaban.update', $opsi->id) }}">
                                                     @method('put')
                                                     @csrf
                                                     <div class="form-body">
                                                         <div class="row">
-                                                            <input type="hidden" id="kategori_peta_id"
-                                                                class="form-control mt-1" name="kategori_peta_id"
-                                                                value="{{ old('kategori_peta_id', $subkat->kategori_peta_id) }}">
+                                                            <input type="hidden" id="pertanyaan_id"
+                                                                class="form-control mt-1" name="pertanyaan_id"
+                                                                value="{{ old('pertanyaan_id', $opsi->pertanyaan_id) }}">
                                                             <div class="col-12 mt-2">
                                                                 <div class="form-group">
-                                                                    <label for="nama_subkategori">Sub Kategori Peta</label>
-                                                                    <input type="text" id="nama_subkategori"
-                                                                        class="form-control mt-1 @error('nama_subkategori') is-invalid @enderror"
-                                                                        name="nama_subkategori"
+                                                                    <label for="opsi_jawaban">Opsi Jawaban</label>
+                                                                    <input type="text" id="opsi_jawaban"
+                                                                        class="form-control mt-1 @error('opsi_jawaban') is-invalid @enderror"
+                                                                        name="opsi_jawaban"
                                                                         placeholder="Nama sub kategori"
-                                                                        value="{{ old('nama_subkategori', $subkat->nama_subkategori) }}"
+                                                                        value="{{ old('opsi_jawaban', $opsi->opsi_jawaban) }}"
                                                                         required>
-                                                                    @error('nama_subkategori')
+                                                                    @error('opsi_jawaban')
                                                                         <div class="invalid-feedback">{{ $message }}
                                                                         </div>
                                                                     @enderror
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 mt-2">
-                                                                <div class="form-group">
-                                                                    <label for="link">Link</label>
-                                                                    <input type="text" id="link"
-                                                                        class="form-control mt-1 @error('link') is-invalid @enderror"
-                                                                        name="link" placeholder="link Fasilitas"
-                                                                        value="{{ old('link', $subkat->link) }}" required>
-                                                                    @error('link')
-                                                                        <div class="invalid-feedback">{{ $message }}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-
                                                             <div class="col-12 d-flex justify-content-end mt-4">
                                                                 <button type="submit"
                                                                     class="btn btn-primary me-1 mb-1">Submit</button>
@@ -267,70 +245,6 @@
                             @endforeach
                         @endif
 
-                        @if (!@empty($subKategoris))
-                            <!--Basic Modal -->
-                            @foreach ($subKategoris as $subkat)
-                                <div class="modal fade text-left" id="show{{ $subkat->id }}" tabindex="-1"
-                                    role="dialog" aria-labelledby="showLabel{{ $subkat->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="myModalLabel1">Detail Sub Kategori</h5>
-                                                <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form class="form form-vertical" novalidate method="POST"
-                                                    enctype="multipart/form-data"
-                                                    action="{{ route('super_admin.subkategori.update', $subkat->id) }}">
-                                                    @method('put')
-                                                    @csrf
-                                                    <div class="form-body">
-                                                        <div class="row">
-                                                            <input type="hidden" id="kategori_peta_id"
-                                                                class="form-control mt-1" name="kategori_peta_id"
-                                                                value="{{ old('kategori_peta_id', $subkat->kategori_peta_id) }}">
-                                                            
-                                                                   
-                                                            <div class="col-12 mt-2">
-                                                                <div class="form-group">
-                                                                    <label for="nama_subkategori">Sub Kategori Peta</label>
-                                                                    <input type="text" id="nama_subkategori"
-                                                                        class="form-control mt-1 @error('nama_subkategori') is-invalid @enderror"
-                                                                        name="nama_subkategori"
-                                                                        placeholder="Nama sub kategori"
-                                                                        value="{{ old('nama_subkategori', $subkat->nama_subkategori) }}"
-                                                                        disabled>
-                                                                    @error('nama_subkategori')
-                                                                        <div class="invalid-feedback">{{ $message }}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 mt-2">
-                                                                <div class="form-group">
-                                                                    <label for="link">Link</label>
-                                                                    <input type="text" id="link"
-                                                                        class="form-control mt-1 @error('link') is-invalid @enderror"
-                                                                        name="link" placeholder="link Fasilitas"
-                                                                        value="{{ old('link', $subkat->link) }}" disabled>
-                                                                    @error('link')
-                                                                        <div class="invalid-feedback">{{ $message }}
-                                                                        </div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif --}}
                     </div>
                 </div>
             </div>
