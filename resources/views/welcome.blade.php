@@ -32,6 +32,25 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('style.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" />
+    <style>
+        #chart1 {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+
+#chart2 {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+
+#chart3 {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+    </style>
 
     <!-- ========== End Stylesheet ========== -->
 
@@ -384,34 +403,8 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
-                      <h2>Mathematical optimization</h2>
-                      <p>
-                        Give lady of they such they sure it. Me contained
-                        explained my education. Vulgar as hearts by garret.
-                        Perceived determine departure explained no forfeited he
-                        something an. Contrasted dissimilar get joy you
-                        instrument out reasonably. Again keeps at no meant
-                        stuff. To perpetual do existence northward as difficult
-                        preserved.
-                      </p>
-                      <ul>
-                        <li>
-                          <h4>Amazingly Simple Use</h4>
-                          <p>
-                            Again keeps at no meant stuff. To perpetual do
-                            existence northward as difficult preserved daughters
-                            are struggles.
-                          </p>
-                        </li>
-                        <li>
-                          <h4>Flexible User Interface</h4>
-                          <p>
-                            Again keeps at no meant stuff. To perpetual do
-                            existence northward as difficult preserved daughters
-                            are struggles.
-                          </p>
-                        </li>
-                      </ul>
+                        <div id="chart1">
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -436,34 +429,8 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
-                      <h2>Technical Integration</h2>
-                      <p>
-                        Give lady of they such they sure it. Me contained
-                        explained my education. Vulgar as hearts by garret.
-                        Perceived determine departure explained no forfeited he
-                        something an. Contrasted dissimilar get joy you
-                        instrument out reasonably. Again keeps at no meant
-                        stuff. To perpetual do existence northward as difficult
-                        preserved.
-                      </p>
-                      <ul>
-                        <li>
-                          <h4>Amazingly Simple Use</h4>
-                          <p>
-                            Again keeps at no meant stuff. To perpetual do
-                            existence northward as difficult preserved daughters
-                            are struggles.
-                          </p>
-                        </li>
-                        <li>
-                          <h4>Flexible User Interface</h4>
-                          <p>
-                            Again keeps at no meant stuff. To perpetual do
-                            existence northward as difficult preserved daughters
-                            are struggles.
-                          </p>
-                        </li>
-                      </ul>
+                        <div id="chart2">
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -488,34 +455,8 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
-                      <h2>Super Performance</h2>
-                      <p>
-                        Give lady of they such they sure it. Me contained
-                        explained my education. Vulgar as hearts by garret.
-                        Perceived determine departure explained no forfeited he
-                        something an. Contrasted dissimilar get joy you
-                        instrument out reasonably. Again keeps at no meant
-                        stuff. To perpetual do existence northward as difficult
-                        preserved.
-                      </p>
-                      <ul>
-                        <li>
-                          <h4>Amazingly Simple Use</h4>
-                          <p>
-                            Again keeps at no meant stuff. To perpetual do
-                            existence northward as difficult preserved daughters
-                            are struggles.
-                          </p>
-                        </li>
-                        <li>
-                          <h4>Flexible User Interface</h4>
-                          <p>
-                            Again keeps at no meant stuff. To perpetual do
-                            existence northward as difficult preserved daughters
-                            are struggles.
-                          </p>
-                        </li>
-                      </ul>
+                        <div id="chart3">
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -684,6 +625,61 @@
     <script src="{{ asset('assets/js/YTPlayer.min.js') }}"></script>
     <script src="{{ asset('assets/js/validnavs.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+    var options = {
+        chart: {
+          type: 'line'
+        },
+        series: [{
+          name: 'Responden',
+          data: [30,40,45,50,49,60,70,91,125]
+        }],
+        xaxis: {
+          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        }
+      }
+
+      var chart = new ApexCharts(document.querySelector("#chart1"), options);
+
+      chart.render();
+
+    //   chart 2
+    var options = {
+        chart: {
+          type: 'line'
+        },
+        series: [{
+          name: 'Responden',
+          data: [30,40,45,50,49,60,70,91,125]
+        }],
+        xaxis: {
+          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        }
+      }
+
+      var chart = new ApexCharts(document.querySelector("#chart2"), options);
+
+      chart.render();
+    //  chart 3
+    var options = {
+        chart: {
+          type: 'line'
+        },
+        series: [{
+          name: 'Responden',
+          data: [30,40,45,50,49,60,70,91,125]
+        }],
+        xaxis: {
+          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        }
+      }
+
+      var chart = new ApexCharts(document.querySelector("#chart3"), options);
+
+      chart.render();
+      </script>
 
   </body>
 </html>
