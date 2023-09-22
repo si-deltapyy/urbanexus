@@ -11,6 +11,7 @@ use App\Http\Controllers\OpsiJawabanController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\RwController;
+use App\Http\Controllers\SebelumBencanaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -52,6 +53,7 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
     Route::resource('/daftar_rw', RwController::class);
+    Route::resource('/kuisioner_sb', SebelumBencanaController::class);
 });
 
 Route::middleware(['auth',  'verified', 'role:RT'])->name('rt.')->prefix('rt')->group(function () {

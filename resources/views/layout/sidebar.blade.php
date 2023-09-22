@@ -34,6 +34,13 @@
                         </a>
                     @endif
                 </li>
+                <li class="nav-item nav-category">Kuisioner</li>
+                <li class="nav-item">
+                    <a href="{{ route('rw.kuisioner_sb.create') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Sebelum Bencana</span>
+                    </a>
+                </li>
             @endrole
             @role('RT')
                 <li class="nav-item nav-category">Biodata</li>

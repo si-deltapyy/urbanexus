@@ -16,4 +16,8 @@ class Pertanyaan extends Model
     {
         return $this->hasMany(OpsiJawaban::class);
     }
+    public function respon_kuisioner()
+    {
+        return $this->hasMany(ResponKuisioner::class);
+    }
 }
