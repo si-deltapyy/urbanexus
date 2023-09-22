@@ -59,3 +59,12 @@ Route::middleware(['auth',  'verified', 'role:RT'])->name('rt.')->prefix('rt')->
 });
 
 require __DIR__ . '/auth.php';
+
+
+Route::get('/user', function () {
+    return view('pages/user-page/dashboard-user');
+})->name('user');
+
+Route::get('/kuesioner', function () {
+    return view('pages/user-page/user-kuesioner');
+})->name('kuesioner');
