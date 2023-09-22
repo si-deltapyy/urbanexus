@@ -351,7 +351,7 @@
                 aria-controls="tab1"
                 aria-selected="true"
               >
-                <h4>Optimization</h4>
+                <h4>Kuesioner</h4>
               </button>
               <button
                 class="nav-link"
@@ -363,7 +363,7 @@
                 aria-controls="tab2"
                 aria-selected="false"
               >
-                <h4>Integration</h4>
+                <h4>Kuesioner</h4>
               </button>
               <button
                 class="nav-link"
@@ -375,7 +375,7 @@
                 aria-controls="tab3"
                 aria-selected="false"
               >
-                <h4>Performance</h4>
+                <h4>Kuesioner</h4>
               </button>
             </div>
           </div>
@@ -626,7 +626,7 @@
     <script src="{{ asset('assets/js/validnavs.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script>
     var options = {
         chart: {

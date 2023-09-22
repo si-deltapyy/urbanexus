@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
     />
     <title>
-      Sales Admin | CORK - Multipurpose Bootstrap Dashboard Template
+      Dashboard
     </title>
     <link rel="icon" type="image/x-icon" href="{{ asset('user-asset/src/assets/img/favicon.ico') }}" />
     <link href="{{ asset('user-asset/layouts/modern-light-menu/css/light/loader.css') }}" rel="stylesheet" type="text/css" />
