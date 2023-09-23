@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->enum('kategori_pertanyaan', ['Sebelum Bencana', 'Terjadi Bencana', 'Sesudah Bencana']);
             $table->text('pertanyaan');
-            $table->enum('jenis_pertanyaan', ['radio', 'select', 'date', 'text', 'image']);
+            $table->enum('jenis_pertanyaan', ['Radio', 'Select', 'Datetime', 'Text', 'Image']);
             // $table->text('jawaban');
             $table->timestamps();
         });

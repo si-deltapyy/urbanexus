@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OpsiJawaban;
+use App\Models\Pertanyaan;
+use App\Models\ResponKuisioner;
+use App\Models\Rw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class OpsiJawabanController extends Controller
+class SebelumBencanaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +27,10 @@ class OpsiJawabanController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        $pertanyaans = Pertanyaan::where('kategori_pertanyaan', 'Sebelum Bencana')->get();
+        return view('user.sebelum_bencana.create', compact('pertanyaans', 'user', 'data'));
     }
 
     /**
@@ -36,25 +42,33 @@ class OpsiJawabanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'pertanyaan_id' => 'required',
-            'opsi_jawaban' => 'required',
+            'jawaban' => 'required|array',
+            'jawaban.*' => 'required',
+            'pertanyaan_id' => 'required|array',
+            'pertanyaan_id.*' => 'required|integer',
         ]);
 
-        OpsiJawaban::create([
-            'pertanyaan_id' => $request->pertanyaan_id,
-            'opsi_jawaban' => $request->opsi_jawaban,
-        ]);
+        $user = Auth::user();
 
-        return redirect()->route('admin.pertanyaan.index');
+        foreach ($request->pertanyaan_id as $index => $pertanyaanId) {
+            ResponKuisioner::create([
+                'user_id' => $user->id,
+                'pertanyaan_id' => $pertanyaanId,
+                'jawaban' => $request->jawaban[$index],
+            ]);
+        }
+
+        return redirect()->route('rw.kuisioner_sb.index');
     }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\OpsiJawaban  $opsiJawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(OpsiJawaban $opsiJawaban)
+    public function show($id)
     {
         //
     }
@@ -62,10 +76,10 @@ class OpsiJawabanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\OpsiJawaban  $opsiJawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(OpsiJawaban $opsiJawaban)
+    public function edit($id)
     {
         //
     }
@@ -74,34 +88,22 @@ class OpsiJawabanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\OpsiJawaban  $opsiJawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'pertanyaan_id' => 'required',
-            'opsi_jawaban' => 'required',
-        ]);
-
-        OpsiJawaban::where('id', $id)->update([
-            'pertanyaan_id' => $request->pertanyaan_id,
-            'opsi_jawaban' => $request->opsi_jawaban,
-        ]);
-
-        return redirect()->route('admin.pertanyaan.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\OpsiJawaban  $opsiJawaban
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        OpsiJawaban::where('id', $id)->delete();
-
-        return redirect(route('admin.pertanyaan.index'));
+        //
     }
 }
