@@ -6,7 +6,7 @@
 
 @section('content')
 
-
+@role('admin')
 <div class="row">
   <div class="col-12 col-xl-12 stretch-card">
     <div class="row flex-grow-1">
@@ -114,6 +114,13 @@
     </div>
   </div>
 </div> <!-- row -->
+@endrole
+
+@role('RT')
+@endrole
+
+@role('RW')
+@endrole
 
 @endsection
 
