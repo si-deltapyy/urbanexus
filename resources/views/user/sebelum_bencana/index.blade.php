@@ -36,9 +36,18 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
                                         <td>
-                                            {{ $riwayat->datetime_hour }}
+                                            {{ $riwayat->created_at }}
+                                            {{-- {{ $riwayat->pertanyaan }} <br>
+                                            @foreach ($riwayat->pertanyaan->respon_kuisioner as $jawaban)
+                                                {{ $jawaban->jawaban }}
+                                            @endforeach --}}
                                         </td>
                                         <td>
+                                            <a class="btn icon btn-sm btn-primary"
+                                                href="{{ route('rw.kuisioner_sb.show', $riwayat->group_id) }}"
+                                                title="Detail">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </a>
                                             {{-- <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
                                                 action="{{ route('admin.roles.destroy', $role->id) }}"
                                                 onsubmit="return confirm('Are you sure?');">

@@ -37,19 +37,19 @@
                 @if (!is_null($data))
                     <li class="nav-item nav-category">Kuisioner</li>
                     <li class="nav-item">
-                        <a href="{{ route('rw.kuisioner_sb.create') }}" class="nav-link">
+                        <a href="{{ route('rw.kuisioner_sb.index') }}" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>
                             <span class="link-title">Sebelum Bencana</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('rw.kuisioner_tb.create') }}" class="nav-link">
+                        <a href="{{ route('rw.kuisioner_tb.index') }}" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>
                             <span class="link-title">Terjadi Bencana</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('rw.kuisioner_sdb.create') }}" class="nav-link">
+                        <a href="{{ route('rw.kuisioner_sdb.index') }}" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>
                             <span class="link-title">Sesudah Bencana</span>
                         </a>

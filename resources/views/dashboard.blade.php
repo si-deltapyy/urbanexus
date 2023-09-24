@@ -120,6 +120,7 @@
 @endrole
 
 @role('RW')
+{{ Auth::user()->name }}
 @endrole
 
 @endsection

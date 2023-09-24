@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pertanyaan_id');
             $table->unsignedBigInteger('user_id');
             $table->text('jawaban');
+            $table->integer('group_id');
             $table->timestamps();
         
             $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan')->onDelete('CASCADE');

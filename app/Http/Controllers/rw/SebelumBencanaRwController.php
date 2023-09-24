@@ -10,6 +10,7 @@ use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SebelumBencanaRWController extends Controller
 {
@@ -21,13 +22,21 @@ class SebelumBencanaRWController extends Controller
     public function index()
     {
         $user = Auth::user();
+
+        $pertanyaans = Pertanyaan::with(['respon_kuisioner' => function ($query) use ($user) {
+            $query->where('user_id', $user->id)->orderBy('created_at');
+        }])->get();
+
         $data = Rw::where('user_id', $user->id)->first();
-        $riwayats = ResponKuisioner::selectRaw('DATE_FORMAT(created_at, "%Y-%m-%d %H:00:00") as datetime_hour, COUNT(*) as total')
-                    ->where('user_id', $user->id)
-                        ->groupBy('datetime_hour')
-                            ->get();
-                            // dd($riwayats);
-        return view('user.sebelum_bencana.index', compact('riwayats', 'data'));
+
+        // $riwayats = Pertanyaan::with(['respon_kuisioner' => function ($query) {
+        //     $query->groupBy('group_id');
+        // }])->get();
+
+        $riwayats = ResponKuisioner::groupBy('group_id')->get();
+
+        // dd($riwayats);
+        return view('user.sebelum_bencana.index', compact( 'data', 'riwayats'));
     }
 
     /**
@@ -60,24 +69,31 @@ class SebelumBencanaRWController extends Controller
         ]);
 
         $user = Auth::user();
+        
+        $groupId = rand();
 
         foreach ($request->pertanyaan_id as $index => $pertanyaanId) {
             $responKuisioner = new ResponKuisioner([
                 'user_id' => $user->id,
                 'pertanyaan_id' => $pertanyaanId,
+                'group_id' => $groupId, 
             ]);
 
-            //file upload
-            if (isset($request->jawaban[$index]) && $request->hasFile("jawaban.{$index}")) {
-                $file_dokumen = $request->file("jawaban.{$index}")->getClientOriginalName();
-                $filename_dokumen = pathinfo($file_dokumen, PATHINFO_FILENAME);
-                $ext_dokumen = $request->file("jawaban.{$index}")->getClientOriginalExtension();
-                $filename_dokumen = $filename_dokumen . '.' . $ext_dokumen;
-                $file = $request->file("jawaban.{$index}")->storeAs('public/jawaban', $filename_dokumen);
+            if (isset($request->jawaban[$index])) {
+                $jawaban = $request->jawaban[$index];
+                
+                // Check if it's a file upload
+                if ($request->hasFile("jawaban.{$index}")) {
+                    $file_dokumen = $request->file("jawaban.{$index}")->getClientOriginalName();
+                    $filename_dokumen = pathinfo($file_dokumen, PATHINFO_FILENAME);
+                    $ext_dokumen = $request->file("jawaban.{$index}")->getClientOriginalExtension();
+                    $filename_dokumen = $filename_dokumen . '.' . $ext_dokumen;
+                    $file = $request->file("jawaban.{$index}")->storeAs('public/jawaban', $filename_dokumen);
 
-                $responKuisioner->jawaban = $file;
-            } elseif (isset($request->jawaban[$index])) {
-                $responKuisioner->jawaban = $request->jawaban[$index];
+                    $jawaban = $file;
+                }
+                
+                $responKuisioner->jawaban = $jawaban;
             }
 
             $responKuisioner->save();
@@ -87,15 +103,20 @@ class SebelumBencanaRWController extends Controller
     }
 
 
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($group_id)
     {
-        //
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        $respons = ResponKuisioner::where('group_id', $group_id)->get();
+        // dd($respons);
+        return view('user.sebelum_bencana.detail', compact('user', 'data', 'respons'));
     }
 
     /**
