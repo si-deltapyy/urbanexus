@@ -31,15 +31,18 @@
                                     <div class="row mt-3">
                                         <div class="col-md-4">
                                             <label>{{ $pertanyaan->pertanyaan }}</label>
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                            
                                         </div>
                                         <div class="col-md-8 form-group">
                                             @if ($pertanyaan->jenis_pertanyaan == 'Text')
+                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                value="{{ $pertanyaan->id }}">
                                                 <input type="text"
                                                     class="form-control @error("jawaban.$index") is-invalid @enderror"
                                                     name="jawaban[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Select')
+                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                value="{{ $pertanyaan->id }}">
                                                 <select class="form-select @error("jawaban.$index") is-invalid @enderror"
                                                     autocomplete="off" name="jawaban[]" required>
                                                     <option>--- Pilih ---</option>
@@ -48,6 +51,33 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Datetime')
+                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                value="{{ $pertanyaan->id }}">
+                                                <input class="form-control" data-inputmask="'alias': 'datetime'"
+                                                    data-inputmask-inputformat="dd/mm/yyyy HH:MM:ss" name="jawaban[]"
+                                                    required />
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Image')
+                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                value="{{ $pertanyaan->id }}">
+                                                <input type="file"
+                                                    class="form-control mt-2 @error('jawaban.' . $index) is-invalid @enderror"
+                                                    name="jawaban[]" required>
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Radio')
+                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                value="{{ $pertanyaan->id }}">
+                                                <div>
+                                                    @foreach ($pertanyaan->opsi_jawaban as $opsi)
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio"
+                                                                class="form-check-input @error("jawaban.$index") is-invalid @enderror"
+                                                                name="jawaban[]" value="{{ $opsi->id }}">
+                                                            <label class="form-check-label" for="1">
+                                                                {{ $opsi->opsi_jawaban }}
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             @endif
                                             @error("jawaban.$index")
                                                 <div class="invalid-feedback">{{ $message }}</div>

@@ -51,11 +51,25 @@ class SebelumBencanaController extends Controller
         $user = Auth::user();
 
         foreach ($request->pertanyaan_id as $index => $pertanyaanId) {
-            ResponKuisioner::create([
+            $responKuisioner = new ResponKuisioner([
                 'user_id' => $user->id,
                 'pertanyaan_id' => $pertanyaanId,
-                'jawaban' => $request->jawaban[$index],
             ]);
+
+            //file upload
+            if (isset($request->jawaban[$index]) && $request->hasFile("jawaban.{$index}")) {
+                $file_dokumen = $request->file("jawaban.{$index}")->getClientOriginalName();
+                $filename_dokumen = pathinfo($file_dokumen, PATHINFO_FILENAME);
+                $ext_dokumen = $request->file("jawaban.{$index}")->getClientOriginalExtension();
+                $filename_dokumen = $filename_dokumen . '.' . $ext_dokumen;
+                $file = $request->file("jawaban.{$index}")->storeAs('public/jawaban', $filename_dokumen);
+
+                $responKuisioner->jawaban = $file;
+            } elseif (isset($request->jawaban[$index])) {
+                $responKuisioner->jawaban = $request->jawaban[$index];
+            }
+
+            $responKuisioner->save();
         }
 
         return redirect()->route('rw.kuisioner_sb.index');

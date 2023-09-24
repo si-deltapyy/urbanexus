@@ -34,13 +34,16 @@
                         </a>
                     @endif
                 </li>
-                <li class="nav-item nav-category">Kuisioner</li>
-                <li class="nav-item">
-                    <a href="{{ route('rw.kuisioner_sb.create') }}" class="nav-link">
-                        <i class="link-icon" data-feather="message-square"></i>
-                        <span class="link-title">Sebelum Bencana</span>
-                    </a>
-                </li>
+                @if (!is_null($data))
+                    <li class="nav-item nav-category">Kuisioner</li>
+                    <li class="nav-item">
+                        <a href="{{ route('rw.kuisioner_sb.create') }}" class="nav-link">
+                            <i class="link-icon" data-feather="message-square"></i>
+                            <span class="link-title">Sebelum Bencana</span>
+                        </a>
+                    </li>
+                @endif
+
             @endrole
             @role('RT')
                 <li class="nav-item nav-category">Biodata</li>
@@ -112,9 +115,9 @@
                     <span class="link-title">Input Data</span>
                 </a>
             </li>
-            
-            <li class="nav-item nav-category">web apps</li>
+
             {{-- <li class="nav-item {{ active_class(['email/*']) }}">
+            <li class="nav-item nav-category">web apps</li>
               <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button" aria-expanded="{{ is_active_route(['email/*']) }}" aria-controls="email">
                 <i class="link-icon" data-feather="mail"></i>
                 <span class="link-title">Email</span>
