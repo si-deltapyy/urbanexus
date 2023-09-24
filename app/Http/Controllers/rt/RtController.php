@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\rt;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Rt;
 use App\Models\Rw;

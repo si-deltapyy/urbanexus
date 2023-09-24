@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminRTController extends Controller
+class AdminRWController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -60,9 +62,9 @@ class AdminRTController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $rt = Rt::where('id', $id)->first();
-        $rws = Rw::get();
-        return view('admin.edit_rt', compact('user', 'rt', 'rws'));
+        $rt = Rt::where('user_id', $user->id)->first();
+        $rw = Rw::where('id', $id)->first();
+        return view('admin.edit_rw', compact('user', 'rt', 'rw'));
     }
 
     /**
@@ -83,7 +85,7 @@ class AdminRTController extends Controller
 
         $user = Auth::user();
 
-        Rt::where('id', $id)->update([
+        Rw::where('id', $id)->update([
             'id' => $request->id,
             // 'user_id' => $user->id,
             // 'nama_rw' => $user->name,
@@ -104,7 +106,7 @@ class AdminRTController extends Controller
      */
     public function destroy($id)
     {
-        Rt::where('id', $id)->delete();
+        Rw::where('id', $id)->delete();
 
         return redirect(route('admin.users.index'));
     }

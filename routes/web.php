@@ -4,14 +4,16 @@ use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\AdminRTController;
-use App\Http\Controllers\AdminRWController;
+use App\Http\Controllers\Admin\AdminRTController;
+use App\Http\Controllers\Admin\AdminRWController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\OpsiJawabanController;
-use App\Http\Controllers\PertanyaanController;
-use App\Http\Controllers\RtController;
-use App\Http\Controllers\RwController;
-use App\Http\Controllers\SebelumBencanaController;
+use App\Http\Controllers\Admin\OpsiJawabanController;
+use App\Http\Controllers\Admin\PertanyaanController;
+use App\Http\Controllers\rt\RtController;
+use App\Http\Controllers\rw\RwController;
+use App\Http\Controllers\rw\SebelumBencanaRWController;
+use App\Http\Controllers\rw\SesudahBencanaRwController;
+use App\Http\Controllers\rw\TerjadiBencanaRwController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -53,11 +55,14 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
     Route::resource('/daftar_rw', RwController::class);
-    Route::resource('/kuisioner_sb', SebelumBencanaController::class);
+    Route::resource('/kuisioner_sb', SebelumBencanaRWController::class);
+    Route::resource('/kuisioner_tb', TerjadiBencanaRwController::class);
+    Route::resource('/kuisioner_sdb', SesudahBencanaRwController::class);
 });
 
 Route::middleware(['auth',  'verified', 'role:RT'])->name('rt.')->prefix('rt')->group(function () {
     Route::resource('/daftar_rt', RtController::class);
+    // Route::resource('/kuisioner_sb', SebelumBencanaController::class);
 });
 
 require __DIR__ . '/auth.php';

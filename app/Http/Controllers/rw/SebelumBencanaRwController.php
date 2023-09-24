@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\rw;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Pertanyaan;
 use App\Models\ResponKuisioner;
+use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SebelumBencanaController extends Controller
+class SebelumBencanaRWController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +20,14 @@ class SebelumBencanaController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        $riwayats = ResponKuisioner::selectRaw('DATE_FORMAT(created_at, "%Y-%m-%d %H:00:00") as datetime_hour, COUNT(*) as total')
+                    ->where('user_id', $user->id)
+                        ->groupBy('datetime_hour')
+                            ->get();
+                            // dd($riwayats);
+        return view('user.sebelum_bencana.index', compact('riwayats', 'data'));
     }
 
     /**
@@ -29,8 +39,9 @@ class SebelumBencanaController extends Controller
     {
         $user = Auth::user();
         $data = Rw::where('user_id', $user->id)->first();
+        $rt = Rt::where('user_id', $user->id)->first();
         $pertanyaans = Pertanyaan::where('kategori_pertanyaan', 'Sebelum Bencana')->get();
-        return view('user.sebelum_bencana.create', compact('pertanyaans', 'user', 'data'));
+        return view('user.sebelum_bencana.create', compact('pertanyaans', 'user', 'data', 'rt'));
     }
 
     /**

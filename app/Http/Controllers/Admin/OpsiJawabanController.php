@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Rt;
-use App\Models\Rw;
+use App\Http\Controllers\Controller;
+
+use App\Models\OpsiJawaban;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminRWController extends Controller
+class OpsiJawabanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,16 +37,26 @@ class AdminRWController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'pertanyaan_id' => 'required',
+            'opsi_jawaban' => 'required',
+        ]);
+
+        OpsiJawaban::create([
+            'pertanyaan_id' => $request->pertanyaan_id,
+            'opsi_jawaban' => $request->opsi_jawaban,
+        ]);
+
+        return redirect()->route('admin.pertanyaan.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\OpsiJawaban  $opsiJawaban
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(OpsiJawaban $opsiJawaban)
     {
         //
     }
@@ -54,58 +64,46 @@ class AdminRWController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\OpsiJawaban  $opsiJawaban
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(OpsiJawaban $opsiJawaban)
     {
-        $user = Auth::user();
-        $rt = Rt::where('user_id', $user->id)->first();
-        $rw = Rw::where('id', $id)->first();
-        return view('admin.edit_rw', compact('user', 'rt', 'rw'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\OpsiJawaban  $opsiJawaban
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id' => 'required',
-            'pekerjaan' => 'required',
-            'alamat_kantor' => 'required',
-            'alamat_rumah' => 'required',
+            'pertanyaan_id' => 'required',
+            'opsi_jawaban' => 'required',
         ]);
 
-        $user = Auth::user();
-
-        Rw::where('id', $id)->update([
-            'id' => $request->id,
-            // 'user_id' => $user->id,
-            // 'nama_rw' => $user->name,
-            // 'email' => $user->email,
-            'pekerjaan' => $request->pekerjaan,
-            'alamat_kantor' => $request->alamat_kantor,
-            'alamat_rumah' => $request->alamat_rumah,
+        OpsiJawaban::where('id', $id)->update([
+            'pertanyaan_id' => $request->pertanyaan_id,
+            'opsi_jawaban' => $request->opsi_jawaban,
         ]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.pertanyaan.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\OpsiJawaban  $opsiJawaban
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Rw::where('id', $id)->delete();
+        OpsiJawaban::where('id', $id)->delete();
 
-        return redirect(route('admin.users.index'));
+        return redirect(route('admin.pertanyaan.index'));
     }
 }
