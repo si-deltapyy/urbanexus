@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Pertanyaan;
-use illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PertanyaanSeeder extends Seeder
@@ -360,6 +361,7 @@ class PertanyaanSeeder extends Seeder
             'pertanyaan' => 'Berapa harga sewa rumah?',
             'jenis_pertanyaan' => 'Text'
         ]);
+>>>>>>>>> Temporary merge branch 2
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Permasalahan umum yang menghambat pelaksanaan pelayanan kesehatan pada masa sebelum bencana.
@@ -376,6 +378,7 @@ class PertanyaanSeeder extends Seeder
             'pertanyaan' => 'Berapa jumlah/persentase diantara mereka yang terindikasi mengalami trauma?',
             'jenis_pertanyaan' => 'Text'
         ]);
+>>>>>>>>> Temporary merge branch 2
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Adakah program mitigasi baik struktural maupun non struktural dalam penanggulangan dampak bencana? Jelaskan',
