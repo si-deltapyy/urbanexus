@@ -359,7 +359,7 @@ class PertanyaanSeeder extends Seeder
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Berapa harga sewa rumah?',
             'jenis_pertanyaan' => 'Text'
-        ]); 
+        ]);
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Permasalahan umum yang menghambat pelaksanaan pelayanan kesehatan pada masa sebelum bencana.
@@ -370,12 +370,13 @@ class PertanyaanSeeder extends Seeder
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Adakah indikasi penduduk trauma setelah bencana sebelumnya yang pernaj terjadi?',
             'jenis_pertanyaan' => 'Text'
-        ]); 
+        ]);
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Berapa jumlah/persentase diantara mereka yang terindikasi mengalami trauma?',
             'jenis_pertanyaan' => 'Text'
-        ]); 
+        ]);
+
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Adakah program mitigasi baik struktural maupun non struktural dalam penanggulangan dampak bencana? Jelaskan',
