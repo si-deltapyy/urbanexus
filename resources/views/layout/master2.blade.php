@@ -29,9 +29,9 @@
 
   @stack('style')
 </head>
-<body data-base-url="{{url('/')}}">
+<body data-base-url="{{url('/')}}" class="sidebar-dark">
 
-  <script src="{{ asset('assets/js/spinner.js') }}"></script>
+  <script src="{{ asset('assets/js/spinner.js') }}" ></script>
 
   <div class="main-wrapper" id="app">
     <div class="page-wrapper full-page">

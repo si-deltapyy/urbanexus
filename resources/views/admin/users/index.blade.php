@@ -114,28 +114,28 @@
                                         <table class="table table-striped" id="table">
                                             <thead>
                                                 <tr>
-                                                    <th class="w-10px text-center">No</th>
-                                                    <th class="w-100px text-center">Nama</th>
-                                                    <th class="w-100px text-center">Email</th>
-                                                    <th class="w-100px text-center">Jabatan</th>
-                                                    <th class="w-20px text-center">Aksi</th>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Email</th>
+                                                    <th>Jabatan</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($users as $user)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}.</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                        <td class=" whitespace-nowrap">
                                                             <div class="flex items-center">
                                                                 {{ $user->name }}
                                                             </div>
                                                         </td>
-                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                        <td class=" whitespace-nowrap">
                                                             <div class="flex items-center">
                                                                 {{ $user->email }}
                                                             </div>
                                                         </td>
-                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                        <td class=" whitespace-nowrap">
                                                             <div class="flex items-center">
                                                                 @if ($user->roles)
                                                                     @foreach ($user->roles as $user_role)
@@ -151,13 +151,12 @@
                                                                     {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                     <form
-                                                                        class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                         method="POST"
                                                                         action="{{ route('admin.users.destroy', $user->id) }}"
                                                                         onsubmit="return confirm('Are you sure?');">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button type="submit">Delete</button>
+                                                                        <button type="submit" class="btn btn-danger">Delete</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
