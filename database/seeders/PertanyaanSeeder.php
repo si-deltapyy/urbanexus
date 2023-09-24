@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Pertanyaan;
+use illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PertanyaanSeeder extends Seeder
@@ -357,8 +358,7 @@ class PertanyaanSeeder extends Seeder
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Berapa harga sewa rumah?',
-            'jenis_pertanyaan' => 'Text',
-            'jawaban' => ''
+            'jenis_pertanyaan' => 'Text'
         ]);
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
@@ -369,14 +369,12 @@ class PertanyaanSeeder extends Seeder
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Adakah indikasi penduduk trauma setelah bencana sebelumnya yang pernaj terjadi?',
-            'jenis_pertanyaan' => 'Text',
-            'jawaban' => ''
+            'jenis_pertanyaan' => 'Text'
         ]);
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',
             'pertanyaan' => 'Berapa jumlah/persentase diantara mereka yang terindikasi mengalami trauma?',
-            'jenis_pertanyaan' => 'Text',
-            'jawaban' => ''
+            'jenis_pertanyaan' => 'Text'
         ]);
          Pertanyaan::create([
             'kategori_pertanyaan' => 'Sebelum Bencana',

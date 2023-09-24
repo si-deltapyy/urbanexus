@@ -1,36 +1,51 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+@extends('layout.form')
+@section('content')
+
+        <div class="form-holder">
+          <div class="form-content">
+            <div class="form-items">
+              <h3>Password Reset</h3>
+              <p>
+                To reset your password, enter the email address you use to sign
+                in to UrbaNexus
+              </p>
+              <!-- Session Status -->
+              <x-auth-session-status class="mb-4" :status="session('status')" />
+
+              <!-- Validation Errors -->
+              <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+              <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <x-input
+                  id="email"
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  :value="old('email')"
+                  required
+                  autofocus
+                />
+                <div class="form-button full-width">
+                  <button id="submit" type="submit" class="ibtn btn-forget">
+                    Send Reset Link
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="form-sent">
+              <div class="tick-holder">
+                <div class="tick-icon"></div>
+              </div>
+              <h3>Password link sent</h3>
+              <p>Please check your inbox UrbaNexus@gmail.com</p>
+              <div class="info-holder">
+                <span>Unsure if that email address was correct?</span>
+                <a href="#">We can help</a>.
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@endsection
