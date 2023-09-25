@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rt;
 use App\Models\Rw;
+use App\Models\ResponsKuisioner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,8 @@ class DashboardController extends Controller
         $user = Auth::user();
         $data = Rw::where('user_id', $user->id)->first();
         $rt = Rt::where('user_id', $user->id)->first();
+        $bencana = ResponKuisioner::where('user_id', $user->id)->first();
         // dd($data);
-        return view('dashboard', compact('data', 'rt'));
+        return view('dashboard', compact('data', 'rt', 'bencana'));
     }
 }
