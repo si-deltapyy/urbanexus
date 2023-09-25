@@ -8,7 +8,7 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Kuisioner</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Riwayat</li>
+            <li class="breadcrumb-item active" aria-current="page">Sebelum Bencana</li>
         </ol>
     </nav>
 
@@ -16,17 +16,12 @@
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('rt.kuisioner_sdb.create') }}">
-                            <i class="bi bi-plus-lg"></i>
-                            Isi Kuisioner
-                        </a>
-                    </div>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Responden</th>
                                     <th>Tanggal Isi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -34,19 +29,18 @@
                             <tbody>
                                 @php $nomorIterasi = 1 @endphp
                                 @foreach ($riwayats as $riwayat)
-                                    @if ($riwayat->pertanyaan->kategori_pertanyaan == 'Sesudah Bencana')
+                                    @if ($riwayat->pertanyaan->kategori_pertanyaan == 'Sebelum Bencana')
                                         <tr>
                                             <td>{{ $nomorIterasi }}.</td>
                                             <td>
+                                                {{ $riwayat->user->name }}
+                                            </td>
+                                            <td>
                                                 {{ $riwayat->created_at }}
-                                                {{-- {{ $riwayat->pertanyaan }} <br>
-                                            @foreach ($riwayat->pertanyaan->respon_kuisioner as $jawaban)
-                                                {{ $jawaban->jawaban }}
-                                            @endforeach --}}
                                             </td>
                                             <td>
                                                 <a class="btn icon btn-sm btn-primary"
-                                                    href="{{ route('rt.kuisioner_sb.show', $riwayat->group_id) }}"
+                                                    href="{{ route('admin.kuisioner_sb.show', $riwayat->group_id) }}"
                                                     title="Detail">
                                                     <i class="bi bi-eye-fill"></i>
                                                 </a>

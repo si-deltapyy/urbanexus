@@ -32,10 +32,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $nomorIterasi = 1 @endphp
                                 @foreach ($riwayats as $riwayat)
                                     @if ($riwayat->pertanyaan->kategori_pertanyaan == 'Terjadi Bencana')
                                         <tr>
-                                            <td>{{ $loop->iteration }}.</td>
+                                            <td>{{ $nomorIterasi }}.</td>
                                             <td>
                                                 {{ $riwayat->created_at }}
                                                 {{-- {{ $riwayat->pertanyaan }} <br>
@@ -58,6 +59,7 @@
                                             </form> --}}
                                             </td>
                                         </tr>
+                                        @php $nomorIterasi++ @endphp
                                     @endif
                                 @endforeach
                             </tbody>

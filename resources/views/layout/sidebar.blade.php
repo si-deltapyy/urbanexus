@@ -116,9 +116,30 @@
                         <span class="link-title">Kuisioner</span>
                     </a>
                 </li>
+                <li class="nav-item nav-category">Respon Kuisioner</li>
+                <li class="nav-item">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="message-square"></i>
+                            <span class="link-title">Sebelum Bencana</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.kuisioner_tb.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="message-square"></i>
+                            <span class="link-title">Terjadi Bencana</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.kuisioner_sdb.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="message-square"></i>
+                            <span class="link-title">Sesudah Bencana</span>
+                        </a>
+                    </li>
+                </li>
             @endrole
-            <li class="nav-item nav-category">Menu</li>
-            {{-- <li class="nav-item {{ active_class(['email/*']) }}">
+            {{-- <li class="nav-item nav-category">Menu</li>
+            <li class="nav-item {{ active_class(['email/*']) }}">
                 <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button"
                     aria-expanded="{{ is_active_route(['email/*']) }}" aria-controls="email">
                     <i class="link-icon" data-feather="mail"></i>
@@ -141,13 +162,13 @@
                         </li>
                     </ul>
                 </div>
-            </li> --}}
+            </li>
             <li class="nav-item">
                 <a href="{{ url('/input') }}" class="nav-link">
                     <i class="link-icon" data-feather="message-square"></i>
                     <span class="link-title">Input Data</span>
                 </a>
-            </li>
+            </li> --}}
 
             {{-- <li class="nav-item {{ active_class(['email/*']) }}">
             <li class="nav-item nav-category">web apps</li>

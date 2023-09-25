@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\AdminRWController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\OpsiJawabanController;
 use App\Http\Controllers\Admin\PertanyaanController;
+use App\Http\Controllers\Admin\SebelumBencanaAdminController;
+use App\Http\Controllers\Admin\SesudahBencanaAdminController;
+use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
 use App\Http\Controllers\rt\RtController;
 use App\Http\Controllers\rw\RwController;
 use App\Http\Controllers\rt\SebelumBencanaRtController;
@@ -54,6 +57,9 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::resource('/admin_rt', AdminRTController::class);
     Route::resource('/pertanyaan', PertanyaanController::class);
     Route::resource('/opsi_jawaban', OpsiJawabanController::class);
+    Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);
+    Route::resource('/kuisioner_tb', TerjadiBencanaAdminController::class);
+    Route::resource('/kuisioner_sdb', SesudahBencanaAdminController::class);
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
