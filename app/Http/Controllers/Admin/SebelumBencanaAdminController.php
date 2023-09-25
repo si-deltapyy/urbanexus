@@ -90,8 +90,10 @@ class SebelumBencanaAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($group_id)
     {
-        //
+        ResponKuisioner::where('group_id', $group_id)->delete();
+
+        return redirect(route('admin.kuisioner_sb.index'));
     }
 }

@@ -44,13 +44,13 @@
                                                     title="Detail">
                                                     <i class="bi bi-eye-fill"></i>
                                                 </a>
-                                                {{-- <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
-                                                action="{{ route('admin.roles.destroy', $role->id) }}"
+                                                <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
+                                                action="{{ route('admin.kuisioner_sdb', $riwayat->group_id) }}"
                                                 onsubmit="return confirm('Are you sure?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">Delete</button>
-                                            </form> --}}
+                                            </form>
                                             </td>
                                         </tr>
                                         @php $nomorIterasi++ @endphp
