@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\rw;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Pertanyaan;
+use App\Models\ResponKuisioner;
+use App\Models\Rt;
+use App\Models\Rw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TerjadiBencanaRwController extends Controller
 {
@@ -15,7 +19,14 @@ class TerjadiBencanaRwController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        $data = Rw::where('user_id', $user->id)->first();
+
+        $riwayats = ResponKuisioner::where('user_id', $user->id)->groupBy('group_id')->get();
+
+        // dd($riwayats);
+        return view('user.rw.terjadi_bencana.index', compact( 'data', 'riwayats'));
     }
 
     /**
@@ -25,7 +36,11 @@ class TerjadiBencanaRwController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        $rt = Rt::where('user_id', $user->id)->first();
+        $pertanyaans = Pertanyaan::where('kategori_pertanyaan', 'Terjadi Bencana')->get();
+        return view('user.rw.terjadi_bencana.create', compact('pertanyaans', 'user', 'data', 'rt'));
     }
 
     /**
@@ -36,8 +51,48 @@ class TerjadiBencanaRwController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'jawaban' => 'required|array',
+            'jawaban.*' => 'required',
+            'pertanyaan_id' => 'required|array',
+            'pertanyaan_id.*' => 'required|integer',
+        ]);
+
+        $user = Auth::user();
+        
+        $groupId = rand();
+
+        foreach ($request->pertanyaan_id as $index => $pertanyaanId) {
+            $responKuisioner = new ResponKuisioner([
+                'user_id' => $user->id,
+                'pertanyaan_id' => $pertanyaanId,
+                'group_id' => $groupId, 
+            ]);
+
+            if (isset($request->jawaban[$index])) {
+                $jawaban = $request->jawaban[$index];
+                
+                // Check if it's a file upload
+                if ($request->hasFile("jawaban.{$index}")) {
+                    $file_dokumen = $request->file("jawaban.{$index}")->getClientOriginalName();
+                    $filename_dokumen = pathinfo($file_dokumen, PATHINFO_FILENAME);
+                    $ext_dokumen = $request->file("jawaban.{$index}")->getClientOriginalExtension();
+                    $filename_dokumen = $filename_dokumen . '.' . $ext_dokumen;
+                    $file = $request->file("jawaban.{$index}")->storeAs('public/jawaban', $filename_dokumen);
+
+                    $jawaban = $file;
+                }
+                
+                $responKuisioner->jawaban = $jawaban;
+            }
+
+            $responKuisioner->save();
+        }
+
+        return redirect()->route('rw.kuisioner_tb.index');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -45,9 +100,13 @@ class TerjadiBencanaRwController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($group_id)
     {
-        //
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        $respons = ResponKuisioner::where('group_id', $group_id)->get();
+        // dd($respons);
+        return view('user.rw.terjadi_bencana.detail', compact('user', 'data', 'respons'));
     }
 
     /**

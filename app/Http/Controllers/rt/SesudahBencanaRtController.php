@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\rw;
+namespace App\Http\Controllers\rt;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\Pertanyaan;
 use App\Models\ResponKuisioner;
 use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class SebelumBencanaRWController extends Controller
+class SesudahBencanaRtController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,17 +20,15 @@ class SebelumBencanaRWController extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        $rt = Rt::where('user_id', $user->id)->first();
         $pertanyaans = Pertanyaan::with(['respon_kuisioner' => function ($query) use ($user) {
             $query->where('user_id', $user->id)->orderBy('created_at');
         }])->get();
 
-        $data = Rw::where('user_id', $user->id)->first();
-
         $riwayats = ResponKuisioner::where('user_id', $user->id)->groupBy('group_id')->get();
 
         // dd($riwayats);
-        return view('user.rw.sebelum_bencana.index', compact( 'data', 'riwayats'));
+        return view('user.rt.sesudah_bencana.index', compact( 'rt', 'riwayats'));
     }
 
     /**
@@ -45,8 +41,8 @@ class SebelumBencanaRWController extends Controller
         $user = Auth::user();
         $data = Rw::where('user_id', $user->id)->first();
         $rt = Rt::where('user_id', $user->id)->first();
-        $pertanyaans = Pertanyaan::where('kategori_pertanyaan', 'Sebelum Bencana')->get();
-        return view('user.rw.sebelum_bencana.create', compact('pertanyaans', 'user', 'data', 'rt'));
+        $pertanyaans = Pertanyaan::where('kategori_pertanyaan', 'Sesudah Bencana')->get();
+        return view('user.rt.sesudah_bencana.create', compact('pertanyaans', 'user', 'data', 'rt'));
     }
 
     /**
@@ -95,7 +91,7 @@ class SebelumBencanaRWController extends Controller
             $responKuisioner->save();
         }
 
-        return redirect()->route('rw.kuisioner_sb.index');
+        return redirect()->route('rt.kuisioner_tb.index');
     }
 
 
@@ -110,9 +106,10 @@ class SebelumBencanaRWController extends Controller
     {
         $user = Auth::user();
         $data = Rw::where('user_id', $user->id)->first();
+        $rt = Rt::where('user_id', $user->id)->first();
         $respons = ResponKuisioner::where('group_id', $group_id)->get();
         // dd($respons);
-        return view('user.rw.sebelum_bencana.detail', compact('user', 'data', 'respons'));
+        return view('user.rt.sesudah_bencana.detail', compact('user', 'data', 'respons', 'rt'));
     }
 
     /**

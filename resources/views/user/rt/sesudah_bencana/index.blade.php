@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('rw.kuisioner_sb.create') }}">
+                        <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('rt.kuisioner_sdb.create') }}">
                             <i class="bi bi-plus-lg"></i>
                             Isi Kuisioner
                         </a>
@@ -33,30 +33,32 @@
                             </thead>
                             <tbody>
                                 @foreach ($riwayats as $riwayat)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}.</td>
-                                        <td>
-                                            {{ $riwayat->created_at }}
-                                            {{-- {{ $riwayat->pertanyaan }} <br>
+                                    @if ($riwayat->pertanyaan->kategori_pertanyaan == 'Sesudah Bencana')
+                                        <tr>
+                                            <td>{{ $loop->iteration }}.</td>
+                                            <td>
+                                                {{ $riwayat->created_at }}
+                                                {{-- {{ $riwayat->pertanyaan }} <br>
                                             @foreach ($riwayat->pertanyaan->respon_kuisioner as $jawaban)
                                                 {{ $jawaban->jawaban }}
                                             @endforeach --}}
-                                        </td>
-                                        <td>
-                                            <a class="btn icon btn-sm btn-primary"
-                                                href="{{ route('rw.kuisioner_sb.show', $riwayat->group_id) }}"
-                                                title="Detail">
-                                                <i class="bi bi-eye-fill"></i>
-                                            </a>
-                                            {{-- <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
+                                            </td>
+                                            <td>
+                                                <a class="btn icon btn-sm btn-primary"
+                                                    href="{{ route('rt.kuisioner_sb.show', $riwayat->group_id) }}"
+                                                    title="Detail">
+                                                    <i class="bi bi-eye-fill"></i>
+                                                </a>
+                                                {{-- <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
                                                 action="{{ route('admin.roles.destroy', $role->id) }}"
                                                 onsubmit="return confirm('Are you sure?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">Delete</button>
                                             </form> --}}
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

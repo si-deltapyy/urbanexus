@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\OpsiJawabanController;
 use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\rt\RtController;
 use App\Http\Controllers\rw\RwController;
+use App\Http\Controllers\rt\SebelumBencanaRtController;
+use App\Http\Controllers\rt\SesudahBencanaRtController;
+use App\Http\Controllers\rt\TerjadiBencanaRtController;
 use App\Http\Controllers\rw\SebelumBencanaRWController;
 use App\Http\Controllers\rw\SesudahBencanaRwController;
 use App\Http\Controllers\rw\TerjadiBencanaRwController;
@@ -62,7 +65,9 @@ Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->
 
 Route::middleware(['auth',  'verified', 'role:RT'])->name('rt.')->prefix('rt')->group(function () {
     Route::resource('/daftar_rt', RtController::class);
-    // Route::resource('/kuisioner_sb', SebelumBencanaController::class);
+    Route::resource('/kuisioner_sb', SebelumBencanaRtController::class);
+    Route::resource('/kuisioner_tb', TerjadiBencanaRtController::class);
+    Route::resource('/kuisioner_sdb', SesudahBencanaRtController::class);
 });
 
 require __DIR__ . '/auth.php';
