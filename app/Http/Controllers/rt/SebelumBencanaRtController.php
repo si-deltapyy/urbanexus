@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\rt;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\ImageUpload;
 use App\Models\Pertanyaan;
 use App\Models\ResponKuisioner;
 use App\Models\Rt;
@@ -30,7 +30,7 @@ class SebelumBencanaRtController extends Controller
         $riwayats = ResponKuisioner::where('user_id', $user->id)->groupBy('group_id')->get();
 
         // dd($riwayats);
-        return view('user.rt.sebelum_bencana.index', compact( 'rt', 'riwayats'));
+        return view('user.rt.sebelum_bencana.index', compact('rt', 'riwayats'));
     }
 
     /**
@@ -63,40 +63,52 @@ class SebelumBencanaRtController extends Controller
         ]);
 
         $user = Auth::user();
-        
         $groupId = rand();
 
+        // Loop untuk tabel ResponKuisioner
         foreach ($request->pertanyaan_id as $index => $pertanyaanId) {
             $responKuisioner = new ResponKuisioner([
                 'user_id' => $user->id,
                 'pertanyaan_id' => $pertanyaanId,
-                'group_id' => $groupId, 
+                'group_id' => $groupId,
             ]);
 
             if (isset($request->jawaban[$index])) {
                 $jawaban = $request->jawaban[$index];
-                
-                // Check if it's a file upload
-                if ($request->hasFile("jawaban.{$index}")) {
-                    $file_dokumen = $request->file("jawaban.{$index}")->getClientOriginalName();
-                    $filename_dokumen = pathinfo($file_dokumen, PATHINFO_FILENAME);
-                    $ext_dokumen = $request->file("jawaban.{$index}")->getClientOriginalExtension();
-                    $filename_dokumen = $filename_dokumen . '.' . $ext_dokumen;
-                    $file = $request->file("jawaban.{$index}")->storeAs('public/jawaban', $filename_dokumen);
-
-                    $jawaban = $file;
-                }
-                
                 $responKuisioner->jawaban = $jawaban;
             }
 
             $responKuisioner->save();
         }
 
+        // Penyimpanan data gambar
+        if ($request->hasFile('images')) {
+            $imageFiles = $request->file('images');
+
+            foreach ($request->pertanyaan_image_id as $index => $pertanyaanImageId) {
+                if (isset($imageFiles[$index]) && $imageFiles[$index]->isValid()) {
+                    $file_dokumen = $imageFiles[$index]->getClientOriginalName();
+                    $filename_dokumen = pathinfo($file_dokumen, PATHINFO_FILENAME);
+                    $ext_dokumen = $imageFiles[$index]->getClientOriginalExtension();
+                    $filename_dokumen = $filename_dokumen . '.' . $ext_dokumen;
+                    $file = $imageFiles[$index]->storeAs('public/jawaban', $filename_dokumen);
+
+                    $image = $file;
+
+                    $responKuisioner = new ResponKuisioner([
+                        'user_id' => $user->id,
+                        'pertanyaan_id' => $pertanyaanImageId,
+                        'group_id' => $groupId,
+                        'jawaban' => $image, 
+                    ]);
+
+                    $responKuisioner->save();
+                }
+            }
+        }
+
         return redirect()->route('rt.kuisioner_sb.index');
     }
-
-
 
     /**
      * Display the specified resource.

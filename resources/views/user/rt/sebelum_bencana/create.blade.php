@@ -58,11 +58,11 @@
                                                     data-inputmask-inputformat="dd/mm/yyyy HH:MM:ss" name="jawaban[]"
                                                     required />
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Image')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_image_id[]"
                                                 value="{{ $pertanyaan->id }}">
                                                 <input type="file"
-                                                    class="form-control mt-2 @error('jawaban.' . $index) is-invalid @enderror"
-                                                    name="jawaban[]" required>
+                                                    class="form-control mt-2"
+                                                    name="images[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Radio')
                                             <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
                                                 value="{{ $pertanyaan->id }}">
