@@ -351,7 +351,7 @@
                 aria-controls="tab1"
                 aria-selected="true"
               >
-                <h4>Kuesioner</h4>
+                <h4>Sebelum Bencana</h4>
               </button>
               <button
                 class="nav-link"
@@ -363,20 +363,9 @@
                 aria-controls="tab2"
                 aria-selected="false"
               >
-                <h4>Kuesioner</h4>
+                <h4>Terjadi Bencana</h4>
               </button>
-              <button
-                class="nav-link"
-                id="nav-id-3"
-                data-bs-toggle="tab"
-                data-bs-target="#tab3"
-                type="button"
-                role="tab"
-                aria-controls="tab3"
-                aria-selected="false"
-              >
-                <h4>Kuesioner</h4>
-              </button>
+
             </div>
           </div>
 
@@ -396,7 +385,7 @@
                   <div class="col-lg-6 pr-80 pr-md-15 pr-xs-15">
                     <div class="thumb">
                       <img
-                        src="assets/img/illustration/26.png"
+                        src="assets/img/illustration/25.png"
                         alt="illustration"
                       />
                     </div>
@@ -422,7 +411,7 @@
                   <div class="col-lg-6 pr-80 pr-md-15 pr-xs-15">
                     <div class="thumb">
                       <img
-                        src="assets/img/illustration/27.png"
+                        src="assets/img/illustration/25.png"
                         alt="illustration"
                       />
                     </div>
@@ -437,31 +426,7 @@
               </div>
               <!-- End Single Item -->
 
-              <!-- Single Item -->
-              <div
-                class="tab-pane fade"
-                id="tab3"
-                role="tabpanel"
-                aria-labelledby="nav-id-3"
-              >
-                <div class="row align-center">
-                  <div class="col-lg-6 pr-80 pr-md-15 pr-xs-15">
-                    <div class="thumb">
-                      <img
-                        src="assets/img/illustration/25.png"
-                        alt="illustration"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="info">
-                        <div id="chart3">
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Single Item -->
+
             </div>
           </div>
         </div>
@@ -479,7 +444,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 offset-lg-3">
-              <h5>Free Trial</h5>
+
               <h2>
                 Kirim Kritik Dan Saran <br />
                 Untuk Kami!
@@ -663,20 +628,7 @@
 
       chart.render();
     //  chart 3
-    var options = {
-        chart: {
-          type: 'line'
-        },
-        series: [{
-          name: 'Responden',
-          data: [30,40,45,50,49,60,70,91,125]
-        }],
-        xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-        }
-      }
 
-      var chart = new ApexCharts(document.querySelector("#chart3"), options);
 
       chart.render();
       </script>
