@@ -53,6 +53,18 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4">
+                                        <label>No Telepon</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" class="form-control @error('no_hp') is-invalid @enderror"
+                                            id="no_hp" name="no_hp" value="{{ $data->no_hp }}" disabled>
+                                        @error('no_hp')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
                                         <label>Pekerjaan</label>
                                     </div>
                                     <div class="col-md-8 form-group">

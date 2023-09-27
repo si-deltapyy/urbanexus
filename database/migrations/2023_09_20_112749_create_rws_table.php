@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nama_rw');
             $table->string('email');
+            $table->integer('no_hp');
             $table->string('pekerjaan');
             $table->string('alamat_kantor');
             $table->string('alamat_rumah');

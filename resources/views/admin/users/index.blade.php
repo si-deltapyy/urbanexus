@@ -183,6 +183,8 @@
                                                     <th class="w-10px text-center">RW</th>
                                                     <th class="w-100px text-center">Nama</th>
                                                     <th class="w-100px text-center">Email</th>
+                                                    <th class="w-100px text-center">No Telepon</th>
+                                                    <th class="w-100px text-center">Pekerjaan</th>
                                                     <th class="w-100px text-center">Alamat Kantor</th>
                                                     <th class="w-100px text-center">Alamat Rumah</th>
                                                     <th class="w-20px text-center">Aksi</th>
@@ -202,6 +204,11 @@
                                                             <td class="px-6 py-4 whitespace-nowrap">
                                                                 <div class="flex items-center">
                                                                     {{ $rw->email }}
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    {{ $rw->no_hp }}
                                                                 </div>
                                                             </td>
                                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -264,6 +271,8 @@
                                                     <th class="w-10px text-center">RW, RT</th>
                                                     <th class="w-100px text-center">Nama</th>
                                                     <th class="w-100px text-center">Email</th>
+                                                    <th class="w-100px text-center">No Telepon</th>
+                                                    <th class="w-100px text-center">Pekerjaan</th>
                                                     <th class="w-100px text-center">Alamat Kantor</th>
                                                     <th class="w-100px text-center">Alamat Rumah</th>
                                                     <th class="w-20px text-center">Aksi</th>
@@ -283,6 +292,11 @@
                                                             <td class="px-6 py-4 whitespace-nowrap">
                                                                 <div class="flex items-center">
                                                                     {{ $rt->email }}
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    {{ $rw->no_hp }}
                                                                 </div>
                                                             </td>
                                                             <td class="px-6 py-4 whitespace-nowrap">
