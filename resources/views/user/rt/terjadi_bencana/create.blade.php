@@ -30,7 +30,11 @@
                                 @foreach ($pertanyaans as $index => $pertanyaan)
                                     <div class="row mt-3">
                                         <div class="col-md-4">
-                                            <label>{{ $pertanyaan->pertanyaan }}</label>
+                                        @if ($pertanyaan->jenis_pertanyaan == 'Title')
+                                        <h5><i><b>{{ $pertanyaan->pertanyaan}}</b></i></h5>
+                                        @else    
+                                        <label>{{ $pertanyaan->pertanyaan }}</label>
+                                        @endif 
                                             
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -43,7 +47,7 @@
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Select')
                                             <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
                                                 value="{{ $pertanyaan->id }}">
-                                                <select class="form-select @error("jawaban.$index") is-invalid @enderror"
+                                                <select id="pilihan" class="form-select @error("jawaban.$index") is-invalid @enderror"
                                                     autocomplete="off" name="jawaban[]" required>
                                                     <option>--- Pilih ---</option>
                                                     @foreach ($pertanyaan->opsi_jawaban as $opsi)
@@ -51,6 +55,12 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                <!-- <div id="inputTambahan" style="display:none;">
+                                                    <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
+                                                    <input type="text" class="form-control @error("jawaban.$index") is-invalid @enderror"
+                                                    name="jawaban[]" required>
+                                                </div> -->
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Datetime')
                                             <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
                                                 value="{{ $pertanyaan->id }}">
@@ -78,6 +88,7 @@
                                                         </div>
                                                     @endforeach
                                                 </div>
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Title')
                                             @endif
                                             @error("jawaban.$index")
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -125,3 +136,19 @@
     <script src="{{ asset('assets/js/pickr.js') }}"></script>
     <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
 @endpush
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#pilihan').change(function() {
+        var selectedOption = $(this).val();
+        if (selectedOption == "19") {
+            $('#inputTambahan').show();
+        }
+        else {
+            $('#inputTambahan').hide();
+        }
+    });
+});
+</script> -->
