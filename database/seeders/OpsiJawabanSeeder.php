@@ -17,52 +17,52 @@ class OpsiJawabanSeeder extends Seeder
     {
         //
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '1'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '2'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '3'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '4'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '5'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '6'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '7'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '8'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '9'
         ]);
 
         OpsiJawaban::create([
-            'pertanyaan_id' => '78',
+            'pertanyaan_id' => '80',
             'opsi_jawaban' => '10'
         ]);
 
@@ -80,7 +80,7 @@ class OpsiJawabanSeeder extends Seeder
         
         foreach ($opsiJawabanJenisBencana as $opsi) {
             OpsiJawaban::create([
-                'pertanyaan_id' => '74',
+                'pertanyaan_id' => '76',
                 'opsi_jawaban' => $opsi,
             ]);
         }
@@ -103,11 +103,43 @@ class OpsiJawabanSeeder extends Seeder
 
         foreach ($opsiJawabanTanggapDarurat as $opsi) {
             OpsiJawaban::create([
-                'pertanyaan_id' => '96',
+                'pertanyaan_id' => '104',
                 'opsi_jawaban' => $opsi,
             ]);
         }
 
+        $opsiJawabanStatus = [
+        'RENCANA',
+	    'PERSETUJUAN',
+		'PELAKSANAAN',
+		'SELESAI',
+		'BATAL'
+        ];
+
+        foreach ($opsiJawabanStatus as $opsi1) {
+            OpsiJawaban::create([
+                'pertanyaan_id' => '146',
+                'opsi_jawaban' => $opsi1,
+            ]);
+        }
+        foreach ($opsiJawabanStatus as $opsi1) {
+            OpsiJawaban::create([
+                'pertanyaan_id' => '153',
+                'opsi_jawaban' => $opsi1,
+            ]);
+        }
+        foreach ($opsiJawabanStatus as $opsi1) {
+            OpsiJawaban::create([
+                'pertanyaan_id' => '161',
+                'opsi_jawaban' => $opsi1,
+            ]);
+        }
+        foreach ($opsiJawabanStatus as $opsi1) {
+            OpsiJawaban::create([
+                'pertanyaan_id' => '169',
+                'opsi_jawaban' => $opsi1,
+            ]);
+        }
 
     }
 }

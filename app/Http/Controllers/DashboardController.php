@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResponKuisioner;
 use App\Models\Rt;
 use App\Models\Rw;
 use App\Models\ResponsKuisioner;
