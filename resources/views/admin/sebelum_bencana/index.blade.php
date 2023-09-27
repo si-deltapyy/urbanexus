@@ -13,7 +13,7 @@
     </nav>
 
     <div class="row">
-        <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -38,18 +38,18 @@
                                             <td>
                                                 {{ $riwayat->created_at }}
                                             </td>
-                                            <td>
+                                            <td style="display: flex; gap: 1rem;">
                                                 <a class="btn icon btn-sm btn-primary"
                                                     href="{{ route('admin.kuisioner_sb.show', $riwayat->group_id) }}"
                                                     title="Detail">
-                                                    <i class="bi bi-eye-fill"></i>
+                                                    <i data-feather="eye"></i>
                                                 </a>
                                                 <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
                                                     action="{{ route('admin.kuisioner_sb.destroy', $riwayat->group_id) }}"
                                                     onsubmit="return confirm('Are you sure?');">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                                    <button class="btn btn-danger" type="submit"><i data-feather="trash-2"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

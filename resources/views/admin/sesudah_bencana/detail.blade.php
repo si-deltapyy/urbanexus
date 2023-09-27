@@ -54,7 +54,7 @@
                                             @endforeach
                                         </div>
                                     </div> --}}
-                                    <div class="row mt-3">
+                                    <div class="row mt-3" style="display: flex; flex-direction:column; margin: 1rem;">
                                         <div class="col-md-4">
                                             <label>{{ $respon->pertanyaan->pertanyaan }}</label>
                                         </div>

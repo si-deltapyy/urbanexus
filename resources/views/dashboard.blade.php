@@ -44,14 +44,6 @@
           <div class="col-md-7">
             <p class="text-muted tx-13 mb-3 mb-md-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eum rem nihil sint pariatur sapiente quo! Recusandae, assumenda non? Facere culpa nam, nemo error sed deleniti minus cupiditate odit quam.</p>
           </div>
-          <div class="col-md-5 d-flex justify-content-md-end">
-            <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-outline-primary">Today</button>
-              <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
-              <button type="button" class="btn btn-primary">Month</button>
-              <button type="button" class="btn btn-outline-primary">Year</button>
-            </div>
-          </div>
         </div>
         <div class="mt-5" id="apexLine"></div>
       </div>
@@ -153,14 +145,6 @@
           <div class="row align-items-start mb-2">
             <div class="col-md-7">
               <p class="text-muted tx-13 mb-3 mb-md-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eum rem nihil sint pariatur sapiente quo! Recusandae, assumenda non? Facere culpa nam, nemo error sed deleniti minus cupiditate odit quam.</p>
-            </div>
-            <div class="col-md-5 d-flex justify-content-md-end">
-              <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-primary">Today</button>
-                <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
-                <button type="button" class="btn btn-primary">Month</button>
-                <button type="button" class="btn btn-outline-primary">Year</button>
-              </div>
             </div>
           </div>
           <div class="mt-5" id="apexLine"></div>
@@ -264,14 +248,6 @@
             <div class="col-md-7">
               <p class="text-muted tx-13 mb-3 mb-md-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eum rem nihil sint pariatur sapiente quo! Recusandae, assumenda non? Facere culpa nam, nemo error sed deleniti minus cupiditate odit quam.</p>
             </div>
-            <div class="col-md-5 d-flex justify-content-md-end">
-              <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-primary">Today</button>
-                <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
-                <button type="button" class="btn btn-primary">Month</button>
-                <button type="button" class="btn btn-outline-primary">Year</button>
-              </div>
-            </div>
           </div>
           <div class="mt-5" id="apexLine"></div>
         </div>
@@ -334,6 +310,7 @@
       </div>
     </div>
   </div> <!-- row -->
+
 @endrole
 
 @endsection

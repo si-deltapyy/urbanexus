@@ -515,7 +515,7 @@ body {
 .form-body.without-side .form-content .dropdown-toggle.btn-default {
     border: 1px solid rgba(0, 149, 255, 0);
     background-color: rgba(255, 255, 255, 0.07);
-    color: #000;
+    color: #f5f3f3f1;
 }
 
 .form-body.without-side .form-content input:hover,
