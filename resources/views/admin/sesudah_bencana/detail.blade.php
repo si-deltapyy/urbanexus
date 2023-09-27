@@ -28,7 +28,7 @@
                         <div class="form-body">
                             <div class="row">
                                 @foreach ($respons as $respon)
-                                   {{-- <div class="row mt-3">
+                                    {{-- <div class="row mt-3">
                                         <div class="col-md-4">
                                             <label>Responden</label>
                                         </div>
@@ -59,10 +59,12 @@
                                             <label>{{ $respon->pertanyaan->pertanyaan }}</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-
-                                            <input type="text" class="form-control" value="{{ $respon->jawaban }}"
-                                                name="jawaban[]" disabled>
-
+                                            @if (strpos($respon->jawaban, 'public/jawaban/') !== false)
+                                                <img class="w-100 active" src="{{ Storage::url($respon->jawaban) }}">
+                                            @else
+                                                <input type="text" class="form-control" value="{{ $respon->jawaban }}"
+                                                    name="jawaban[]" disabled>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach

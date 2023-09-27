@@ -47,6 +47,7 @@ class RtController extends Controller
         $request->validate([
             'id' => 'required',
             'rw_id' => 'required',
+            'no_hp' => 'required',
             'pekerjaan' => 'required',
             'alamat_kantor' => 'required',
             'alamat_rumah' => 'required',
@@ -60,6 +61,7 @@ class RtController extends Controller
             'user_id' => $user->id,
             'nama_rt' => $user->name,
             'email' => $user->email,
+            'no_hp' => $request->no_hp,
             'pekerjaan' => $request->pekerjaan,
             'alamat_kantor' => $request->alamat_kantor,
             'alamat_rumah' => $request->alamat_rumah,
