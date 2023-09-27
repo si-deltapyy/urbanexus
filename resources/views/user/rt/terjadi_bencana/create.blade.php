@@ -30,24 +30,25 @@
                                 @foreach ($pertanyaans as $index => $pertanyaan)
                                     <div class="row mt-3">
                                         <div class="col-md-4">
-                                        @if ($pertanyaan->jenis_pertanyaan == 'Title')
-                                        <h5><i><b>{{ $pertanyaan->pertanyaan}}</b></i></h5>
-                                        @else    
-                                        <label>{{ $pertanyaan->pertanyaan }}</label>
-                                        @endif 
-                                            
+                                            @if ($pertanyaan->jenis_pertanyaan == 'Title')
+                                                <h5><i><b>{{ $pertanyaan->pertanyaan }}</b></i></h5>
+                                            @else
+                                                <label>{{ $pertanyaan->pertanyaan }}</label>
+                                            @endif
+
                                         </div>
                                         <div class="col-md-8 form-group">
                                             @if ($pertanyaan->jenis_pertanyaan == 'Text')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <input type="text"
                                                     class="form-control @error("jawaban.$index") is-invalid @enderror"
                                                     name="jawaban[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Select')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
-                                                <select id="pilihan" class="form-select @error("jawaban.$index") is-invalid @enderror"
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
+                                                <select id="pilihan"
+                                                    class="form-select @error("jawaban.$index") is-invalid @enderror"
                                                     autocomplete="off" name="jawaban[]" required>
                                                     <option>--- Pilih ---</option>
                                                     @foreach ($pertanyaan->opsi_jawaban as $opsi)
@@ -55,27 +56,19 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                                <!-- <div id="inputTambahan" style="display:none;">
-                                                    <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                    value="{{ $pertanyaan->id }}">
-                                                    <input type="text" class="form-control @error("jawaban.$index") is-invalid @enderror"
-                                                    name="jawaban[]" required>
-                                                </div> -->
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Datetime')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <input class="form-control" data-inputmask="'alias': 'datetime'"
                                                     data-inputmask-inputformat="dd/mm/yyyy HH:MM:ss" name="jawaban[]"
                                                     required />
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Image')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
-                                                <input type="file"
-                                                    class="form-control mt-2 @error('jawaban.' . $index) is-invalid @enderror"
-                                                    name="jawaban[]" required>
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_image_id[]"
+                                                    value="{{ $pertanyaan->id }}">
+                                                <input type="file" class="form-control mt-2" name="images[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Radio')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <div>
                                                     @foreach ($pertanyaan->opsi_jawaban as $opsi)
                                                         <div class="form-check form-check-inline">
@@ -140,15 +133,14 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#pilihan').change(function() {
-        var selectedOption = $(this).val();
-        if (selectedOption == "19") {
-            $('#inputTambahan').show();
-        }
-        else {
-            $('#inputTambahan').hide();
-        }
+    $(document).ready(function() {
+        $('#pilihan').change(function() {
+            var selectedOption = $(this).val();
+            if (selectedOption == "19") {
+                $('#inputTambahan').show();
+            } else {
+                $('#inputTambahan').hide();
+            }
+        });
     });
-});
 </script> -->

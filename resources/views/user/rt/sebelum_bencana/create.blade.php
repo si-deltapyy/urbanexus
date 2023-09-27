@@ -31,18 +31,18 @@
                                     <div class="row mt-3">
                                         <div class="col-md-4">
                                             <label>{{ $pertanyaan->pertanyaan }}</label>
-                                            
+
                                         </div>
                                         <div class="col-md-8 form-group">
                                             @if ($pertanyaan->jenis_pertanyaan == 'Text')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <input type="text"
                                                     class="form-control @error("jawaban.$index") is-invalid @enderror"
                                                     name="jawaban[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Select')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <select class="form-select @error("jawaban.$index") is-invalid @enderror"
                                                     autocomplete="off" name="jawaban[]" required>
                                                     <option>--- Pilih ---</option>
@@ -52,20 +52,18 @@
                                                     @endforeach
                                                 </select>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Datetime')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <input class="form-control" data-inputmask="'alias': 'datetime'"
                                                     data-inputmask-inputformat="dd/mm/yyyy HH:MM:ss" name="jawaban[]"
                                                     required />
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Image')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_image_id[]"
-                                                value="{{ $pertanyaan->id }}">
-                                                <input type="file"
-                                                    class="form-control mt-2"
-                                                    name="images[]" required>
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_image_id[]"
+                                                    value="{{ $pertanyaan->id }}">
+                                                <input type="file" class="form-control mt-2" name="images[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Radio')
-                                            <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
-                                                value="{{ $pertanyaan->id }}">
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
                                                 <div>
                                                     @foreach ($pertanyaan->opsi_jawaban as $opsi)
                                                         <div class="form-check form-check-inline">
