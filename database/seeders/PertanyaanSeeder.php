@@ -385,8 +385,18 @@ class PertanyaanSeeder extends Seeder
 
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => 'INFORMASI KEJADIAN',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jenis Bencana',
-            'jenis_pertanyaan' => 'select'
+            'jenis_pertanyaan' => 'Select'
         ]);
        Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
@@ -411,12 +421,12 @@ class PertanyaanSeeder extends Seeder
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Lokasi kejadian bencana',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Deskripsi informasi kejadian',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
@@ -425,43 +435,63 @@ class PertanyaanSeeder extends Seeder
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => 'KERUSAKAN INFRASTRUKTUR',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah Dusun/RT RW/kepala keluarga yang terdampak',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Petunjuk lokasi dan ancar-ancar lokasi yang terdampak',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah korban meninggal',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah korban luka-luka',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah korban mengungsi',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah korban terdampak',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => 'KERUSAKAN INFRASTRUKTUR',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Tuliskan lokasi korban',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Tuliskan lokasi dan ancar-ancar penampungan korban jiwa, korban luka, pengungsian, dan kerusakan infrastruktur',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
@@ -470,132 +500,173 @@ class PertanyaanSeeder extends Seeder
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => 'RESPON YANG SUDAH DILAKUKAN',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Nama Lembaga/Instansi Responden',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah Seluruh Responden (orang)',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Bantuan Barang yang Sudah Datang',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jenis barang dan jumlah/intensitas',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Bantuan Non Barang yang Sudah Datang',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Kebutuhan tanggap darurat',
-            'jenis_pertanyaan' => 'select'
+            'jenis_pertanyaan' => 'Select'
            
         ]);
+
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Terjadi Bencana',
+            'pertanyaan' => 'POKOK BAHASAN',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Apa yang harus dilakukan para pihak untuk menangani atau kebutuhan tanggap darurat',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Permasalahan umum yang menghambat pelaksanaan pelayanan kesehatan pada masa bencana. (dari faktor pemberi layanan, penduduk, infrastruktur maupun bentang alam)',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Adakah indikasi penduduk trauma dalam menghadapi bencana?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Berapa jumlah/persentase diantara mereka yang terindikasi mengalami trauma?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Adakah program/kegiatan kesehatan masal dalam penanggulangan dampak bencana? 
 Jelaskan',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Permasalahan kesehatan yang umum akibat bencana? Jelaskan',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Kegiatan yang dibutuhkan untuk pengurangan permasalahan tersebut',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Adakah program pemberian makanan tambahan untuk balita/ anak sekolah?Jelaskan',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jumlah balita yang terdampak bencana',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Jelaskan dampak bencana terhadap balita',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Kegiatan yang dibutuhkan untuk mengatasi dampak bencana terhadap balita',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
         ]);
-
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'DAMPAK KEJADIAN BENCANA',
+            'jenis_pertanyaan' => 'Title'
+            ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Berapa jumlah dampak yang mengenai Dusun / RT RW /Kepala Keluarga?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Lengkapi dengan petunjuk lokasi dan ancar-ancar lokasi yang terdampak?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Jumlah Korban Meninggal?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Jumlah Korban Luka - Luka?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Jumlah Orang Mengungsi?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Jumlah Warga Terdampak?',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'KERUSAKAN INFRASTRUKTUR',
+            'jenis_pertanyaan' => 'Title'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Tuliskan Lokasi Korban',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Tuliskan lokasi dan ancar-ancar penampungan korban jiwa, korban luka, 
 pengungsian, dan kerusakan infrastruktur',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
@@ -605,32 +676,205 @@ pengungsian, dan kerusakan infrastruktur',
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'RESPON YANG SUDAH DILAKUKAN',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Nama Lembaga/Instansi Responden',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Jumlah Seluruh Responden (orang)',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Bantuan Barang yang Sudah Datang',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Sebutkan jenis barang dan jumlah/intensitas',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Sesudah Bencana',
             'pertanyaan' => 'Bantuan Non Barang yang Sudah Datang',
-            'jenis_pertanyaan' => 'text'
+            'jenis_pertanyaan' => 'Text'
             ]);
         
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'KEBUTUHAN REHABILITASI DAN REKONSTRUKSI',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sektor 1',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Rencana Kegiatan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sumber Dana',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Luaran',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Target/Jumlah Luaran yang direncanakan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Waktu',
+            'jenis_pertanyaan' => 'Datetime'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Status',
+            'jenis_pertanyaan' => 'Select'
+            ]);
         
-    
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sektor 2',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Rencana Kegiatan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sumber Dana',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Luaran',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Target/Jumlah Luaran yang direncanakan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Waktu',
+            'jenis_pertanyaan' => 'Datetime'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Status',
+            'jenis_pertanyaan' => 'Select'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sektor 3',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Rencana Kegiatan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sumber Dana',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Luaran',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Target/Jumlah Luaran yang direncanakan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Waktu',
+            'jenis_pertanyaan' => 'Datetime'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Status',
+            'jenis_pertanyaan' => 'Select'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => '',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sektor 4',
+            'jenis_pertanyaan' => 'Title'
+            ]);
+
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Rencana Kegiatan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Sumber Dana',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Luaran',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Target/Jumlah Luaran yang direncanakan',
+            'jenis_pertanyaan' => 'Text'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Waktu',
+            'jenis_pertanyaan' => 'Datetime'
+            ]);
+        Pertanyaan::create([
+            'kategori_pertanyaan' => 'Sesudah Bencana',
+            'pertanyaan' => 'Status',
+            'jenis_pertanyaan' => 'Select'
+            ]);
     
     }
 }

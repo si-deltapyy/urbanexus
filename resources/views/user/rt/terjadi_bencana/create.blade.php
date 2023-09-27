@@ -30,7 +30,11 @@
                                 @foreach ($pertanyaans as $index => $pertanyaan)
                                     <div class="row mt-3">
                                         <div class="col-md-4">
-                                            <label>{{ $pertanyaan->pertanyaan }}</label>
+                                        @if ($pertanyaan->jenis_pertanyaan == 'Title')
+                                        <h5><i><b>{{ $pertanyaan->pertanyaan}}</b></i></h5>
+                                        @else    
+                                        <label>{{ $pertanyaan->pertanyaan }}</label>
+                                        @endif 
                                             
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -78,6 +82,7 @@
                                                         </div>
                                                     @endforeach
                                                 </div>
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Title')
                                             @endif
                                             @error("jawaban.$index")
                                                 <div class="invalid-feedback">{{ $message }}</div>
