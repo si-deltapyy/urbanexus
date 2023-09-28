@@ -627,10 +627,6 @@
       var chart = new ApexCharts(document.querySelector("#chart2"), options);
 
       chart.render();
-    //  chart 3
-
-
-      chart.render();
       </script>
 
   </body>
