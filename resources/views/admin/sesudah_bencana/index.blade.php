@@ -22,6 +22,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Responden</th>
+                                    <th>RW</th>
+                                    <th>RT</th>
                                     <th>Tanggal Isi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -36,21 +38,49 @@
                                                 {{ $riwayat->user->name }}
                                             </td>
                                             <td>
+                                                @foreach ($riwayat->user->roles as $role)
+                                                {{-- @dd($role) --}}
+                                                    @if ($role->name == 'RW')
+                                                        {{ optional($riwayat->user->rw)->id }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $riwayat->user->rt->rw->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @foreach ($riwayat->user->roles as $role)
+                                                    @if ($role->name == 'RW')
+                                                        {{ $riwayat->user->rt->id ?? '-' }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $riwayat->user->rt->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>
                                                 {{ $riwayat->created_at }}
                                             </td>
                                             <td>
-                                                <a class="btn icon btn-sm btn-primary"
-                                                    href="{{ route('admin.kuisioner_sdb.show', $riwayat->group_id) }}"
-                                                    title="Detail">
-                                                    <i class="bi bi-eye-fill"></i>
-                                                </a>
-                                                <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
-                                                action="{{ route('admin.kuisioner_sdb', $riwayat->group_id) }}"
-                                                onsubmit="return confirm('Are you sure?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">Delete</button>
-                                            </form>
+                                                @role('super_admin')
+                                                    <a class="btn icon btn-sm btn-primary"
+                                                        href="{{ route('super_admin.kuisioner_sdb.show', $riwayat->group_id) }}"
+                                                        title="Detail">
+                                                        <i class="bi bi-eye-fill"></i>
+                                                    </a>
+                                                    <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
+                                                        action="{{ route('super_admin.kuisioner_sdb.destroy', $riwayat->group_id) }}"
+                                                        onsubmit="return confirm('Are you sure?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                                    </form>
+                                                @endrole
+                                                @role('admin')
+                                                    <a class="btn icon btn-sm btn-primary"
+                                                        href="{{ route('admin.kuisioner_sdb.show', $riwayat->group_id) }}"
+                                                        title="Detail">
+                                                        <i class="bi bi-eye-fill"></i>
+                                                    </a>
+                                                @endrole
                                             </td>
                                         </tr>
                                         @php $nomorIterasi++ @endphp

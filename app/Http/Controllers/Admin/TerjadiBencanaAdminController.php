@@ -92,6 +92,6 @@ class TerjadiBencanaAdminController extends Controller
     {
         ResponKuisioner::where('group_id', $group_id)->delete();
 
-        return redirect(route('admin.kuisioner_tb.index'));
+        return back();
     }
 }

@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\super_admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\OpsiJawaban;
 use App\Models\Pertanyaan;
-use App\Models\ResponKuisioner;
-use App\Models\Rt;
-use App\Models\Rw;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class SebelumBencanaAdminController extends Controller
+class PertanyaanSAController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +17,10 @@ class SebelumBencanaAdminController extends Controller
      */
     public function index()
     {
-        $riwayats = ResponKuisioner::groupBy('group_id')->get();
-
-        // dd($riwayats);
-        return view('admin.sebelum_bencana.index', compact('riwayats'));
+        $pertanyaans = Pertanyaan::get();
+        $opsiJawabans = OpsiJawaban::get();
+        // dd($petanyaans);
+        return view('super_admin.kuisioner.index', compact('pertanyaans', 'opsiJawabans'));
     }
 
     /**
@@ -51,20 +47,18 @@ class SebelumBencanaAdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
-    public function show($group_id)
+    public function show(Pertanyaan $pertanyaan)
     {
-        $respons = ResponKuisioner::where('group_id', $group_id)->get();
-        // dd($respons);
-        return view('admin.sebelum_bencana.detail', compact('respons'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -76,7 +70,7 @@ class SebelumBencanaAdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -87,13 +81,11 @@ class SebelumBencanaAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Pertanyaan  $pertanyaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($group_id)
+    public function destroy($id)
     {
-        ResponKuisioner::where('group_id', $group_id)->delete();
-
-        return back();
+        //
     }
 }

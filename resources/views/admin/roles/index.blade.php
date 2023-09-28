@@ -17,7 +17,7 @@
         <div class="card">
           <div class="card-body">
             <div>
-                <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('admin.roles.create') }}">
+                <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('super_admin.roles.create') }}">
                     <i class="bi bi-plus-lg"></i>
                     Tambah Role
                 </a>
@@ -42,7 +42,7 @@
                                     <form
                                         class=" hover:bg-red-900 text-white rounded-md"
                                         method="POST"
-                                        action="{{ route('admin.roles.destroy', $role->id) }}"
+                                        action="{{ route('super_admin.roles.destroy', $role->id) }}"
                                         onsubmit="return confirm('Are you sure?');">
                                         @csrf
                                         @method('DELETE')

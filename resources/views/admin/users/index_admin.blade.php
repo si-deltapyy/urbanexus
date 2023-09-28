@@ -152,7 +152,7 @@
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                     <form
                                                                         method="POST"
-                                                                        action="{{ route('super_admin.users.destroy', $user->id) }}"
+                                                                        action="{{ route('admin.users.destroy', $user->id) }}"
                                                                         onsubmit="return confirm('Are you sure?');">
                                                                         @csrf
                                                                         @method('DELETE')
@@ -191,7 +191,8 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    @foreach ($rws as $rw)
+                                                @foreach ($users as $user)
+                                                    @foreach ($user->rw as $rw)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}.</td>
                                                             <td>RW {{ $rw->id }}</td>
@@ -231,14 +232,14 @@
                                                                         {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                         <a class="btn icon btn-sm btn-warning"
-                                                                            href="{{ route('super_admin.admin_rw.edit', $rw->id) }}"
+                                                                            href="{{ route('admin.admin_rw.edit', $rw->id) }}"
                                                                             title="Edit">
                                                                             <i class="bi bi-pencil-fill"></i>
                                                                         </a>
                                                                         <form
                                                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                             method="POST"
-                                                                            action="{{ route('super_admin.admin_rw.destroy', $rw->id) }}"
+                                                                            action="{{ route('admin.admin_rw.destroy', $rw->id) }}"
                                                                             onsubmit="return confirm('Are you sure?');">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -249,6 +250,7 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -277,7 +279,8 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                    @foreach ($rts as $rt)
+                                                @foreach ($users as $user)
+                                                    @foreach ($user->rt as $rt)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}.</td>
                                                             <td>RW {{ $rt->rw_id }}, RT {{ $rt->id }}</td>
@@ -317,14 +320,14 @@
                                                                         {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                         <a class="btn icon btn-sm btn-warning"
-                                                                            href="{{ route('super_admin.admin_rt.edit', $rt->id) }}"
+                                                                            href="{{ route('admin.admin_rt.edit', $rt->id) }}"
                                                                             title="Edit">
                                                                             <i class="bi bi-pencil-fill"></i>
                                                                         </a>
                                                                         <form
                                                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                             method="POST"
-                                                                            action="{{ route('super_admin.admin_rt.destroy', $rt->id) }}"
+                                                                            action="{{ route('admin.admin_rt.destroy', $rt->id) }}"
                                                                             onsubmit="return confirm('Are you sure?');">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -335,6 +338,7 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
