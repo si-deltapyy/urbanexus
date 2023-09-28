@@ -1,70 +1,3 @@
-{{-- <x-admin-layout>
-    <div class="py-12 w-full">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
-                <div class="flex flex-col">
-                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Name</th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Email</th>
-                                            <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($users as $user)
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        {{ $user->name }}
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        {{ $user->email }}
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="flex justify-end">
-                                                        <div class="flex space-x-2">
-                                                            <a href="{{ route('admin.users.show', $user->id) }}"
-                                                                class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a>
-                                                            <form
-                                                                class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
-                                                                method="POST"
-                                                                action="{{ route('admin.users.destroy', $user->id) }}"
-                                                                onsubmit="return confirm('Are you sure?');">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit">Delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</x-admin-layout> --}}
-
-
 @extends('layout.master')
 
 @push('plugin-styles')
@@ -79,7 +12,7 @@
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Data RT</a></li>
+            <li class="breadcrumb-item"><a href="#">Data RW</a></li>
             <li class="breadcrumb-item active" aria-current="page">Detail Data</li>
         </ol>
     </nav>
@@ -90,12 +23,8 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="user-tab" data-bs-toggle="tab" data-bs-target="#user"
-                                type="button" role="tab" aria-controls="user" aria-selected="true">User</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="rw-tab" data-bs-toggle="tab" data-bs-target="#rw" type="button"
-                                role="tab" aria-controls="rw" aria-selected="false">RW</button>
+                            <button class="nav-link active" id="rw-tab" data-bs-toggle="tab" data-bs-target="#rw"
+                                type="button" role="tab" aria-controls="rw" aria-selected="false">RW</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="rt-tab" data-bs-toggle="tab" data-bs-target="#rt" type="button"
@@ -103,73 +32,7 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title d-flex justify-content-center">Jumlah User Terdaftar pada Sistem
-                                    </h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped" id="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Email</th>
-                                                    <th>Jabatan</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($users as $user)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}.</td>
-                                                        <td class=" whitespace-nowrap">
-                                                            <div class="flex items-center">
-                                                                {{ $user->name }}
-                                                            </div>
-                                                        </td>
-                                                        <td class=" whitespace-nowrap">
-                                                            <div class="flex items-center">
-                                                                {{ $user->email }}
-                                                            </div>
-                                                        </td>
-                                                        <td class=" whitespace-nowrap">
-                                                            <div class="flex items-center">
-                                                                @if ($user->roles)
-                                                                    @foreach ($user->roles as $user_role)
-                                                                        {{ $user_role->name }}
-                                                                    @endforeach
-                                                                @endif
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="flex justify-end">
-                                                                <div class="flex space-x-2">
-                                                                    {{-- <a href="{{ route('admin.users.show', $user->id) }}"
-                                                                            class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
-                                                                    <form
-                                                                        method="POST"
-                                                                        action="{{ route('admin.users.destroy', $user->id) }}"
-                                                                        onsubmit="return confirm('Are you sure?');">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="rw" role="tabpanel" aria-labelledby="rw-tab">
+                        <div class="tab-pane fade show active" id="rw" role="tabpanel" aria-labelledby="rw-tab">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title d-flex justify-content-center">Jumlah RW</h4>
@@ -181,75 +44,40 @@
                                                 <tr>
                                                     <th class="w-10px text-center">No</th>
                                                     <th class="w-10px text-center">RW</th>
+                                                    <th class="w-10px text-center">Jumlah RT</th>
                                                     <th class="w-100px text-center">Nama</th>
                                                     <th class="w-100px text-center">Email</th>
                                                     <th class="w-100px text-center">No Telepon</th>
                                                     <th class="w-100px text-center">Pekerjaan</th>
                                                     <th class="w-100px text-center">Alamat Kantor</th>
                                                     <th class="w-100px text-center">Alamat Rumah</th>
-                                                    <th class="w-20px text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($users as $user)
-                                                    @foreach ($user->rw as $rw)
-                                                        <tr>
-                                                            <td>{{ $loop->iteration }}.</td>
-                                                            <td>RW {{ $rw->id }}</td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->nama_rw }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->email }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->no_hp }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->pekerjaan }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->alamat_kantor }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->alamat_rumah }}
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="flex justify-end">
-                                                                    <div class="flex space-x-2">
-                                                                        {{-- <a href="{{ route('admin.users.show', $user->id) }}"
-                                                                            class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
-                                                                        <a class="btn icon btn-sm btn-warning"
-                                                                            href="{{ route('admin.admin_rw.edit', $rw->id) }}"
-                                                                            title="Edit">
-                                                                            <i class="bi bi-pencil-fill"></i>
-                                                                        </a>
-                                                                        <form
-                                                                            class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
-                                                                            method="POST"
-                                                                            action="{{ route('admin.admin_rw.destroy', $rw->id) }}"
-                                                                            onsubmit="return confirm('Are you sure?');">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit">Delete</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
+                                                @foreach ($rws as $rw)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}.</td>
+                                                        <td>RW {{ $rw->id }}</td>
+                                                        <td>{{ $rw->rt->count() }}</td>
+                                                        <td>
+                                                                {{ $rw->nama_rw }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rw->email }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rw->no_hp }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rw->pekerjaan }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rw->alamat_kantor }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rw->alamat_rumah }}
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
@@ -268,76 +96,41 @@
                                             <thead>
                                                 <tr>
                                                     <th class="w-10px text-center">No</th>
-                                                    <th class="w-10px text-center">RW, RT</th>
+                                                    <th class="w-10px text-center">RW</th>
+                                                    <th class="w-10px text-center">RT</th>
                                                     <th class="w-100px text-center">Nama</th>
                                                     <th class="w-100px text-center">Email</th>
                                                     <th class="w-100px text-center">No Telepon</th>
                                                     <th class="w-100px text-center">Pekerjaan</th>
                                                     <th class="w-100px text-center">Alamat Kantor</th>
                                                     <th class="w-100px text-center">Alamat Rumah</th>
-                                                    <th class="w-20px text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($users as $user)
-                                                    @foreach ($user->rt as $rt)
-                                                        <tr>
-                                                            <td>{{ $loop->iteration }}.</td>
-                                                            <td>RW {{ $rt->rw_id }}, RT {{ $rt->id }}</td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rt->nama_rt }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rt->email }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rw->no_hp }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rt->pekerjaan }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rt->alamat_kantor }}
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-                                                                    {{ $rt->alamat_rumah }}
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="flex justify-end">
-                                                                    <div class="flex space-x-2">
-                                                                        {{-- <a href="{{ route('admin.users.show', $user->id) }}"
-                                                                            class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
-                                                                        <a class="btn icon btn-sm btn-warning"
-                                                                            href="{{ route('admin.admin_rt.edit', $rt->id) }}"
-                                                                            title="Edit">
-                                                                            <i class="bi bi-pencil-fill"></i>
-                                                                        </a>
-                                                                        <form
-                                                                            class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
-                                                                            method="POST"
-                                                                            action="{{ route('admin.admin_rt.destroy', $rt->id) }}"
-                                                                            onsubmit="return confirm('Are you sure?');">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit">Delete</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
+                                                @foreach ($rts as $rt)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}.</td>
+                                                        <td>RW {{ $rt->rw_id }}</td>
+                                                        <td>RT {{ $rt->id }}</td>
+                                                        <td>
+                                                                {{ $rt->nama_rt }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rt->email }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rw->no_hp }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rt->pekerjaan }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rt->alamat_kantor }}
+                                                        </td>
+                                                        <td>
+                                                                {{ $rt->alamat_rumah }}
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>

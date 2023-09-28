@@ -64,6 +64,7 @@ Route::middleware(['auth',  'verified', 'role:super_admin'])->name('super_admin.
 });
 
 Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+    Route::resource('/admin_rw', AdminRWController::class);
     Route::resource('/pertanyaan', PertanyaanController::class);
     Route::resource('/opsi_jawaban', OpsiJawabanController::class);
     Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);

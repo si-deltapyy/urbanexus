@@ -18,7 +18,10 @@ class AdminRWController extends Controller
      */
     public function index()
     {
-        //
+        $rws = Rw::all();
+        $rts = Rt::all();
+
+        return view('admin.users.index_admin', compact('rws', 'rts'));
     }
 
     /**
