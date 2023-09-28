@@ -225,6 +225,14 @@
                 </ul>
               </div>
             </li> --}}
+
+            <li class="nav-item">
+                <a href="{{ route('pages.report-pages') }}" class="nav-link">
+                    <i class="link-icon" data-feather="folder-plus"></i>
+                    <span class="link-title">Report</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

@@ -4,6 +4,10 @@
   <link href="{{ asset('assets/plugins/flatpickr/flatpickr.min.css') }}" rel="stylesheet" />
 @endpush
 
+@push('plugin-styles')
+  <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet" />
+@endpush
+
 @section('content')
 
 @role('admin')
@@ -208,6 +212,42 @@
       </div>
     </div>
   </div> <!-- row -->
+
+
+  <div class="row mt-3">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Data Table</h6>
+          <p class="text-muted mb-3">Read the <a href="https://datatables.net/" target="_blank"> Official DataTables Documentation </a>for a full list of instructions and other options.</p>
+          <div class="table-responsive">
+            <table id="dataTableExample" class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>Edinburgh</td>
+                  <td>61</td>
+                  <td>2011/04/25</td>
+                  <td>$320,800</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 @endrole
 
 @role('RW')
@@ -311,6 +351,41 @@
     </div>
   </div> <!-- row -->
 
+  <div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Data Table</h6>
+          <p class="text-muted mb-3">Read the <a href="https://datatables.net/" target="_blank"> Official DataTables Documentation </a>for a full list of instructions and other options.</p>
+          <div class="table-responsive">
+            <table id="dataTableExample" class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>Edinburgh</td>
+                  <td>61</td>
+                  <td>2011/04/25</td>
+                  <td>$320,800</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @endrole
 
 @endsection
@@ -323,5 +398,15 @@
 @push('custom-scripts')
   <script src="{{ asset('assets/js/dashboard.js') }}"></script>
   <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
+@endpush
+
+
+@push('plugin-scripts')
+  <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
+@endpush
+
+@push('custom-scripts')
+  <script src="{{ asset('assets/js/data-table.js') }}"></script>
 @endpush
 

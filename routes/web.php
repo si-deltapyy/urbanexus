@@ -60,7 +60,7 @@ Route::middleware(['auth',  'verified', 'role:super_admin'])->name('super_admin.
     Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);
     Route::resource('/kuisioner_tb', TerjadiBencanaAdminController::class);
     Route::resource('/kuisioner_sdb', SesudahBencanaAdminController::class);
-    
+
 });
 
 Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
@@ -101,3 +101,8 @@ Route::get('/kuesioner', function () {
 Route::get('/welcome-2', function () {
     return view('welcome-2');
 })->name('welcome-2');
+
+
+Route::get('/report', function () {
+    return view('pages/report-pages');
+})->name('pages.report-pages');
