@@ -9,6 +9,7 @@ use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TerjadiBencanaRwController extends Controller
 {
@@ -21,11 +22,23 @@ class TerjadiBencanaRwController extends Controller
     {
         $user = Auth::user();
 
+        $user_id_rw = Auth::user()->id;
+
+        // user_id RT yang berelasi dengan user_id RW dari tabel rw
+        $user_ids_rt = DB::table('rw')
+            ->where('rw.user_id', $user_id_rw)
+            ->join('rt', 'rw.id', '=', 'rt.rw_id')
+            ->pluck('rt.user_id');
+
+        // user_id RW dan user_ids RT ke dalam satu array
+        $user_ids = array_merge([$user_id_rw], $user_ids_rt->toArray());
+
+        $riwayats = ResponKuisioner::whereIn('user_id', $user_ids)
+            ->groupBy('group_id')
+            ->get();
+
         $data = Rw::where('user_id', $user->id)->first();
 
-        $riwayats = ResponKuisioner::where('user_id', $user->id)->groupBy('group_id')->get();
-
-        // dd($riwayats);
         return view('user.rw.terjadi_bencana.index', compact( 'data', 'riwayats'));
     }
 

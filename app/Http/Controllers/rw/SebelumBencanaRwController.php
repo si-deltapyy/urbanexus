@@ -27,12 +27,25 @@ class SebelumBencanaRWController extends Controller
             $query->where('user_id', $user->id)->orderBy('created_at');
         }])->get();
 
+        $user_id_rw = Auth::user()->id;
+
+        // user_id RT yang berelasi dengan user_id RW dari tabel rw
+        $user_ids_rt = DB::table('rw')
+            ->where('rw.user_id', $user_id_rw)
+            ->join('rt', 'rw.id', '=', 'rt.rw_id')
+            ->pluck('rt.user_id');
+
+        // user_id RW dan user_ids RT ke dalam satu array
+        $user_ids = array_merge([$user_id_rw], $user_ids_rt->toArray());
+
+        $riwayats = ResponKuisioner::whereIn('user_id', $user_ids)
+            ->groupBy('group_id')
+            ->get();
+
         $data = Rw::where('user_id', $user->id)->first();
 
-        $riwayats = ResponKuisioner::where('user_id', $user->id)->groupBy('group_id')->get();
-
-        // dd($riwayats);
-        return view('user.rw.sebelum_bencana.index', compact( 'data', 'riwayats'));
+        // dd($riwayat);
+        return view('user.rw.sebelum_bencana.index', compact('data', 'riwayats'));
     }
 
     /**
@@ -101,7 +114,7 @@ class SebelumBencanaRWController extends Controller
                         'user_id' => $user->id,
                         'pertanyaan_id' => $pertanyaanImageId,
                         'group_id' => $groupId,
-                        'jawaban' => $image, 
+                        'jawaban' => $image,
                     ]);
 
                     $responKuisioner->save();
