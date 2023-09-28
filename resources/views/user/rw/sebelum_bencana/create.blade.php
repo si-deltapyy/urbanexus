@@ -51,12 +51,18 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Datetime')
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Date')
                                                 <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
                                                     value="{{ $pertanyaan->id }}">
-                                                <input class="form-control" data-inputmask="'alias': 'datetime'"
-                                                    data-inputmask-inputformat="dd/mm/yyyy HH:MM:ss" name="jawaban[]"
-                                                    required />
+                                                <input type="date"
+                                                    class="form-control @error("jawaban.$index") is-invalid @enderror"
+                                                    name="jawaban[]" required>
+                                            @elseif ($pertanyaan->jenis_pertanyaan == 'Time')
+                                                <input type="hidden" class="form-control mt-1" name="pertanyaan_id[]"
+                                                    value="{{ $pertanyaan->id }}">
+                                                <input type="time"
+                                                    class="form-control @error("jawaban.$index") is-invalid @enderror"
+                                                    name="jawaban[]" required>
                                             @elseif ($pertanyaan->jenis_pertanyaan == 'Image')
                                                 <input type="hidden" class="form-control mt-1" name="pertanyaan_image_id[]"
                                                     value="{{ $pertanyaan->id }}">
