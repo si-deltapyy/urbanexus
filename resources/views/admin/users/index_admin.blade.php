@@ -7,7 +7,8 @@
     <link href="{{ asset('assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/pickr/themes/classic.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/flatpickr/flatpickr.min.css') }}" rel="stylesheet" />
-@endpush
+    <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet" />
+    @endpush
 
 @section('content')
     <nav class="page-breadcrumb">
@@ -39,7 +40,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="table">
+                                        <table class="table table-striped" id="dataTableExample">
                                             <thead>
                                                 <tr>
                                                     <th class="w-10px text-center">No</th>
@@ -92,7 +93,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="table">
+                                        <table class="table table-striped" id="dataTableExample">
                                             <thead>
                                                 <tr>
                                                     <th class="w-10px text-center">No</th>
@@ -159,6 +160,8 @@
     <script src="{{ asset('assets/plugins/pickr/pickr.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/flatpickr/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
@@ -172,4 +175,5 @@
     <script src="{{ asset('assets/js/dropify.js') }}"></script>
     <script src="{{ asset('assets/js/pickr.js') }}"></script>
     <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
+    <script src="{{ asset('assets/js/data-table.js') }}"></script>
 @endpush
