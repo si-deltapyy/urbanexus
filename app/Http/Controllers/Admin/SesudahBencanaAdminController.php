@@ -92,6 +92,6 @@ class SesudahBencanaAdminController extends Controller
     {
         ResponKuisioner::where('group_id', $group_id)->delete();
 
-        return redirect(route('admin.kuisioner_sdb.index'));
+        return back();
     }
 }

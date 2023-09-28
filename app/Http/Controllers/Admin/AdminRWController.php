@@ -18,7 +18,10 @@ class AdminRWController extends Controller
      */
     public function index()
     {
-        //
+        $rws = Rw::all();
+        $rts = Rt::all();
+
+        return view('admin.users.index_admin', compact('rws', 'rts'));
     }
 
     /**
@@ -79,6 +82,7 @@ class AdminRWController extends Controller
         $request->validate([
             'id' => 'required',
             'pekerjaan' => 'required',
+            'no_hp' => 'required',
             'alamat_kantor' => 'required',
             'alamat_rumah' => 'required',
         ]);
@@ -90,6 +94,7 @@ class AdminRWController extends Controller
             // 'user_id' => $user->id,
             // 'nama_rw' => $user->name,
             // 'email' => $user->email,
+            'no_hp' => $request->no_hp,
             'pekerjaan' => $request->pekerjaan,
             'alamat_kantor' => $request->alamat_kantor,
             'alamat_rumah' => $request->alamat_rumah,

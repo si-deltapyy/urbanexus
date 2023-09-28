@@ -20,6 +20,7 @@ use App\Http\Controllers\rt\TerjadiBencanaRtController;
 use App\Http\Controllers\rw\SebelumBencanaRWController;
 use App\Http\Controllers\rw\SesudahBencanaRwController;
 use App\Http\Controllers\rw\TerjadiBencanaRwController;
+use App\Http\Controllers\super_admin\PertanyaanSAController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,7 +38,7 @@ Route::get('/send/message', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+Route::middleware(['auth',  'verified', 'role:super_admin'])->name('super_admin.')->prefix('super_admin')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
     Route::resource('/roles', RoleController::class);
     Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
@@ -55,6 +56,15 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
 
     Route::resource('/admin_rw', AdminRWController::class);
     Route::resource('/admin_rt', AdminRTController::class);
+    Route::resource('/daftar_pertanyaan', PertanyaanSAController::class);
+    Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);
+    Route::resource('/kuisioner_tb', TerjadiBencanaAdminController::class);
+    Route::resource('/kuisioner_sdb', SesudahBencanaAdminController::class);
+    
+});
+
+Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+    Route::resource('/admin_rw', AdminRWController::class);
     Route::resource('/pertanyaan', PertanyaanController::class);
     Route::resource('/opsi_jawaban', OpsiJawabanController::class);
     Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);

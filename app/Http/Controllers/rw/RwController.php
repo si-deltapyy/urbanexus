@@ -45,6 +45,7 @@ class RwController extends Controller
         $request->validate([
             'id' => 'required',
             'pekerjaan' => 'required',
+            'no_hp' => 'required',
             'alamat_kantor' => 'required',
             'alamat_rumah' => 'required',
         ]);
@@ -56,6 +57,7 @@ class RwController extends Controller
             'user_id' => $user->id,
             'nama_rw' => $user->name,
             'email' => $user->email,
+            'no_hp' => $request->no_hp,
             'pekerjaan' => $request->pekerjaan,
             'alamat_kantor' => $request->alamat_kantor,
             'alamat_rumah' => $request->alamat_rumah,

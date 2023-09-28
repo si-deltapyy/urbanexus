@@ -152,7 +152,7 @@
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                     <form
                                                                         method="POST"
-                                                                        action="{{ route('admin.users.destroy', $user->id) }}"
+                                                                        action="{{ route('super_admin.users.destroy', $user->id) }}"
                                                                         onsubmit="return confirm('Are you sure?');">
                                                                         @csrf
                                                                         @method('DELETE')
@@ -183,14 +183,15 @@
                                                     <th class="w-10px text-center">RW</th>
                                                     <th class="w-100px text-center">Nama</th>
                                                     <th class="w-100px text-center">Email</th>
+                                                    <th class="w-100px text-center">No Telepon</th>
+                                                    <th class="w-100px text-center">Pekerjaan</th>
                                                     <th class="w-100px text-center">Alamat Kantor</th>
                                                     <th class="w-100px text-center">Alamat Rumah</th>
                                                     <th class="w-20px text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($users as $user)
-                                                    @foreach ($user->rw as $rw)
+                                                    @foreach ($rws as $rw)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}.</td>
                                                             <td>RW {{ $rw->id }}</td>
@@ -202,6 +203,11 @@
                                                             <td class="px-6 py-4 whitespace-nowrap">
                                                                 <div class="flex items-center">
                                                                     {{ $rw->email }}
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    {{ $rw->no_hp }}
                                                                 </div>
                                                             </td>
                                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -225,14 +231,14 @@
                                                                         {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                         <a class="btn icon btn-sm btn-warning"
-                                                                            href="{{ route('admin.admin_rw.edit', $rw->id) }}"
+                                                                            href="{{ route('super_admin.admin_rw.edit', $rw->id) }}"
                                                                             title="Edit">
                                                                             <i class="bi bi-pencil-fill"></i>
                                                                         </a>
                                                                         <form
                                                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                             method="POST"
-                                                                            action="{{ route('admin.admin_rw.destroy', $rw->id) }}"
+                                                                            action="{{ route('super_admin.admin_rw.destroy', $rw->id) }}"
                                                                             onsubmit="return confirm('Are you sure?');">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -243,7 +249,6 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -264,14 +269,15 @@
                                                     <th class="w-10px text-center">RW, RT</th>
                                                     <th class="w-100px text-center">Nama</th>
                                                     <th class="w-100px text-center">Email</th>
+                                                    <th class="w-100px text-center">No Telepon</th>
+                                                    <th class="w-100px text-center">Pekerjaan</th>
                                                     <th class="w-100px text-center">Alamat Kantor</th>
                                                     <th class="w-100px text-center">Alamat Rumah</th>
                                                     <th class="w-20px text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($users as $user)
-                                                    @foreach ($user->rt as $rt)
+                                                    @foreach ($rts as $rt)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}.</td>
                                                             <td>RW {{ $rt->rw_id }}, RT {{ $rt->id }}</td>
@@ -283,6 +289,11 @@
                                                             <td class="px-6 py-4 whitespace-nowrap">
                                                                 <div class="flex items-center">
                                                                     {{ $rt->email }}
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    {{ $rw->no_hp }}
                                                                 </div>
                                                             </td>
                                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -306,14 +317,14 @@
                                                                         {{-- <a href="{{ route('admin.users.show', $user->id) }}"
                                                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Roles</a> --}}
                                                                         <a class="btn icon btn-sm btn-warning"
-                                                                            href="{{ route('admin.admin_rt.edit', $rt->id) }}"
+                                                                            href="{{ route('super_admin.admin_rt.edit', $rt->id) }}"
                                                                             title="Edit">
                                                                             <i class="bi bi-pencil-fill"></i>
                                                                         </a>
                                                                         <form
                                                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
                                                                             method="POST"
-                                                                            action="{{ route('admin.admin_rt.destroy', $rt->id) }}"
+                                                                            action="{{ route('super_admin.admin_rt.destroy', $rt->id) }}"
                                                                             onsubmit="return confirm('Are you sure?');">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -324,7 +335,6 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

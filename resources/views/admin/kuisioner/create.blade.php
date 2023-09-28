@@ -68,7 +68,8 @@
                                             <option>--- Pilih ---</option>
                                             <option value="Radio">Radio</option>
                                             <option value="Select">Select</option>
-                                            <option value="Datetime">Datetime</option>
+                                            <option value="Date">Date</option>
+                                            <option value="Time">Time</option>
                                             <option value="Text">Text</option>
                                             <option value="Image">Image</option>
                                         </select>

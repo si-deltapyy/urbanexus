@@ -27,6 +27,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>RW</th>
+                                    <th>RT</th>
                                     <th>Tanggal Isi</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -37,6 +39,25 @@
                                     @if ($riwayat->pertanyaan->kategori_pertanyaan == 'Sebelum Bencana')
                                         <tr>
                                             <td>{{ $nomorIterasi }}.</td>
+                                            <td>
+                                                @foreach ($riwayat->user->roles as $role)
+                                                {{-- @dd($role) --}}
+                                                    @if ($role->name == 'RW')
+                                                        {{ optional($riwayat->user->rw)->id }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $riwayat->user->rt->rw->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @foreach ($riwayat->user->roles as $role)
+                                                    @if ($role->name == 'RW')
+                                                        {{ $riwayat->user->rt->id ?? '-' }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $riwayat->user->rt->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>
                                                 {{ $riwayat->created_at }}
                                                 {{-- {{ $riwayat->pertanyaan }} <br>

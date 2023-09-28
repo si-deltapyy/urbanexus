@@ -22,7 +22,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Asset Buat Form</h4>
-        <form method="POST" action="{{ route('admin.roles.store') }}">
+        <form method="POST" action="{{ route('super_admin.roles.store') }}">
             @csrf
           <div class="mb-3">
             <label for="Text" class="form-label">Nama Role</label>

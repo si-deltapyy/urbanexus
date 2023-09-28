@@ -8,7 +8,7 @@
     <meta name="description" content="Kelurahan" />
 
     <!-- ========== Page Title ========== -->
-    <title>Kelurahan</title>
+    <title>Kelurahan Cipayung</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link
@@ -199,18 +199,16 @@
           <div class="row align-center">
             <div class="col-lg-6 info">
               <h2 class="wow fadeInLeft" data-wow-defaul="300ms">
-                Kelurahan Awan
+                Kelurahan Cipayung
               </h2>
               <p class="wow fadeInLeft" data-wow-delay="500ms">
-                "Jargon Kelurahan Ini. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quisquam laboriosam atque quis? Veritatis enim
-                voluptas nesciunt molestiae, velit expedita reiciendis illum
-                rerum, necessitatibus, eveniet aut quasi qui molestias sit
-                obcaecati? "
+                Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
+                Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di 
+                Kecamatan Cipayung, Jakarta Timur. Wilayah Cipayung terletak cukup dekat dengan pusat kota Jakarta.
               </p>
               <div class="button">
                 <a
-                  href="https://www.youtube.com/"
+                  href="https://www.youtube.com/watch?v=cNHvSZLsK_Y"
                   class="relative popup-youtube video-btn"
                   ><i class="fas fa-play"></i>Profil</a
                 >
@@ -237,15 +235,14 @@
         <div class="row align-center">
           <div class="feature-style-five col-lg-5">
             <h4>Visi Misi</h4>
-            <h2>
-              Memajukan Daerah <br />
-              Dan Warga.
-            </h2>
+            <h3>
+             <b>Menjadi Kelurahan yang Unggul, Berdaya Saing, dan Berkualitas <br />
+             dengan Masyarakat yang Sejahtera.</b>
+            </h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-              unde deleniti consequuntur ex, eveniet dicta? Cum earum eum
-              corrupti, fugiat excepturi, cupiditate error neque atque quo saepe
-              aut, similique sunt!
+            Kelurahan Cipayung memiliki potensi dan tantangan yang berkaitan dengan perkembangan kota, 
+            termasuk masalah lalu lintas, lingkungan, dan infrastruktur. Seiring dengan perkembangan 
+            Jakarta, Kelurahan Cipayung terus berupaya untuk meningkatkan kualitas hidup dan pelayanan kepada penduduknya.
             </p>
             <div class="feature-fact mt-35">
               <div class="fun-fact">
@@ -271,18 +268,16 @@
               <div class="feature-style-five-grid col-lg-6 col-md-6">
                 <div class="item">
                   <i class="far fa-monitor-heart-rate"></i>
-                  <h4>Visi/Misi 1</h4>
+                  <h4>Pelayanan Publik Unggul</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repudiandae unde laboriosam mollitia omnis.
+                  Memberikan pelayanan publik yang prima, cepat, dan transparan kepada semua warga kelurahan.
                   </p>
                 </div>
                 <div class="item">
                   <i class="fas fa-chart-pie"></i>
-                  <h4>Visi/Misi 2</h4>
+                  <h4>Partisipasi Aktif</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repudiandae unde laboriosam mollitia omnis.
+                  Mendorong partisipasi aktif warga dalam pembangunan kelurahan dan pengambilan kebijakan.
                   </p>
                 </div>
               </div>
@@ -292,18 +287,17 @@
               <div class="feature-style-five-grid col-lg-6 col-md-6">
                 <div class="item">
                   <i class="fas fa-comments-alt"></i>
-                  <h4>Visi/Misi 3</h4>
+                  <h4>Pengelolaan Lingkungan</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repudiandae unde laboriosam mollitia omnis.
+                  Memastikan lingkungan yang bersih, hijau, dan berkelanjutan dengan 
+                  mengelola sampah dan lingkungan secara bertanggung jawab.
                   </p>
                 </div>
                 <div class="item">
                   <i class="fas fa-rocket"></i>
-                  <h4>Visi/Misi 4</h4>
+                  <h4>Kesejahteraan Sosial</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi repudiandae unde laboriosam mollitia omnis.
+                  Menyediakan layanan kesejahteraan sosial yang mendukung warga yang membutuhkan.
                   </p>
                 </div>
               </div>
@@ -364,6 +358,18 @@
                 aria-selected="false"
               >
                 <h4>Terjadi Bencana</h4>
+              </button>
+              <button
+                class="nav-link"
+                id="nav-id-2"
+                data-bs-toggle="tab"
+                data-bs-target="#tab2"
+                type="button"
+                role="tab"
+                aria-controls="tab2"
+                aria-selected="false"
+              >
+                <h4>Sesudah Bencana</h4>
               </button>
 
             </div>
@@ -436,7 +442,7 @@
 
     <!-- Start Free Trial
     ============================================= -->
-    <div class="free-trial-area text-light text-center relative">
+    <!-- <div class="free-trial-area text-light text-center relative">
       <div
         class="trial-box"
         style="background-image: url(assets/img/shape/8.png)"
@@ -465,12 +471,12 @@
           <img src="assets/img/illustration/1.png" alt="illustration" />
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- End Free Trial -->
 
     <!-- Start Footer
     ============================================= -->
-    <footer class="bg-dark text-light">
+    <footer id="footer"  class="bg-dark text-light">
       <div class="container">
         <div class="f-items default-padding">
           <div class="row">
@@ -478,10 +484,9 @@
               <div class="f-item about">
                 <!-- <img src="assets/img/logo-light.png" alt="Logo" /> -->
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. In
-                  eaque rerum ullam provident commodi eveniet consequatur beatae
-                  vel veniam molestias placeat autem harum, dolorem tempore
-                  incidunt consequuntur, voluptate voluptates dolores!
+                Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
+                Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di 
+                Kecamatan Cipayung, Jakarta Timur. Wilayah Cipayung terletak cukup dekat dengan pusat kota Jakarta.
                 </p>
               </div>
             </div>
@@ -489,7 +494,7 @@
               <div class="f-item link">
                 <ul>
                   <li>
-                    <a href="index.html"
+                    <a href="#home"
                       ><i class="fas fa-angle-right"></i> Home</a
                     >
                   </li>
@@ -517,7 +522,7 @@
                       </div>
                       <div class="content">
                         <strong>Alamat:</strong>
-                        5919 Trussville, Surakarta
+                        Depok, Jawa Barat
                       </div>
                     </li>
                     <li>
@@ -526,7 +531,7 @@
                       </div>
                       <div class="content">
                         <strong>Email:</strong>
-                        <a href="mailto:#">info@mail</a>
+                        <a href="mailto:urbanexus2023@gmail.com">urbanexus2023@gmail.com</a>
                       </div>
                     </li>
                     <li>
@@ -535,7 +540,7 @@
                       </div>
                       <div class="content">
                         <strong>Phone:</strong>
-                        <a href="tel:2151234567">+123 34598768</a>
+                        <a href="#">-</a>
                       </div>
                     </li>
                   </ul>
@@ -550,18 +555,18 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6">
-              <p>Kelurahan 2023</p>
+              <p>Copyright &copy; Kelurahan Cipayung <script>document.write(new Date().getFullYear())</script></p>
             </div>
             <div class="col-lg-6 text-end link">
               <ul>
                 <li>
-                  <a href="about-us.html">Terms</a>
+                  <a href="#">Terms</a>
                 </li>
                 <li>
-                  <a href="about-us.html">Privacy</a>
+                  <a href="#">Privacy</a>
                 </li>
                 <li>
-                  <a href="contact.html">Support</a>
+                  <a href="#">Support</a>
                 </li>
               </ul>
             </div>

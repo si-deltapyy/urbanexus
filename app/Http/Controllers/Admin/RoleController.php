@@ -25,7 +25,7 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         Role::create($validated);
 
-        return to_route('admin.roles.index')->with('message', 'Role Created successfully.');
+        return to_route('super_admin.roles.index')->with('message', 'Role Created successfully.');
     }
 
     public function edit(Role $role)

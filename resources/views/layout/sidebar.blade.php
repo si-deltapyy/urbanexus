@@ -95,18 +95,54 @@
                 @endif
             @endrole
 
-            @role('admin')
+            @role('super_admin')
                 <li class="nav-item nav-category">User</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.users.index') }}" class="nav-link">
+                    <a href="{{ route('super_admin.users.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="users"></i>
                         <span class="link-title">Daftar User</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.roles.index') }}" class="nav-link">
+                    <a href="{{ route('super_admin.roles.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="user-check"></i>
                         <span class="link-title">Role</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-category">Kuisioner</li>
+                <li class="nav-item">
+                    <a href="{{ route('super_admin.daftar_pertanyaan.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="folder-plus"></i>
+                        <span class="link-title">Daftar Kuisioner</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-category">Respon Kuisioner</li>
+                <li class="nav-item">
+                    <a href="{{ route('super_admin.kuisioner_sb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Sebelum Bencana</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('super_admin.kuisioner_tb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Terjadi Bencana</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('super_admin.kuisioner_sdb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Sesudah Bencana</span>
+                    </a>
+                </li>
+            @endrole
+
+            @role('admin')
+            <li class="nav-item nav-category">Daftar RW/RT</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.admin_rw.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="users"></i>
+                        <span class="link-title">Daftar RW/RT</span>
                     </a>
                 </li>
                 <li class="nav-item nav-category">Kuisioner</li>
@@ -118,24 +154,22 @@
                 </li>
                 <li class="nav-item nav-category">Respon Kuisioner</li>
                 <li class="nav-item">
-                    <li class="nav-item">
-                        <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
-                            <i class="link-icon" data-feather="message-square"></i>
-                            <span class="link-title">Sebelum Bencana</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.kuisioner_tb.index') }}" class="nav-link">
-                            <i class="link-icon" data-feather="message-square"></i>
-                            <span class="link-title">Terjadi Bencana</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.kuisioner_sdb.index') }}" class="nav-link">
-                            <i class="link-icon" data-feather="message-square"></i>
-                            <span class="link-title">Sesudah Bencana</span>
-                        </a>
-                    </li>
+                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Sebelum Bencana</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.kuisioner_tb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Terjadi Bencana</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.kuisioner_sdb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="message-square"></i>
+                        <span class="link-title">Sesudah Bencana</span>
+                    </a>
                 </li>
             @endrole
             {{-- <li class="nav-item nav-category">Menu</li>

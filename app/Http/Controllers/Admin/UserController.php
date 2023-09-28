@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rt;
+use App\Models\Rw;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
@@ -13,8 +15,10 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $rws = Rw::all();
+        $rts = Rt::all();
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.index', compact('users', 'rws', 'rts'));
     }
 
     public function show(User $user)

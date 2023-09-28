@@ -45,11 +45,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function rt()
     {
-        return $this->hasMany(Rt::class);
+        return $this->hasOne(Rt::class);
     }
     public function rw()
     {
-        return $this->hasMany(Rw::class);
+        return $this->hasOne(Rw::class);
     }
     public function repon_kuisioner()
     {
