@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResponKuisioner;
+use App\Models\Rw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
     public function index()
     {
-
-
-        $data = DB::table('respon_kuisioner')
-        ->join('users', 'respon_kuisioner.user_id', '=', 'users.id')
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        $laporan = ResponKuisioner::join('users', 'respon_kuisioner.user_id', '=', 'users.id')
         ->join('pertanyaan', 'respon_kuisioner.pertanyaan_id', '=', 'pertanyaan.id')
         ->select(
             'user_id',
@@ -25,11 +27,8 @@ class ReportController extends Controller
         ->groupBy('user_id', 'name', 'timestamp')
         ->get();
 
+        // dd($laporan);
 
-
-
-        // dd($data);
-
-        return view('pages.report-pages', compact('data'));
+        return view('pages.report-pages', compact('laporan', 'data'));
     }
 }
