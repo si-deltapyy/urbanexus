@@ -92,21 +92,21 @@
                                             </td>
                                             <td class="text-center justify-content-center in-line align-top"
                                                 data-kt-menu="true">
-                                                <a class="btn icon btn-sm btn-success"
+                                                <a class="btn icon btn-sm btn-primary"
                                                     data-bs-target="#tambah{{ $kuisioner->id }}"
                                                     data-id="{{ $kuisioner->id }}" data-bs-toggle="modal"
                                                     title="Detail kuisioner">
-                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i data-feather="file-text"></i>
                                                 </a>
                                                 {{-- <a class="btn icon btn-sm btn-primary"
                                                     href="{{ route('admin.pertanyaan.show', $kuisioner->id) }}"
                                                     title="Detail kuisioner">
                                                     <i class="bi bi-eye-fill"></i>
                                                 </a> --}}
-                                                <a class="btn icon btn-sm btn-warning"
+                                                <a class="btn icon btn-sm btn-success"
                                                     href="{{ route('admin.pertanyaan.edit', $kuisioner->id) }}"
                                                     title="Edit kuisioner">
-                                                    <i class="bi bi-pencil-fill"></i>
+                                                    <i data-feather="edit-3"></i>
                                                 </a>
                                                 <form action="{{ route('admin.pertanyaan.destroy', $kuisioner->id) }}"
                                                     method="POST" class="d-inline">
@@ -114,7 +114,7 @@
                                                     @csrf
                                                     <button class="btn icon btn-sm btn-danger"
                                                         onclick="return confirm('Are you sure?')" title="Hapus kuisioner">
-                                                        <i class="bi bi-trash3-fill"></i>
+                                                        <i data-feather="trash-2"></i>
                                                     </button>
                                                 </form>
                                             </td>

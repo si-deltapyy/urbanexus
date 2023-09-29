@@ -81,7 +81,7 @@
                                                     <a class="btn icon btn-sm btn-primary"
                                                         href="{{ route('admin.kuisioner_tb.show', $riwayat->group_id) }}"
                                                         title="Detail">
-                                                        <i class="bi bi-eye-fill"></i>
+                                                        <i data-feather="file-text"></i>
                                                     </a>
                                                 @endrole
                                             </td>

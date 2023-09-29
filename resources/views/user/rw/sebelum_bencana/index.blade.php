@@ -67,9 +67,10 @@
                                             </td>
                                             <td>
                                                 <a class="btn icon btn-sm btn-primary"
-                                                    href="{{ route('rw.kuisioner_sb.show', $riwayat->group_id) }}"
-                                                    title="Detail">
-                                                    <i class="bi bi-eye-fill"></i>
+                                                href="{{ route('rw.kuisioner_sb.show', $riwayat->group_id) }}"
+                                                title="Detail">
+                                                <i data-feather="file-text">
+                                                </i>
                                                 </a>
                                                 {{-- <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
                                                 action="{{ route('admin.roles.destroy', $role->id) }}"
