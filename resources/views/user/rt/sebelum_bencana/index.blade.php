@@ -48,7 +48,7 @@
                                                 <a class="btn icon btn-sm btn-primary"
                                                     href="{{ route('rt.kuisioner_sb.show', $riwayat->group_id) }}"
                                                     title="Detail">
-                                                    <i class="bi bi-eye-fill"></i>
+                                                    <i data-feather="file-text"></i>
                                                 </a>
                                                 {{-- <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
                                                 action="{{ route('admin.roles.destroy', $role->id) }}"

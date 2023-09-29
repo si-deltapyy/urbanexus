@@ -64,9 +64,10 @@
                                             </td>
                                             <td>
                                                 @role('super_admin')
-                                                    <a class="btn btn-sm btn-primary"
+                                                    <a class="btn icon btn-sm btn-primary"
                                                         href="{{ route('super_admin.kuisioner_sb.show', $riwayat->group_id) }}"
                                                         title="Detail">
+                                                        <i data-feather="file-text"></i>
                                                     </a>
                                                     <form class=" hover:bg-red-900 text-white rounded-md" method="POST"
                                                         action="{{ route('super_admin.kuisioner_sb.destroy', $riwayat->group_id) }}"
@@ -77,10 +78,10 @@
                                                     </form>
                                                 @endrole
                                                 @role('admin')
-                                                    <a class="btn btn-sm btn-primary"
+                                                    <a class="btn icon btn-sm btn-primary"
                                                         href="{{ route('admin.kuisioner_sb.show', $riwayat->group_id) }}"
                                                         title="Detail">
-                                                        <i class="bi bi-eye-fill"></i>
+                                                        <i data-feather="file-text"></i>
                                                     </a>
                                                 @endrole
                                             </td>
