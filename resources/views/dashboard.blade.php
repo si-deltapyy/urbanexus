@@ -50,6 +50,7 @@
           </div>
         </div>
         <div class="mt-5" id="apexLine"></div>
+    </div>
       </div>
     </div>
   </div>
