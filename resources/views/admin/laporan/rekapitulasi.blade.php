@@ -23,7 +23,6 @@
             <th>No</th>
             <th>RW</th>
             <th>RT</th>
-            <th>Nama</th>
             <th>Jumlah Penduduk</th>
             <th>Jumlah Warga Terdampak </th>
             <th>Waktu Diperbarui</th>
@@ -65,7 +64,6 @@
                                 @endif
                             @endforeach
                         </td>
-                        <td>{{ $user->name }}</td>
                         <td> {{ $item['total_jawaban'] }}</td>
                         <td>{{ $item['jawaban_91'] }}</td>
                         <td>{{ $item['timestamp'] }}</td>                        
