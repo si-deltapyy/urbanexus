@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminRWController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\OpsiJawabanController;
+use App\Http\Controllers\Admin\PDFDownloadController;
 use App\Http\Controllers\rt\SebelumBencanaRtController;
 use App\Http\Controllers\rt\SesudahBencanaRtController;
 use App\Http\Controllers\rt\TerjadiBencanaRtController;
@@ -73,6 +74,9 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);
     Route::resource('/kuisioner_tb', TerjadiBencanaAdminController::class);
     Route::resource('/kuisioner_sdb', SesudahBencanaAdminController::class);
+    Route::get('/sebelum_bencana_pdf', [PDFDownloadController::class, 'sebelum_bencana'])->name('sebelum_bencana_pdf');
+    Route::get('/sesudah_bencana_pdf', [PDFDownloadController::class, 'sesudah_bencana'])->name('sesudah_bencana_pdf');
+    Route::get('/terjadi_bencana_pdf', [PDFDownloadController::class, 'terjadi_bencana'])->name('terjadi_bencana_pdf');
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
@@ -108,4 +112,4 @@ Route::get('/welcome-2', function () {
 
 Route::get('/report', function () {
     return view('pages/report-pages');
-})->name('pages.report-pages');
+})->name('report');

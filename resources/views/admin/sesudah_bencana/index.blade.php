@@ -16,8 +16,11 @@
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('admin.sesudah_bencana_pdf') }}" class="btn btn-primary">Unduh PDF</a>
+                    </div>
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="dataTableExample">
                             <thead>
                                 <tr>
                                     <th>No</th>
