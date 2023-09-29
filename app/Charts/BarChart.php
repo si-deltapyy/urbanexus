@@ -27,10 +27,10 @@ class BarChart
         ];
 
         return $this->chart->barChart()
-            ->setTitle('San Francisco vs Boston.')
-            ->setSubtitle('Wins during season 2021.')
-            ->addData('San Francisco', $data)
-            ->addData('Boston', [7, 3, 8, 2, 6, 4])
+            ->setTitle('')
+            ->addData('Responden', $data)
+            ->addData('Laporan', [7, 3, 8, 2, 6, 4])
+            ->addData('Warga Terdampak', [3, 3, 2, 10, 1, 2])
             ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
     }
 }

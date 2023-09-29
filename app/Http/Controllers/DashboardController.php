@@ -32,9 +32,6 @@ class DashboardController extends Controller
         ->groupBy('user_id', 'name', 'timestamp')
         ->get();
 
-
-
-
         // dd($data);
 
         return view('dashboard', compact('data', 'rt', 'responKuisioner', 'data2'));
