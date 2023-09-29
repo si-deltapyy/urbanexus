@@ -34,6 +34,8 @@
                 required
                 autocomplete="current-password"
                 name="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Harus berisi minimal satu angka dan satu huruf besar dan kecil, serta minimal 8 karakter atau lebih"
                 />
                 <input
                   type="password"
