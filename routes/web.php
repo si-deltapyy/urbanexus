@@ -78,6 +78,8 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/sebelum_bencana_pdf', [PDFDownloadController::class, 'sebelum_bencana'])->name('sebelum_bencana_pdf');
     Route::get('/sesudah_bencana_pdf', [PDFDownloadController::class, 'sesudah_bencana'])->name('sesudah_bencana_pdf');
     Route::get('/terjadi_bencana_pdf', [PDFDownloadController::class, 'terjadi_bencana'])->name('terjadi_bencana_pdf');
+    Route::get('/report', [ReportController::class, 'index'])->name('report');
+    Route::get('/data_table_pdf', [PDFDownloadController::class, 'data_table'])->name('data_table_pdf');
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
@@ -115,4 +117,4 @@ Route::get('/report', function () {
     return view('pages/report-pages');
 })->name('report');
 
-Route::get('/report', [ReportController::class, 'index'])->name('report');
+
