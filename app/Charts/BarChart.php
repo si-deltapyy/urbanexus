@@ -27,15 +27,15 @@ class BarChart
         ];
 
         return $this->chart->barChart()
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+
+            ->addData('Responden', [7, 3, 8, 2, 6, 4])
+=========
             ->setTitle('')
             ->addData('Responden', $data)
             ->addData('Laporan', [7, 3, 8, 2, 6, 4])
             ->addData('Warga Terdampak', [3, 3, 2, 10, 1, 2])
-=======
-
-            ->addData('Responden', [7, 3, 8, 2, 6, 4])
->>>>>>> 5731148477a5964caf5eab7f966011fca55fb6cb
+>>>>>>>>> Temporary merge branch 2
             ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
     }
 }
