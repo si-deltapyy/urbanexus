@@ -203,7 +203,7 @@
               </h2>
               <p class="wow fadeInLeft" data-wow-delay="500ms">
                 Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
-                Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di 
+                Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di
                 Kecamatan Cipayung, Jakarta Timur. Wilayah Cipayung terletak cukup dekat dengan pusat kota Jakarta.
               </p>
               <div class="button">
@@ -240,8 +240,8 @@
              dengan Masyarakat yang Sejahtera.</b>
             </h3>
             <p>
-            Kelurahan Cipayung memiliki potensi dan tantangan yang berkaitan dengan perkembangan kota, 
-            termasuk masalah lalu lintas, lingkungan, dan infrastruktur. Seiring dengan perkembangan 
+            Kelurahan Cipayung memiliki potensi dan tantangan yang berkaitan dengan perkembangan kota,
+            termasuk masalah lalu lintas, lingkungan, dan infrastruktur. Seiring dengan perkembangan
             Jakarta, Kelurahan Cipayung terus berupaya untuk meningkatkan kualitas hidup dan pelayanan kepada penduduknya.
             </p>
             <div class="feature-fact mt-35">
@@ -289,7 +289,7 @@
                   <i class="fas fa-comments-alt"></i>
                   <h4>Pengelolaan Lingkungan</h4>
                   <p>
-                  Memastikan lingkungan yang bersih, hijau, dan berkelanjutan dengan 
+                  Memastikan lingkungan yang bersih, hijau, dan berkelanjutan dengan
                   mengelola sampah dan lingkungan secara bertanggung jawab.
                   </p>
                 </div>
@@ -424,7 +424,8 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
-                        <div id="chart2">
+                        <div class="p-6 m-20 bg-white rounded shadow">
+                            {!! $TestChart->container() !!}
                         </div>
                     </div>
                   </div>
@@ -485,7 +486,7 @@
                 <!-- <img src="assets/img/logo-light.png" alt="Logo" /> -->
                 <p>
                 Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
-                Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di 
+                Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di
                 Kecamatan Cipayung, Jakarta Timur. Wilayah Cipayung terletak cukup dekat dengan pusat kota Jakarta.
                 </p>
               </div>
@@ -597,6 +598,13 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
+
+    {{-- Grafik BarChart --}}
+    <script src="{{ $TestChart->cdn() }}"></script>
+
+    {{$TestChart->script()}}
+
+
     <script>
     var options = {
         chart: {

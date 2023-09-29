@@ -1,19 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\IndexController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\AdminRTController;
-use App\Http\Controllers\Admin\AdminRWController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\OpsiJawabanController;
-use App\Http\Controllers\Admin\PertanyaanController;
-use App\Http\Controllers\Admin\SebelumBencanaAdminController;
-use App\Http\Controllers\Admin\SesudahBencanaAdminController;
-use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\rt\RtController;
 use App\Http\Controllers\rw\RwController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\AdminRTController;
+use App\Http\Controllers\Admin\AdminRWController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\PertanyaanController;
+use App\Http\Controllers\Admin\OpsiJawabanController;
 use App\Http\Controllers\rt\SebelumBencanaRtController;
 use App\Http\Controllers\rt\SesudahBencanaRtController;
 use App\Http\Controllers\rt\TerjadiBencanaRtController;
@@ -21,12 +20,16 @@ use App\Http\Controllers\rw\SebelumBencanaRWController;
 use App\Http\Controllers\rw\SesudahBencanaRwController;
 use App\Http\Controllers\rw\TerjadiBencanaRwController;
 use App\Http\Controllers\super_admin\PertanyaanSAController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SebelumBencanaAdminController;
+use App\Http\Controllers\Admin\SesudahBencanaAdminController;
+use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [LandingController::class, 'index'])->name('welcome');
 
 Route::get('/login', function () {
     return view('auth/login');

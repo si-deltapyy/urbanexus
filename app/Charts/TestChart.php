@@ -2,20 +2,19 @@
 
 namespace App\Charts;
 
-use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\DB;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
-class ByCategoriesChart
+class TestChart
 {
     protected $chart;
 
     public function __construct(LarapexChart $chart)
     {
         $this->chart = $chart;
-
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build(): \ArielMejiaDev\LarapexCharts\PieChart
     {
 
         $kategoriPertanyaan = DB::table('respon_kuisioner')
@@ -23,7 +22,6 @@ class ByCategoriesChart
             ->select('pertanyaan.kategori_pertanyaan')
             ->groupBy('pertanyaan.kategori_pertanyaan')
             ->get();
-
 
             $jenis = [
                 $kategoriPertanyaan->where('kategori_pertanyaan', 'Sebelum Bencana')->count(),
@@ -37,13 +35,9 @@ class ByCategoriesChart
             'Sesudah Bencana'
         ];
 
-        return $this->chart->barChart()
-        ->setTitle('Total Pelaporan Bencana')
-        ->setSubtitle('Laporan')
-        ->addData(['Sebelum Bencana'], [$sebelum])
-        ->addData(['Terjadi Bencana'], [$terjadi])
-        ->addData(['Sesudah Bencana'], [$sesudah])
-        ->setXAxis($label);
-
+        return $this->chart->pieChart()
+            ->setTitle('Laporan Per Kategori')
+            ->addData($jenis)
+            ->setLabels($label);
     }
 }

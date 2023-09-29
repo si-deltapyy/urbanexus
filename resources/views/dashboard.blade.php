@@ -356,17 +356,15 @@
       <div class="card">
         <div class="card-body">
           <h6 class="card-title">Data Table</h6>
-          <p class="text-muted mb-3">Read the <a href="https://datatables.net/" target="_blank"> Official DataTables Documentation </a>for a full list of instructions and other options.</p>
           <div class="table-responsive">
             <table id="dataTableExample" class="table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>RT</th>
+                  <th>Nama</th>
+                  <th>Jumlah Penduduk</th>
+                  <th>Jumlah Warga Terdampak </th>
+                  <th>Waktu Diperbarui</th>
                 </tr>
               </thead>
               <tbody>
@@ -376,7 +374,6 @@
                   <td>Edinburgh</td>
                   <td>61</td>
                   <td>2011/04/25</td>
-                  <td>$320,800</td>
                 </tr>
               </tbody>
             </table>
