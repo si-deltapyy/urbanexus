@@ -398,8 +398,9 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
+                        <div id="chart1"><div class="p-6 m-20rounded shadow">
                             {!! $BarChart->container() !!}
-                        </div>
+                        </div></div>
                     </div>
                   </div>
                 </div>
@@ -424,7 +425,9 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
+                        <div class="p-6 m-20rounded shadow">
                             {!! $TestChart->container() !!}
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -608,22 +611,7 @@
 
 
     <script>
-    var options = {
-        chart: {
-          type: 'line'
-        },
-        series: [{
-          name: 'Responden',
-          data: [30,40,45,50,49,60,70,91,125]
-        }],
-        xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-        }
-      }
 
-      var chart = new ApexCharts(document.querySelector("#chart1"), options);
-
-      chart.render();
 
     //   chart 2
     var options = {
