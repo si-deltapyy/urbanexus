@@ -171,6 +171,13 @@
                         <span class="link-title">Sesudah Bencana</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('report') }}" class="nav-link">
+                        <i class="link-icon" data-feather="folder-plus"></i>
+                        <span class="link-title">Report</span>
+                    </a>
+                </li>
             @endrole
             {{-- <li class="nav-item nav-category">Menu</li>
             <li class="nav-item {{ active_class(['email/*']) }}">
@@ -226,12 +233,7 @@
               </div>
             </li> --}}
 
-            <li class="nav-item">
-                <a href="{{ route('report') }}" class="nav-link">
-                    <i class="link-icon" data-feather="folder-plus"></i>
-                    <span class="link-title">Report</span>
-                </a>
-            </li>
+
 
             <li class="nav-item">
                 <form method="POST" action="{{ route('logout') }}">

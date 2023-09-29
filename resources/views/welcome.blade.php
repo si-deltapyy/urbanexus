@@ -398,7 +398,7 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
-                        <div id="chart1">
+                            {!! $BarChart->container() !!}
                         </div>
                     </div>
                   </div>
@@ -424,9 +424,7 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="info">
-                        <div class="p-6 m-20 bg-white rounded shadow">
                             {!! $TestChart->container() !!}
-                        </div>
                     </div>
                   </div>
                 </div>
@@ -603,6 +601,10 @@
     <script src="{{ $TestChart->cdn() }}"></script>
 
     {{$TestChart->script()}}
+
+    <script src="{{ $BarChart->cdn() }}"></script>
+
+    {{$BarChart->script()}}
 
 
     <script>

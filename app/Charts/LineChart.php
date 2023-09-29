@@ -16,6 +16,7 @@ class LineChart
     public function build(): \ArielMejiaDev\LarapexCharts\LineChart
     {
 
+
         return $this->chart->lineChart()
             ->setTitle('Sales during 2021.')
             ->setSubtitle('Physical sales vs Digital sales.')
