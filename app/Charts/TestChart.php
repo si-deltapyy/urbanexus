@@ -36,7 +36,7 @@ class TestChart
         ];
 
         return $this->chart->pieChart()
-            ->setTitle('Laporan Per Kategori')
+            ->setTitle('')
             ->addData($jenis)
             ->setLabels($label);
     }

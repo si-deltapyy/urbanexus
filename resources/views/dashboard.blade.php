@@ -129,7 +129,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                      @foreach ($data as $item)
+                      @foreach ($data2 as $item)
                     <tr>
                         <td>{{ $item->user_id }}</td>
                         <td>{{ $item->name }}</td>
@@ -266,7 +266,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                      @foreach ($data as $item)
+                      @foreach ($data2 as $item)
                     <tr>
                         <td>{{ $item->user_id }}</td>
                         <td>{{ $item->name }}</td>
@@ -402,7 +402,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                      @foreach ($data as $item)
+                      @foreach ($data2 as $item)
                     <tr>
                         <td>{{ $item->user_id }}</td>
                         <td>{{ $item->name }}</td>

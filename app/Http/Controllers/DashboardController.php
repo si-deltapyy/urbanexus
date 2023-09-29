@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $rt = Rt::where('user_id', $user->id)->first();
         $responKuisioner = ResponKuisioner::all();
 
-        $data = DB::table('respon_kuisioner')
+        $data2 = DB::table('respon_kuisioner')
         ->join('users', 'respon_kuisioner.user_id', '=', 'users.id')
         ->join('pertanyaan', 'respon_kuisioner.pertanyaan_id', '=', 'pertanyaan.id')
         ->select(
@@ -37,6 +37,6 @@ class DashboardController extends Controller
 
         // dd($data);
 
-        return view('dashboard', compact('data', 'rt', 'responKuisioner', 'data'));
+        return view('dashboard', compact('data', 'rt', 'responKuisioner', 'data2'));
     }
 }

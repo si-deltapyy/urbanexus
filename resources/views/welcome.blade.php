@@ -345,7 +345,7 @@
                 aria-controls="tab1"
                 aria-selected="true"
               >
-                <h4>Sebelum Bencana</h4>
+                <h4>Jumlah Responden</h4>
               </button>
               <button
                 class="nav-link"
@@ -357,19 +357,7 @@
                 aria-controls="tab2"
                 aria-selected="false"
               >
-                <h4>Terjadi Bencana</h4>
-              </button>
-              <button
-                class="nav-link"
-                id="nav-id-2"
-                data-bs-toggle="tab"
-                data-bs-target="#tab2"
-                type="button"
-                role="tab"
-                aria-controls="tab2"
-                aria-selected="false"
-              >
-                <h4>Sesudah Bencana</h4>
+                <h4>Laporan Kejadian</h4>
               </button>
 
             </div>
@@ -396,10 +384,11 @@
                       />
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 bg-light rounded">
                     <div class="info">
+                        <div id="chart1"><div class="p-6 m-20rounded shadow">
                             {!! $BarChart->container() !!}
-                        </div>
+                        </div></div>
                     </div>
                   </div>
                 </div>
@@ -422,9 +411,11 @@
                       />
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 bg-light rounded">
                     <div class="info">
+                        <div class="p-6 m-20rounded shadow">
                             {!! $TestChart->container() !!}
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -608,22 +599,7 @@
 
 
     <script>
-    var options = {
-        chart: {
-          type: 'line'
-        },
-        series: [{
-          name: 'Responden',
-          data: [30,40,45,50,49,60,70,91,125]
-        }],
-        xaxis: {
-          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-        }
-      }
 
-      var chart = new ApexCharts(document.querySelector("#chart1"), options);
-
-      chart.render();
 
     //   chart 2
     var options = {
