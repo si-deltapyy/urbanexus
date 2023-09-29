@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\rt\RtController;
 use App\Http\Controllers\rw\RwController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
@@ -113,3 +114,5 @@ Route::get('/welcome-2', function () {
 Route::get('/report', function () {
     return view('pages/report-pages');
 })->name('report');
+
+Route::get('/report', [ReportController::class, 'index'])->name('report');

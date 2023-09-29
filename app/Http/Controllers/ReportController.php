@@ -2,21 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rt;
-use App\Models\Rw;
 use Illuminate\Http\Request;
-use App\Models\ResponKuisioner;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class ReportController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $data = Rw::where('user_id', $user->id)->first();
-        $rt = Rt::where('user_id', $user->id)->first();
-        $responKuisioner = ResponKuisioner::all();
+
 
         $data = DB::table('respon_kuisioner')
         ->join('users', 'respon_kuisioner.user_id', '=', 'users.id')
@@ -37,6 +30,6 @@ class DashboardController extends Controller
 
         // dd($data);
 
-        return view('dashboard', compact('data', 'rt', 'responKuisioner', 'data'));
+        return view('pages.report-pages', compact('data'));
     }
 }
