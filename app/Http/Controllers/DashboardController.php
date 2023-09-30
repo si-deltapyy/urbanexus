@@ -18,8 +18,7 @@ class DashboardController extends Controller
         $rt = Rt::where('user_id', $user->id)->first();
         $responKuisioner = ResponKuisioner::all();
 
-        $data2 = DB::table('respon_kuisioner')
-        ->join('users', 'respon_kuisioner.user_id', '=', 'users.id')
+        $data2 = ResponKuisioner::join('users', 'respon_kuisioner.user_id', '=', 'users.id')
         ->join('pertanyaan', 'respon_kuisioner.pertanyaan_id', '=', 'pertanyaan.id')
         ->select(
             'user_id',
@@ -32,7 +31,7 @@ class DashboardController extends Controller
         ->groupBy('user_id', 'name', 'timestamp')
         ->get();
 
-        // dd($data);
+        // dd($data2);
 
         return view('dashboard', compact('data', 'rt', 'responKuisioner', 'data2'));
     }
