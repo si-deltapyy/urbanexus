@@ -129,6 +129,7 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>RT</th>
                                         <th>Nama</th>
                                         <th>Jumlah Penduduk</th>
@@ -137,14 +138,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $nomorIterasi = 1 @endphp
                                     @foreach ($data2 as $item)
-                                        <tr>
-                                            <td>{{ $item->user_id }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td> {{ $item->total_jawaban }}</td>
-                                            <td>{{ $item->jawaban_91 }}</td>
-                                            <td>{{ $item->timestamp }}</td>
-                                        </tr>
+                                        @foreach ($item->user->roles as $role)
+                                            @if ($role->name == 'RT')
+                                                <tr>
+                                                    <td>{{ $nomorIterasi }}.</td>
+                                                    <td>{{ $item->user->rt->id ?? '-' }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td> {{ $item->total_jawaban }}</td>
+                                                    <td>{{ $item->jawaban_91 }}</td>
+                                                    <td>{{ $item->timestamp }}</td>
+                                                </tr>
+                                                @php $nomorIterasi++ @endphp
+                                            @endif
+                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
@@ -273,6 +281,7 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>RT</th>
                                         <th>Nama</th>
                                         <th>Jumlah Penduduk</th>
@@ -281,14 +290,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $nomorIterasi = 1 @endphp
                                     @foreach ($data2 as $item)
-                                        <tr>
-                                            <td>{{ $item->user_id }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td> {{ $item->total_jawaban }}</td>
-                                            <td>{{ $item->jawaban_91 }}</td>
-                                            <td>{{ $item->timestamp }}</td>
-                                        </tr>
+                                        @foreach ($item->user->roles as $role)
+                                            @if ($role->name == 'RT')
+                                                <tr>
+                                                    <td>{{ $nomorIterasi }}.</td>
+                                                    <td>{{ $item->user->rt->id ?? '-' }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td> {{ $item->total_jawaban }}</td>
+                                                    <td>{{ $item->jawaban_91 }}</td>
+                                                    <td>{{ $item->timestamp }}</td>
+                                                </tr>
+                                                @php $nomorIterasi++ @endphp
+                                            @endif
+                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
@@ -416,6 +432,7 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>RT</th>
                                         <th>Nama</th>
                                         <th>Jumlah Penduduk</th>
@@ -424,14 +441,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $nomorIterasi = 1 @endphp
                                     @foreach ($data2 as $item)
-                                        <tr>
-                                            <td>{{ $item->user_id }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td> {{ $item->total_jawaban }}</td>
-                                            <td>{{ $item->jawaban_91 }}</td>
-                                            <td>{{ $item->timestamp }}</td>
-                                        </tr>
+                                        @foreach ($item->user->roles as $role)
+                                            @if ($role->name == 'RT')
+                                                <tr>
+                                                    <td>{{ $nomorIterasi }}.</td>
+                                                    <td>{{ $item->user->rt->id ?? '-' }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td> {{ $item->total_jawaban }}</td>
+                                                    <td>{{ $item->jawaban_91 }}</td>
+                                                    <td>{{ $item->timestamp }}</td>
+                                                </tr>
+                                                @php $nomorIterasi++ @endphp
+                                            @endif
+                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
