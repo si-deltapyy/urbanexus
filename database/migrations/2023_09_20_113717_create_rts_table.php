@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('rw_id');
             $table->string('nama_rt');
             $table->string('email');
-            $table->integer('no_hp');
+            $table->string('no_hp');
             $table->string('pekerjaan');
             $table->string('alamat_kantor');
             $table->string('alamat_rumah');
