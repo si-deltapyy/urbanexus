@@ -130,6 +130,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>RW</th>
                                         <th>RT</th>
                                         <th>Nama</th>
                                         <th>Jumlah Penduduk</th>
@@ -139,20 +140,34 @@
                                 </thead>
                                 <tbody>
                                     @php $nomorIterasi = 1 @endphp
-                                    @foreach ($data2 as $item)
-                                        @foreach ($item->user->roles as $role)
-                                            @if ($role->name == 'RT')
+                                    @foreach ($dataAdmin as $item)
                                                 <tr>
                                                     <td>{{ $nomorIterasi }}.</td>
-                                                    <td>{{ $item->user->rt->id ?? '-' }}</td>
+                                                    <td>
+                                                        @foreach ($item->user->roles as $role)
+                                                        {{-- @dd($role) --}}
+                                                            @if ($role->name == 'RW')
+                                                                {{ optional($item->user->rw)->id }}
+                                                            @elseif ($role->name == 'RT')
+                                                                {{ $item->user->rt->rw->id ?? '-' }}
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                    <td>
+                                                        @foreach ($item->user->roles as $role)
+                                                            @if ($role->name == 'RW')
+                                                                {{ $item->user->rt->id ?? '-' }}
+                                                            @elseif ($role->name == 'RT')
+                                                                {{ $item->user->rt->id ?? '-' }}
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
                                                     <td>{{ $item->name }}</td>
                                                     <td> {{ $item->total_jawaban }}</td>
                                                     <td>{{ $item->jawaban_91 }}</td>
                                                     <td>{{ $item->timestamp }}</td>
                                                 </tr>
                                                 @php $nomorIterasi++ @endphp
-                                            @endif
-                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
@@ -291,7 +306,7 @@
                                 </thead>
                                 <tbody>
                                     @php $nomorIterasi = 1 @endphp
-                                    @foreach ($data2 as $item)
+                                    @foreach ($dataRt as $item)
                                         @foreach ($item->user->roles as $role)
                                             @if ($role->name == 'RT')
                                                 <tr>
@@ -433,6 +448,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>RW</th>
                                         <th>RT</th>
                                         <th>Nama</th>
                                         <th>Jumlah Penduduk</th>
@@ -442,20 +458,35 @@
                                 </thead>
                                 <tbody>
                                     @php $nomorIterasi = 1 @endphp
-                                    @foreach ($data2 as $item)
-                                        @foreach ($item->user->roles as $role)
-                                            @if ($role->name == 'RT')
+                                    @foreach ($dataRw as $item)
                                                 <tr>
                                                     <td>{{ $nomorIterasi }}.</td>
-                                                    <td>{{ $item->user->rt->id ?? '-' }}</td>
+                                                    <td>
+                                                        @foreach ($item->user->roles as $role)
+                                                        {{-- @dd($role) --}}
+                                                            @if ($role->name == 'RW')
+                                                                {{ optional($item->user->rw)->id }}
+                                                            @elseif ($role->name == 'RT')
+                                                                {{ $item->user->rt->rw->id ?? '-' }}
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                    <td>
+                                                        @foreach ($item->user->roles as $role)
+                                                            @if ($role->name == 'RW')
+                                                                {{ $item->user->rt->id ?? '-' }}
+                                                            @elseif ($role->name == 'RT')
+                                                                {{ $item->user->rt->id ?? '-' }}
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                    {{-- <td>{{ $item->user->rt->id ?? '-' }}</td> --}}
                                                     <td>{{ $item->name }}</td>
                                                     <td> {{ $item->total_jawaban }}</td>
                                                     <td>{{ $item->jawaban_91 }}</td>
                                                     <td>{{ $item->timestamp }}</td>
                                                 </tr>
                                                 @php $nomorIterasi++ @endphp
-                                            @endif
-                                        @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
