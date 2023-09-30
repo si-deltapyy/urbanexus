@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PertanyaanSeeder::class);
         $this->call(OpsiJawabanSeeder::class);
-        // $this->call(ResponKuisionerSeeder::class);
+        $this->call(ResponKuisionerSeeder::class);
     }
 }

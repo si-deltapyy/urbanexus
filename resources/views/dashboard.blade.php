@@ -433,7 +433,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>RT</th>
+                                        <th>RW</th>
                                         <th>Nama</th>
                                         <th>Jumlah Penduduk</th>
                                         <th>Jumlah Warga Terdampak </th>
@@ -444,10 +444,10 @@
                                     @php $nomorIterasi = 1 @endphp
                                     @foreach ($data2 as $item)
                                         @foreach ($item->user->roles as $role)
-                                            @if ($role->name == 'RT')
+                                            @if ($role->name == 'RW')
                                                 <tr>
                                                     <td>{{ $nomorIterasi }}.</td>
-                                                    <td>{{ $item->user->rt->id ?? '-' }}</td>
+                                                    <td>{{ $item->user->rw->id ?? '-' }}</td>
                                                     <td>{{ $item->name }}</td>
                                                     <td> {{ $item->total_jawaban }}</td>
                                                     <td>{{ $item->jawaban_91 }}</td>
