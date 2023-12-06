@@ -8,7 +8,7 @@
     <meta name="description" content="Kelurahan" />
 
     <!-- ========== Page Title ========== -->
-    <title>Kelurahan X</title>
+    <title>Kelurahan Cipayung</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link
@@ -199,12 +199,12 @@
           <div class="row align-center">
             <div class="col-lg-6 info">
               <h2 class="wow fadeInLeft" data-wow-defaul="300ms">
-                Kelurahan X
+                Kelurahan Cipayung
               </h2>
               <p class="wow fadeInLeft" data-wow-delay="500ms">
-                Kelurahan X adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
+                Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
                 Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di
-                Kecamatan X, Jakarta Timur. Wilayah X terletak cukup dekat dengan pusat kota Jakarta.
+                Kecamatan Cipayung, Jakarta Timur. Wilayah X terletak cukup dekat dengan pusat kota Jakarta.
               </p>
               <div class="button">
                 <a
