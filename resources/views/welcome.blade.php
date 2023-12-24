@@ -204,7 +204,7 @@
               <p class="wow fadeInLeft" data-wow-delay="500ms">
                 Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
                 Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di
-                Kecamatan Cipayung, Jakarta Timur. Wilayah Cipayung terletak cukup dekat dengan pusat kota Jakarta.
+                Kecamatan Cipayung, Jakarta Timur. Wilayah X terletak cukup dekat dengan pusat kota Jakarta.
               </p>
               <div class="button">
                 <a
@@ -240,9 +240,9 @@
              dengan Masyarakat yang Sejahtera.</b>
             </h3>
             <p>
-            Kelurahan Cipayung memiliki potensi dan tantangan yang berkaitan dengan perkembangan kota,
+            Kelurahan X memiliki potensi dan tantangan yang berkaitan dengan perkembangan kota,
             termasuk masalah lalu lintas, lingkungan, dan infrastruktur. Seiring dengan perkembangan
-            Jakarta, Kelurahan Cipayung terus berupaya untuk meningkatkan kualitas hidup dan pelayanan kepada penduduknya.
+            Jakarta, Kelurahan X terus berupaya untuk meningkatkan kualitas hidup dan pelayanan kepada penduduknya.
             </p>
             <div class="feature-fact mt-35">
               <div class="fun-fact">
@@ -474,9 +474,9 @@
               <div class="f-item about">
                 <!-- <img src="assets/img/logo-light.png" alt="Logo" /> -->
                 <p>
-                Kelurahan Cipayung adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
+                Kelurahan X adalah sebuah kelurahan yang terletak di Jakarta Timur, Indonesia.
                 Kelurahan ini merupakan salah satu dari beberapa kelurahan yang ada di
-                Kecamatan Cipayung, Jakarta Timur. Wilayah Cipayung terletak cukup dekat dengan pusat kota Jakarta.
+                Kecamatan X, Jakarta Timur. Wilayah X terletak cukup dekat dengan pusat kota Jakarta.
                 </p>
               </div>
             </div>
@@ -545,7 +545,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6">
-              <p>Copyright &copy; Kelurahan Cipayung <script>document.write(new Date().getFullYear())</script></p>
+              <p>Copyright &copy; Kelurahan X <script>document.write(new Date().getFullYear())</script></p>
             </div>
             <div class="col-lg-6 text-end link">
               <ul>

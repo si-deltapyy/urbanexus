@@ -401,17 +401,17 @@ class PertanyaanSeeder extends Seeder
        Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Tanggal Kejadian Pertama DD/MM/YYYY',
-            'jenis_pertanyaan' => 'Datetime'
+            'jenis_pertanyaan' => 'Date'
         ]);
        Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
             'pertanyaan' => 'Waktu/Jam kejadian pertama',
-            'jenis_pertanyaan' => 'Datetime'
+            'jenis_pertanyaan' => 'Time'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',
-            'pertanyaan' => 'Kejadian susulan DD/MM/YYYY mm:hh',
-            'jenis_pertanyaan' => 'Datetime'
+            'pertanyaan' => 'Waktu/Jam Kejadian susulan',
+            'jenis_pertanyaan' => 'Time'
         ]);
         Pertanyaan::create([
             'kategori_pertanyaan' => 'Terjadi Bencana',

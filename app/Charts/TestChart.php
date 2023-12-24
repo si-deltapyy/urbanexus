@@ -37,7 +37,7 @@ class TestChart
 
         return $this->chart->pieChart()
             ->setTitle('')
-            ->addData($jenis)
+            ->addData([2,3,4])
             ->setLabels($label);
     }
 }

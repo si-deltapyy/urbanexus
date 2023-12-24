@@ -19,24 +19,42 @@ class ResponKuisionerSeeder extends Seeder
     {
         
         $group_id = rand();
-        $ans = rand();
+        $ans = rand(1,50);
 
         for ($pertanyaan_id = 1; $pertanyaan_id <= 73; $pertanyaan_id++) {
             ResponKuisioner::create([
                 'pertanyaan_id' => $pertanyaan_id,
-                'user_id' => '2',
-                'jawaban' => $ans,
+                'user_id' => 3,
+                'jawaban' => rand(1,50),
                 'group_id' => $group_id
             ]);
         }
-        // for ($pertanyaan_id = 76; $pertanyaan_id <= 91; $pertanyaan_id++){
-        //     ResponKuisioner::create([
-        //         'pertanyaan_id' => $pertanyaan_id,
-        //         'user_id' => '2',
-        //         'jawaban' => $ans,
-        //         'group_id' => $group_id
-        //     ]);
-        // }
+
+        for ($pertanyaan_id = 1; $pertanyaan_id <= 73; $pertanyaan_id++) {
+            ResponKuisioner::create([
+                'pertanyaan_id' => $pertanyaan_id,
+                'user_id' => 2,
+                'jawaban' => rand(1,50),
+                'group_id' => $group_id
+            ]);
+        }
+        
+        for ($pertanyaan_id = 76; $pertanyaan_id <= 91; $pertanyaan_id++){
+            ResponKuisioner::create([
+                'pertanyaan_id' => $pertanyaan_id,
+                'user_id' => 2,
+                'jawaban' => rand(5,13),
+                'group_id' => $group_id
+            ]);
+        }
+        for ($pertanyaan_id = 76; $pertanyaan_id <= 91; $pertanyaan_id++){
+            ResponKuisioner::create([
+                'pertanyaan_id' => $pertanyaan_id,
+                'user_id' => 3,
+                'jawaban' => rand(5,13),
+                'group_id' => $group_id
+            ]);
+        }
 
     }
 }

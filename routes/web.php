@@ -25,6 +25,7 @@ use App\Http\Controllers\super_admin\PertanyaanSAController;
 use App\Http\Controllers\Admin\SebelumBencanaAdminController;
 use App\Http\Controllers\Admin\SesudahBencanaAdminController;
 use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
+use App\Http\Controllers\Admin\PendudukController;
 
 
 Route::get('/', function () {
@@ -65,7 +66,6 @@ Route::middleware(['auth',  'verified', 'role:super_admin'])->name('super_admin.
     Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);
     Route::resource('/kuisioner_tb', TerjadiBencanaAdminController::class);
     Route::resource('/kuisioner_sdb', SesudahBencanaAdminController::class);
-
 });
 
 Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
@@ -118,3 +118,8 @@ Route::get('/report', function () {
 })->name('report');
 
 
+Route::get('/penduduk', [PendudukController::class, 'index']);
+Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
+Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
+Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
+Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
