@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Rt;
 use App\Models\Rw;
+use App\Charts\KelompokUmur;
 use Illuminate\Http\Request;
 use App\Models\ResponKuisioner;
 use Illuminate\Support\Facades\DB;
+use App\Charts\GenderPendudukChart;
+use App\Charts\StatusPendudukChart;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -66,6 +69,7 @@ class DashboardController extends Controller
             ->groupBy('user_id', 'name', 'timestamp')
             ->get();
         // dd($dataRw);
+
 
         return view('dashboard', compact('data', 'rt', 'responKuisioner', 'dataRt', 'dataRw', 'dataAdmin'));
     }

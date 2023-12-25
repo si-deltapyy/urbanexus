@@ -38,87 +38,6 @@
             </div>
         </div> <!-- row -->
 
-        <div class="row">
-            <div class="col-8 col-xl-9 grid-margin stretch-card">
-                <div class="card overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                            <h6 class="card-title mb-0">Grafik</h6>
-                        </div>
-                        <div class="row align-items-start mb-2">
-                            <div class="col-md-7">
-                                <p class="text-muted tx-13 mb-3 mb-md-0">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Animi eum rem nihil sint pariatur sapiente quo! Recusandae, assumenda non? Facere
-                                    culpa nam, nemo error sed deleniti minus cupiditate odit quam.</p>
-                            </div>
-                        </div>
-                        <div class="mt-5" id="apexLine"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-xl-3 grid-margin grid-margin-xl-0 stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0">History</h6>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <a href="javascript:;" class="d-flex align-items-center border-bottom pb-3">
-                                <div class="me-3">
-                                    <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35"
-                                        alt="user">
-                                </div>
-                                <div class="w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 1</h6>
-                                        <p class="text-muted tx-12">12.30 PM</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
-                                <div class="me-3">
-                                    <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35"
-                                        alt="user">
-                                </div>
-                                <div class="w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 2</h6>
-                                        <p class="text-muted tx-12">08.22 PM</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
-                                <div class="me-3">
-                                    <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35"
-                                        alt="user">
-                                </div>
-                                <div class="w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 2</h6>
-                                        <p class="text-muted tx-12">05.49 AM</p>
-                                    </div>
-                                    <p class="text-muted tx-13">Mengisi Kuesioner 2</p>
-                                </div>
-                            </a>
-                            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
-                                <div class="me-3">
-                                    <img src="{{ url('https://via.placeholder.com/35x35') }}" class="rounded-circle wd-35"
-                                        alt="user">
-                                </div>
-                                <div class="w-100">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="fw-normal text-body mb-1">Mengisi Kuesioner 2</h6>
-                                        <p class="text-muted tx-12">01.19 AM</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- row -->
-
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -141,33 +60,33 @@
                                 <tbody>
                                     @php $nomorIterasi = 1 @endphp
                                     @foreach ($dataAdmin as $item)
-                                                <tr>
-                                                    <td>{{ $nomorIterasi }}.</td>
-                                                    <td>
-                                                        @foreach ($item->user->roles as $role)
-                                                        {{-- @dd($role) --}}
-                                                            @if ($role->name == 'RW')
-                                                                {{ optional($item->user->rw)->id }}
-                                                            @elseif ($role->name == 'RT')
-                                                                {{ $item->user->rt->rw->id ?? '-' }}
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        @foreach ($item->user->roles as $role)
-                                                            @if ($role->name == 'RW')
-                                                                {{ $item->user->rt->id ?? '-' }}
-                                                            @elseif ($role->name == 'RT')
-                                                                {{ $item->user->rt->id ?? '-' }}
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td> {{ $item->total_jawaban }}</td>
-                                                    <td>{{ $item->jawaban_91 }}</td>
-                                                    <td>{{ $item->timestamp }}</td>
-                                                </tr>
-                                                @php $nomorIterasi++ @endphp
+                                        <tr>
+                                            <td>{{ $nomorIterasi }}.</td>
+                                            <td>
+                                                @foreach ($item->user->roles as $role)
+                                                    {{-- @dd($role) --}}
+                                                    @if ($role->name == 'RW')
+                                                        {{ optional($item->user->rw)->id }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $item->user->rt->rw->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @foreach ($item->user->roles as $role)
+                                                    @if ($role->name == 'RW')
+                                                        {{ $item->user->rt->id ?? '-' }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $item->user->rt->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $item->name }}</td>
+                                            <td> {{ $item->total_jawaban }}</td>
+                                            <td>{{ $item->jawaban_91 }}</td>
+                                            <td>{{ $item->timestamp }}</td>
+                                        </tr>
+                                        @php $nomorIterasi++ @endphp
                                     @endforeach
                                 </tbody>
                             </table>
@@ -459,33 +378,33 @@
                                 <tbody>
                                     @php $nomorIterasi = 1 @endphp
                                     @foreach ($dataAdmin as $item)
-                                                <tr>
-                                                    <td>{{ $nomorIterasi }}.</td>
-                                                    <td>
-                                                        @foreach ($item->user->roles as $role)
-                                                        {{-- @dd($role) --}}
-                                                            @if ($role->name == 'RW')
-                                                                {{ optional($item->user->rw)->id }}
-                                                            @elseif ($role->name == 'RT')
-                                                                {{ $item->user->rt->rw->id ?? '-' }}
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        @foreach ($item->user->roles as $role)
-                                                            @if ($role->name == 'RW')
-                                                                {{ $item->user->rt->id ?? '-' }}
-                                                            @elseif ($role->name == 'RT')
-                                                                {{ $item->user->rt->id ?? '-' }}
-                                                            @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td> {{ $item->total_jawaban }}</td>
-                                                    <td>{{ $item->jawaban_91 }}</td>
-                                                    <td>{{ $item->timestamp }}</td>
-                                                </tr>
-                                                @php $nomorIterasi++ @endphp
+                                        <tr>
+                                            <td>{{ $nomorIterasi }}.</td>
+                                            <td>
+                                                @foreach ($item->user->roles as $role)
+                                                    {{-- @dd($role) --}}
+                                                    @if ($role->name == 'RW')
+                                                        {{ optional($item->user->rw)->id }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $item->user->rt->rw->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @foreach ($item->user->roles as $role)
+                                                    @if ($role->name == 'RW')
+                                                        {{ $item->user->rt->id ?? '-' }}
+                                                    @elseif ($role->name == 'RT')
+                                                        {{ $item->user->rt->id ?? '-' }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $item->name }}</td>
+                                            <td> {{ $item->total_jawaban }}</td>
+                                            <td>{{ $item->jawaban_91 }}</td>
+                                            <td>{{ $item->timestamp }}</td>
+                                        </tr>
+                                        @php $nomorIterasi++ @endphp
                                     @endforeach
                                 </tbody>
                             </table>
@@ -495,6 +414,9 @@
             </div>
         </div>
     @endrole
+
+
+
 
 @endsection
 
