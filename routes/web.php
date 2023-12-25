@@ -119,6 +119,7 @@ Route::get('/report', function () {
 
 
 Route::get('/penduduk', [PendudukController::class, 'index']);
+Route::get('/penduduk/tambah', [PendudukController::class, 'create'])->name('penduduk.create');
 Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
 Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
 Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');

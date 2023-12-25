@@ -30,10 +30,11 @@ class PendudukController extends Controller
         return view('pages.penduduk.index', compact('penduduk', 'balita', 'anak_anak', 'remaja', 'dewasa', 'lansia'));
     }
 
-    // public function create()
-    // {
-    //     return view('penduduk.create');
-    // }
+    public function create()
+    {
+        $penduduk = Penduduk::all();
+        return view('pages.penduduk.create', compact('penduduk'));
+    }
 
     public function store(Request $request)
     {
