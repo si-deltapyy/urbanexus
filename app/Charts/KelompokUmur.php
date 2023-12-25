@@ -49,7 +49,7 @@ class KelompokUmur
 
         return $this->chart->barChart()
             ->setTitle('Pengelompokan Berdasarkan Umur')
-            ->addData('Jumlah', [6, 9, 3, 4, 10, 8])
+            ->addData('Jumlah', $Kelompok)
             ->setXAxis($label);
     }
 }
