@@ -14,6 +14,6 @@ class DataPendudukSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //asd
     }
 }
