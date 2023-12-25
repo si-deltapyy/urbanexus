@@ -57,6 +57,11 @@ class PendudukController extends Controller
         $penduduk->no_rw = $request->no_rw;
         $penduduk->no_rt = $request->no_rt;
         $penduduk->status = $request->status;
+        $penduduk->agama = $request->agama;
+        $penduduk->alamat = $request->alamat;
+        $penduduk->pekerjaan = $request->pekerjaan;
+        $penduduk->gol_darah = $request->gol_darah;
+        $penduduk->status_kawin = $request->status_kawin;
         $penduduk->umur = Carbon::parse($request->tanggal_lahir)->age;
 
         $penduduk->save();
@@ -86,12 +91,17 @@ class PendudukController extends Controller
         $penduduk->nama = $request->nama;
         $penduduk->nik = $request->nik;
         $penduduk->no_kk = $request->no_kk;
-        $penduduk->tempat_lahir = $request->tempat_lahir;
         $penduduk->tanggal_lahir = $request->tanggal_lahir;
+        $penduduk->tempat_lahir = $request->tempat_lahir;
         $penduduk->jenis_kelamin = $request->jenis_kelamin;
         $penduduk->no_rw = $request->no_rw;
         $penduduk->no_rt = $request->no_rt;
         $penduduk->status = $request->status;
+        $penduduk->agama = $request->agama;
+        $penduduk->alamat = $request->alamat;
+        $penduduk->pekerjaan = $request->pekerjaan;
+        $penduduk->gol_darah = $request->gol_darah;
+        $penduduk->status_kawin = $request->status_kawin;
         $penduduk->umur = Carbon::parse($request->tanggal_lahir)->age;
         $penduduk->save();
 

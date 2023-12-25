@@ -80,6 +80,12 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/terjadi_bencana_pdf', [PDFDownloadController::class, 'terjadi_bencana'])->name('terjadi_bencana_pdf');
     Route::get('/report', [ReportController::class, 'index'])->name('report');
     Route::get('/data_table_pdf', [PDFDownloadController::class, 'data_table'])->name('data_table_pdf');
+    Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
+    Route::get('/penduduk/tambah', [PendudukController::class, 'create'])->name('penduduk.create');
+    Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
+    Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
+    Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
+    Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
@@ -116,11 +122,3 @@ Route::get('/welcome-2', function () {
 Route::get('/report', function () {
     return view('pages/report-pages');
 })->name('report');
-
-
-Route::get('/penduduk', [PendudukController::class, 'index']);
-Route::get('/penduduk/tambah', [PendudukController::class, 'create'])->name('penduduk.create');
-Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
-Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
-Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
-Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');

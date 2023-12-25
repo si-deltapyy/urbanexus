@@ -138,6 +138,13 @@
             @endrole
 
             @role('admin')
+                <li class="nav-item nav-category">Data Penduduk</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.penduduk.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="users"></i>
+                        <span class="link-title">Data Penduduk</span>
+                    </a>
+                </li>
                 <li class="nav-item nav-category">Daftar RW/RT</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.admin_rw.index') }}" class="nav-link">
