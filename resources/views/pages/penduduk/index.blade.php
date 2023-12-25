@@ -57,6 +57,9 @@
         <tr>
             <th>Nama</th>
             <th>NIK</th>
+            <th>No KK</th>
+            <th>No RT</th>
+            <th>No RW</th>
             <th>Tanggal Lahir</th>
             <th>Tempat Lahir</th>
             <th>Jenis Kelamin</th>
@@ -68,6 +71,9 @@
         <tr>
             <td>{{ $p->nama }}</td>
             <td>{{ $p->nik }}</td>
+            <td>{{ $p->no_kk }}</td>
+            <td>{{ $p->no_rt }}</td>
+            <td>{{ $p->no_rw }}</td>
             <td>{{ $p->tanggal_lahir }}</td>
             <td>{{ $p->tempat_lahir }}</td>
             <td>{{ $p->jenis_kelamin }}</td>

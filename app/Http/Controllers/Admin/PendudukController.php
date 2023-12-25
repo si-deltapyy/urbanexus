@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Penduduk;
-use App\Models\Rw;
-use App\Models\Rt;
 use Carbon\Carbon;
 
 class PendudukController extends Controller
@@ -30,10 +28,10 @@ class PendudukController extends Controller
         return view('pages.penduduk.index', compact('penduduk', 'balita', 'anak_anak', 'remaja', 'dewasa', 'lansia'));
     }
 
-    // public function create()
-    // {
-    //     return view('penduduk.create');
-    // }
+    public function create()
+    {
+        return view('pages.penduduk.create');
+    }
 
     public function store(Request $request)
     {
