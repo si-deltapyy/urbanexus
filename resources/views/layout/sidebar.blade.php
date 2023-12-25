@@ -57,7 +57,7 @@
                 @endif
 
             @endrole
-            @role('RT')
+            {{-- @role('RT')
                 <li class="nav-item nav-category">Biodata</li>
                 <li class="nav-item">
                     @if (is_null($rt) || $rt->user_id !== auth()->user()->id)
@@ -93,7 +93,7 @@
                         </a>
                     </li>
                 @endif
-            @endrole
+            @endrole --}}
 
             @role('super_admin')
                 <li class="nav-item nav-category">User</li>
@@ -138,7 +138,7 @@
             @endrole
 
             @role('admin')
-            <li class="nav-item nav-category">Daftar RW/RT</li>
+                <li class="nav-item nav-category">Daftar RW/RT</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.admin_rw.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="users"></i>
@@ -179,6 +179,8 @@
                     </a>
                 </li>
             @endrole
+
+
             {{-- <li class="nav-item nav-category">Menu</li>
             <li class="nav-item {{ active_class(['email/*']) }}">
                 <a class="nav-link" data-bs-toggle="collapse" href="#email" role="button"

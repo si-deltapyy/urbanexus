@@ -18,7 +18,13 @@ class CreatePendudukTable extends Migration
             $table->enum('status', ['Meninggal', 'Hidup']);
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir');
+            $table->enum('gol_darah', ['A', 'AB', 'O', 'B']);
+            $table->enum('status_kawin', ['Belum Kawin', 'Kawin']);
+            $table->enum('agama', ['Islam', 'Kristen', 'Katolik', 'Hindu' . 'Budha', 'Konghucu']);
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
+            $table->enum('pendidikan_terakhir', ['Tidak Sekolah', 'SD/sederajat', 'SMP/sederajat', 'SMA/sederajat', 'Diploma', 'Sarjana']);
+            $table->text('pekerjaan');
+            $table->text('alamat');
             $table->integer('umur')->nullable();
             $table->timestamps();
         });
