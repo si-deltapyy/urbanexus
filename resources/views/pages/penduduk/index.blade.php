@@ -69,7 +69,7 @@
             <th>Status</th>
             <th>Action</th>
         </tr>
-        @foreach($penduduk as $p)
+        @foreach ($penduduk as $p)
         <tr>
             <td>{{ $p->nama }}</td>
             <td>{{ $p->nik }}</td>
@@ -120,120 +120,119 @@
     <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet" />
     @endpus
 
-@section('content')
-    <nav class="page-breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Data Penduduk</li>
-        </ol>
-    </nav>
+    @section('content')
+        <nav class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Data Penduduk</li>
+            </ol>
+        </nav>
 
-    <div class="row">
-        <div class="col-lg grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('admin.penduduk.create') }}">
-                            <i class="bi bi-plus-lg"></i>
-                            Tambah Penduduk
-                        </a>
-                        {{-- <a href="{{ route('admin.sebelum_bencana_pdf') }}" class="btn btn-primary btn-md-12 mb-3">Unduh
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('admin.penduduk.create') }}">
+                                <i class="bi bi-plus-lg"></i>
+                                Tambah Penduduk
+                            </a>
+                            {{-- <a href="{{ route('admin.sebelum_bencana_pdf') }}" class="btn btn-primary btn-md-12 mb-3">Unduh
                             PDF</a> --}}
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover" id="dataTableExample">
-                            <thead>
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>NIK</th>
-                                    <th>No KK</th>
-                                    <th>RT</th>
-                                    <th>RW</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Tempat Lahir</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Umur</th>
-                                    <th>Status</th>
-                                    <th>Golongan Darah</th>
-                                    <th>Status Perkawinan</th>
-                                    <th>Agama</th>
-                                    <th>Pendidikan Terakhir</th>
-                                    <th>Pekerjaan</th>
-                                    <th>Alamat</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php $nomorIterasi = 1 @endphp
-                                @foreach ($penduduk as $p)
-                                    <tr>
-                                        <td>{{ $p->nama }}</td>
-                                        <td>{{ $p->nik }}</td>
-                                        <td>{{ $p->no_kk }}</td>
-                                        <td>{{ $p->no_rt }}</td>
-                                        <td>{{ $p->no_rw }}</td>
-                                        <td>{{ $p->tanggal_lahir }}</td>
-                                        <td>{{ $p->tempat_lahir }}</td>
-                                        <td>{{ $p->jenis_kelamin }}</td>
-                                        <td>{{ $p->umur }}</td>
-                                        <td>{{ $p->status }}</td>
-                                        <td>{{ $p->gol_darah }}</td>
-                                        <td>{{ $p->status_kawin }}</td>
-                                        <td>{{ $p->agama }}</td>
-                                        <td>{{ $p->pendidikan_terakhir }}</td>
-                                        <td>{{ $p->pekerjaan }}</td>
-                                        <td>{{ $p->alamat }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.penduduk.edit', $p->id) }}" class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
-                                            <form action="{{ route('admin.penduduk.destroy', $p->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                    <button class="btn icon btn-sm btn-danger"
-                                                        title="Hapus"
-                                                        onclick="return confirm('Are you sure?')">
-                                                        <i
-                                                        class="bi bi-trash3-fill"></i>
-                                                    </button>
-                                            </form>
-                                        </td>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="dataTableExample">
+                                <thead>
+                                    <tr class="text-wrap" style="width: 6rem;">
+                                        <th>Nama</th>
+                                        <th>NIK</th>
+                                        <th>No KK</th>
+                                        <th>RT</th>
+                                        <th>RW</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Umur</th>
+                                        <th>Status</th>
+                                        <th>Golongan Darah</th>
+                                        <th>Status Perkawinan</th>
+                                        <th>Agama</th>
+                                        <th>Pendidikan Terakhir</th>
+                                        <th>Pekerjaan</th>
+                                        <th>Alamat</th>
+                                        <th>Action</th>
                                     </tr>
-                                    @php $nomorIterasi++ @endphp
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @php $nomorIterasi = 1 @endphp
+                                    @foreach ($penduduk as $p)
+                                        <tr>
+                                            <td class="text-wrap">{{ $p->nama }}</td>
+                                            <td class="text-wrap">{{ $p->nik }}</td>
+                                            <td class="text-wrap">{{ $p->no_kk }}</td>
+                                            <td class="text-wrap">{{ $p->no_rt }}</td>
+                                            <td class="text-wrap">{{ $p->no_rw }}</td>
+                                            <td class="text-wrap">{{ $p->tanggal_lahir }}</td>
+                                            <td class="text-wrap">{{ $p->tempat_lahir }}</td>
+                                            <td class="text-wrap">{{ $p->jenis_kelamin }}</td>
+                                            <td class="text-wrap">{{ $p->umur }}</td>
+                                            <td class="text-wrap">{{ $p->status }}</td>
+                                            <td class="text-wrap">{{ $p->gol_darah }}</td>
+                                            <td class="text-wrap">{{ $p->status_kawin }}</td>
+                                            <td class="text-wrap">{{ $p->agama }}</td>
+                                            <td class="text-wrap">{{ $p->pendidikan_terakhir }}</td>
+                                            <td class="text-wrap">{{ $p->pekerjaan }}</td>
+                                            <td class="text-wrap">{{ $p->alamat }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.penduduk.edit', $p->id) }}"
+                                                    class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
+                                                <form action="{{ route('admin.penduduk.destroy', $p->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn icon btn-sm btn-danger" title="Hapus"
+                                                        onclick="return confirm('Are you sure?')">
+                                                        <i class="bi bi-trash3-fill"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @php $nomorIterasi++ @endphp
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
+    @endsection
 
-    </div>
-@endsection
+    @push('plugin-scripts')
+        <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/inputmask/jquery.inputmask.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/typeahead-js/typeahead.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pickr/pickr.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/flatpickr/flatpickr.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
+    @endpush
 
-@push('plugin-scripts')
-    <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/inputmask/jquery.inputmask.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/typeahead-js/typeahead.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/dropify/js/dropify.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/pickr/pickr.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/flatpickr/flatpickr.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
-@endpush
-
-@push('custom-scripts')
-    <script src="{{ asset('assets/js/form-validation.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap-maxlength.js') }}"></script>
-    <script src="{{ asset('assets/js/inputmask.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
-    <script src="{{ asset('assets/js/typeahead.js') }}"></script>
-    <script src="{{ asset('assets/js/tags-input.js') }}"></script>
-    <script src="{{ asset('assets/js/dropzone.js') }}"></script>
-    <script src="{{ asset('assets/js/dropify.js') }}"></script>
-    <script src="{{ asset('assets/js/pickr.js') }}"></script>
-    <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
-    <script src="{{ asset('assets/js/data-table.js') }}"></script>
-@endpush
+    @push('custom-scripts')
+        <script src="{{ asset('assets/js/form-validation.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap-maxlength.js') }}"></script>
+        <script src="{{ asset('assets/js/inputmask.js') }}"></script>
+        <script src="{{ asset('assets/js/select2.js') }}"></script>
+        <script src="{{ asset('assets/js/typeahead.js') }}"></script>
+        <script src="{{ asset('assets/js/tags-input.js') }}"></script>
+        <script src="{{ asset('assets/js/dropzone.js') }}"></script>
+        <script src="{{ asset('assets/js/dropify.js') }}"></script>
+        <script src="{{ asset('assets/js/pickr.js') }}"></script>
+        <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
+        <script src="{{ asset('assets/js/data-table.js') }}"></script>
+    @endpush
