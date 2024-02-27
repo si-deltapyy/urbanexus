@@ -19,17 +19,25 @@ class KelompokUmur
     {
         $penduduk = Penduduk::all();
 
-        foreach ($penduduk as $p) {
-            $tanggal_lahir = Carbon::parse($p->tanggal_lahir);
-            $umur = $tanggal_lahir->age;
-            $p->umur = $umur;
-            $p->save();
-        }
-        $balita = Penduduk::whereBetween('umur', [1, 5])->where('status', 'Hidup')->count();
-        $anak_anak = Penduduk::whereBetween('umur', [6, 12])->where('status', 'Hidup')->count();
-        $remaja = Penduduk::whereBetween('umur', [13, 20])->where('status', 'Hidup')->count();
-        $dewasa = Penduduk::whereBetween('umur', [21, 50])->where('status', 'Hidup')->count();
-        $lansia = Penduduk::where('umur', '>', 50)->where('status', 'Hidup')->count();
+        $balita = $penduduk->filter(function ($p) {
+            return $p->umur >= 1 && $p->umur <= 5 && $p->status == 'Hidup';
+        })->count();
+
+        $anak_anak = $penduduk->filter(function ($p) {
+            return $p->umur >= 6 && $p->umur <= 12 && $p->status == 'Hidup';
+        })->count();
+
+        $remaja = $penduduk->filter(function ($p) {
+            return $p->umur >= 13 && $p->umur <= 20 && $p->status == 'Hidup';
+        })->count();
+
+        $dewasa = $penduduk->filter(function ($p) {
+            return $p->umur >= 21 && $p->umur <= 50 && $p->status == 'Hidup';
+        })->count();
+
+        $lansia = $penduduk->filter(function ($p) {
+            return $p->umur > 50 && $p->status == 'Hidup';
+        })->count();
 
         $Kelompok = [
             $balita,
@@ -52,4 +60,5 @@ class KelompokUmur
             ->addData('Jumlah', $Kelompok)
             ->setXAxis($label);
     }
+
 }

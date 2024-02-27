@@ -21,7 +21,7 @@
         <div class="col-lg grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">RW {{ $data->id }}</h4>
+                    <h4 class="card-title">Ketua RW : {{ $data->id }} Kelurahan Ratu Jaya</h4>
                     <form class="form form-horizontal needs-validation" novalidate method="POST"
                         enctype="multipart/form-data" action="{">
                         @csrf
