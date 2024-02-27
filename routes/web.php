@@ -31,10 +31,11 @@ use App\Http\Controllers\WebScrapingController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome-3');
 });
 
-Route::get('/', [LandingController::class, 'index'])->name('welcome');
+// Route::get('/', [LandingController::class, 'index'])->name('welcome');
+Route::get('/urban', [LandingController::class, 'baru'])->name('ds');
 
 Route::get('/komoditasPasar', [WebScrapingController::class, 'show']);
 
@@ -126,7 +127,7 @@ Route::get('/welcome-2', function () {
     return view('welcome-2');
 })->name('welcome-2');
 
-Route::get('/urban', [LandingController::class, 'baru'])->name('ds');
+
 
 Route::get('/scrape-data', 'WebScrapingController@scrapeData');
 
