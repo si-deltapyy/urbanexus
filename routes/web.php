@@ -35,7 +35,7 @@ Route::get('/', function () {
 });
 
 // Route::get('/', [LandingController::class, 'index'])->name('welcome');
-Route::get('/urban', [LandingController::class, 'baru'])->name('ds');
+Route::get('/', [LandingController::class, 'baru'])->name('ds');
 
 Route::get('/komoditasPasar', [WebScrapingController::class, 'show']);
 
