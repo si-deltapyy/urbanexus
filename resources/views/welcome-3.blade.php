@@ -7,6 +7,7 @@
     <title>Kelurahan Cipayung</title>
 
     <meta name="author" content="urbanexus">
+    <meta name="description" content="Portal Resmi Kelurahan Ratu Jaya. Bekerjasama dengan Urban Nexus untuk memudahkan pengolahan data">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -37,9 +38,9 @@
     <link href="{{ asset('das-asset/stylesheets/animate.css') }}" rel="stylesheet" />
 
     <!-- Favicon and touch icons  -->
-    <link href="{{ asset('das-asset/icon/apple-touch-icon-48-precomposed.png') }}"  rel="icon" sizes="48x48"/>
-    <link href="{{ asset('das-asset/icon/apple-touch-icon-32-precomposed.png') }}"  rel="icon"/>
-    <link href="{{ asset('das-asset/icon/favicon.png') }}" rel="shortcut icon"/>
+    <link href="{{ asset('das-asset/icon/logo.png') }}"  rel="icon" sizes="48x48"/>
+    <link href="{{ asset('das-asset/icon/logo.png') }}"  rel="icon"/>
+    <link href="{{ asset('das-asset/icon/logo.png') }}" rel="shortcut icon"/>
 </head>                                 
 <body class="header_sticky page-loading"> 
     <!-- Preloader -->
@@ -410,7 +411,7 @@
                     <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
                         <div class="card mb-2 shadow w-100">
                             <div class="card-body">
-                                <h6 class="text-muted text-center text-bg-warning rounded-3 p-1">Berdasarkan Umur</h6>
+                                <h6 class="text-center text-warning rounded-3 p-1">Berdasarkan Umur</h6>
                                 <div class="row text-center pt-3">
                                 <div class="col-sm-12">
                                         <table class="table" border="0">
