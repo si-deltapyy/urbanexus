@@ -127,6 +127,14 @@ Route::get('/welcome-2', function () {
     return view('welcome-2');
 })->name('welcome-2');
 
+Route::get('/berita', function () {
+    return view('berita');
+})->name('berita');
+
+Route::get('/berita-single', function () {
+    return view('berita-single');
+})->name('berita-single');
+
 
 
 Route::get('/scrape-data', 'WebScrapingController@scrapeData');
