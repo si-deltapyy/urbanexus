@@ -55,6 +55,11 @@
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex items-center">
+                                                        <img src="sd" alt="gambar">
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
                                                         {{ $list->isi }}
                                                     </div>
                                                 </td>

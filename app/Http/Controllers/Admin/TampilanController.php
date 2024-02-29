@@ -11,8 +11,8 @@ class TampilanController extends Controller
 {
     public function index()
     {
-
         $tampilan = Tampilan::all();
+
         return view('admin.slider.index', compact('tampilan'));
     }
 

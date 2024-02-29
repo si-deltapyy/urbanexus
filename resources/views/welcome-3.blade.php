@@ -8,6 +8,8 @@
     <title>Kelurahan Cipayung</title>
 
     <meta name="author" content="urbanexus">
+    <meta name="description"
+        content="Portal Resmi Kelurahan Ratu Jaya. Bekerjasama dengan Urban Nexus untuk memudahkan pengolahan data">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -38,9 +40,9 @@
     <link href="{{ asset('das-asset/stylesheets/animate.css') }}" rel="stylesheet" />
 
     <!-- Favicon and touch icons  -->
-    <link href="{{ asset('das-asset/icon/apple-touch-icon-48-precomposed.png') }}" rel="icon" sizes="48x48" />
-    <link href="{{ asset('das-asset/icon/apple-touch-icon-32-precomposed.png') }}" rel="icon" />
-    <link href="{{ asset('das-asset/icon/favicon.png') }}" rel="shortcut icon" />
+    <link href="{{ asset('das-asset/icon/logo.png') }}" rel="icon" sizes="48x48" />
+    <link href="{{ asset('das-asset/icon/logo.png') }}" rel="icon" />
+    <link href="{{ asset('das-asset/icon/logo.png') }}" rel="shortcut icon" />
 </head>
 
 <body class="header_sticky page-loading">
@@ -138,10 +140,10 @@
                         <!-- SLIDE 1 -->
                         <li data-index="rs-3049" data-transition="fade" data-slotamount="7" data-hideafterloop="0"
                             data-hideslideonmobile="off" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut"
-                            data-masterspeed="2000" data-rotate="0" data-saveperformance="off" data-title="Ken Burns"
-                            data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
-                            data-param6="" data-param7="" data-param8="" data-param9="" data-param10=""
-                            data-description="" data-duration="0">
+                            data-masterspeed="2000" data-rotate="0" data-saveperformance="off"
+                            data-title="Ken Burns" data-param1="" data-param2="" data-param3="" data-param4=""
+                            data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                            data-param10="" data-description="" data-duration="0">
 
                             <!-- MAIN IMAGE -->
                             <img src="{{ asset('img/1.jpg') }}" alt="" data-bgposition="center center"
