@@ -66,7 +66,7 @@ class PendudukController extends Controller
 
         $penduduk->save();
 
-        return redirect('/penduduk')->with('success', 'Data penduduk berhasil ditambahkan');
+        return redirect('/admin/penduduk')->with('success', 'Data penduduk berhasil ditambahkan');
     }
 
     public function edit($id)

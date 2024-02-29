@@ -193,13 +193,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                    <a href="{{ route('admin.news.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="info"></i>
                         <span class="link-title">Berita</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                    <a href="{{ route('admin.agenda.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="info"></i>
                         <span class="link-title">Agenda</span>
                     </a>

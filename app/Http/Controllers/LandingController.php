@@ -11,6 +11,7 @@ use App\Charts\ByCategoriesChart;
 use App\Charts\GenderPendudukChart;
 use App\Charts\StatusPendudukChart;
 use App\Models\Tampilan;
+use App\Models\News;
 use Illuminate\Support\Facades\Http;
 
 class LandingController extends Controller
@@ -30,10 +31,12 @@ class LandingController extends Controller
         return view('welcome', compact('GenderPendudukChart', 'KelompokUmur', 'StatusPendudukChart', 'totalkeluarga', 'totalpenduduk'));
     }
 
-    public function baru(){
+    public function baru()
+    {
 
         $tampilan = Tampilan::all();
         $penduduk = Penduduk::all();
+        $news = News::all();
 
         $response = Http::post('https://dsw.depok.go.id/Html/get_harga_depok', [
             'kategori' => 'kategori_value',
@@ -47,6 +50,6 @@ class LandingController extends Controller
 
         $data = $response->json();
 
-        return view('welcome-3', compact('tampilan', 'data', 'totalkeluarga', 'totalpenduduk', 'totalkematian'));
+        return view('welcome-3', compact('tampilan', 'data', 'totalkeluarga', 'totalpenduduk', 'totalkematian', 'news'));
     }
 }

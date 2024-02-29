@@ -115,7 +115,7 @@
                                 </select><br><br>
                                 
                                 <label for="gol_darah" class="mt-1">Golongan Darah</label>
-                                <select class="form-select" name="gol_dar" id="gol_dar" required>
+                                <select class="form-select" name="gol_darah" id="gol_darah" required>
                                     <option value="A">
                                         A
                                     </option>

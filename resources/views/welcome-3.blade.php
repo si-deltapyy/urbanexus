@@ -281,20 +281,21 @@
                                         </div>
                                     </div>
                                     <div id="content-2" class="row overflow-hidden">
+                                        @foreach ($news as $n)
+                                            
                                         <div class="col-md-12 d-flex justify-content-center mb-4">
                                             <div class="col-sm-3 overflow-hidden" style="height: 120px;">
-                                                <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg" class="img-fluid cropped-img" alt="Berita">
+                                                <img src="{{ asset($n->image_path) }}" class="img-fluid cropped-img" alt="Berita">
                                             </div>
                                             <div class="col-8 overflow-hidden" style="height: 120px;"">
-                                                <h5 class="title-slide"><a href="">Judul Berita untuk landing page</a></h5>
-                                                <span class="badge badge-danger">26, Desember 2023</span>
-                                                <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi aside
-                                                    asdijjasdasd asdj asidjasd aisdh asidas diasdas diasdn asdiadn asdiasd sadiasd
-                                                    doiasd isndad isajdan
+                                                <h5 class="title-slide"><a href="">{{ $n->title }}</a></h5>
+                                                <span class="badge badge-danger">{{ $n->created_at->format('d, F Y') }}</span>
+                                                <p>{{ $n->content }}
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex justify-content-center mb-4">
+                                        @endforeach
+                                        {{-- <div class="col-md-12 d-flex justify-content-center mb-4">
                                             <div class="col-sm-3 overflow-hidden" style="height: 120px;">
                                                 <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg" class="img-fluid cropped-img" alt="Berita">
                                             </div>
@@ -317,7 +318,7 @@
                                                     doiasd isndad isajdan
                                                 </p>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
