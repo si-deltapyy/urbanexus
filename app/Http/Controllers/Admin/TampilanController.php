@@ -12,8 +12,9 @@ class TampilanController extends Controller
     public function index()
     {
         $tampilan = Tampilan::all();
+        $data = $tampilan->where('id')->count();
 
-        return view('admin.slider.index', compact('tampilan'));
+        return view('admin.slider.index', compact('tampilan', 'data'));
     }
 
     public function create()
@@ -32,12 +33,13 @@ class TampilanController extends Controller
         if ($request->hasFile('gambar')) {
 
             $imageName = $request->file('gambar')->getClientOriginalName(); // Mendapatkan nama file asli
-            $path = $request->file('gambar')->storeAs('public/jawaban', $imageName); // Menyimpan dengan nama file asli
+            $path = $request->file('gambar')->storeAs('public/slider', $imageName); // Menyimpan dengan nama file asli
 
             Tampilan::create([
                 'judul' => $request->judul,
                 'isi' => $request->isi,
                 'path' => $path,
+                'imgName' => $imageName,
             ]);
 
             return redirect()->route('admin.slider');

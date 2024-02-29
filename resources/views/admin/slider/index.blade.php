@@ -22,12 +22,19 @@
         <div class="col-lg grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Update Data Slider</h4>
+                    <h4 class="card-title">Update Data Slider : <span>{{$data}}/4</span></h4>
                     <div>
+                        @if($data != 4)
                         <a class="btn btn-primary btn-sm" href="{{ route('admin.slider.create') }}">
                             <i class="bi bi-plus-lg"></i>
                             Tambah Slider
                         </a>
+                        @else
+                        <a class="btn btn-danger btn-sm disabled" href="#">
+                            <i class="bi bi-close"></i>
+                            Batas Maksimal
+                        </a>
+                        @endif
                     </div>
                     <br>
                     <div class="table-responsive">
@@ -36,16 +43,17 @@
                                 <tr>
                                     <th class="w-10px text-center">No</th>
                                     <th class="w-100px text-center">Judul</th>
-                                    <th class="w-100px text-center">Isi</th>
+                                    <th class="w-100px text-center">Preview</th>
                                     <th class="w-20px text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @php $nomorIterasi = 1 @endphp
                             @foreach ($tampilan as $list)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex items-center">
-                                                        {{ $list->id }}
+                                                        {{ $loop->iteration }}
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -53,27 +61,33 @@
                                                         {{ $list->judul }}
                                                     </div>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                <td class="px-6 py-4">
                                                     <div class="flex items-center">
-                                                        <img src="sd" alt="gambar">
+                                                        <!-- <a href="/storage/slider/{{$list->imgName}}" target="_blank"><img src="/storage/slider/{{$list->imgName}}" style="width: 30px;" alt="gambar"></a> -->
+                                                        <img src="/storage/slider/{{$list->imgName}}" alt="Image 2" class="img-thumbnail" data-toggle="modal" data-target="#imageModal" data-src="/storage/slider/{{$list->imgName}}">
                                                     </div>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        {{ $list->isi }}
-                                                    </div>
-                                                </td>
+                                                @if($data != 1)
                                                 <td>
                                                     <div class="flex justify-end">
                                                         <div class="flex space-x-2">
                                                                 <form action="{{ route('admin.slider.delete', $list->id) }}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit">Hapus</button>
+                                                                    <button class="btn btn-danger" type="submit">Hapus</button>
                                                                 </form>
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @else
+                                                <td>
+                                                    <div class="flex justify-end">
+                                                        <div class="flex space-x-2">
+                                                            <i><p>Not Allowed</p></i>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                             </tbody>
@@ -82,7 +96,34 @@
                 </div>
             </div>
         </div>
+    </div>                         
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="Preview" id="previewImage" style="width: 100%;">
+            </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        // Menampilkan gambar dalam modal saat thumbnail diklik
+        $('.img-thumbnail').click(function(){
+        var imgSrc = $(this).data('src');
+        $('#previewImage').attr('src', imgSrc);
+        });
+    });
+    </script>
 @endsection
 
 @push('plugin-scripts')

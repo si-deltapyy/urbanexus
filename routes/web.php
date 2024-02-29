@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\SesudahBencanaAdminController;
 use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
 use App\Http\Controllers\Admin\PendudukController;
 use App\Http\Controllers\Admin\TampilanController;
+use App\Http\Controllers\rt\Laporan;
 use App\Http\Controllers\WebScrapingController;
 
 

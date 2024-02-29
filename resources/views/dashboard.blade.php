@@ -10,6 +10,35 @@
 
 @section('content')
 
+    @role('super_admin')
+    <div class="row">
+            <div class="col-12 col-xl-12 stretch-card">
+                <div class="row flex-grow-1">
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class=" col-md col-xl">
+                                        <div class="row mb-3">
+                                            <div class="col-12 col-xl stretch-card">
+                                                <div class="row flex-grow-1">
+                                                    <h3>Selamat Datang Kembali! <span
+                                                            class="text-primary">{{ Auth::user()->name }}</span></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div> <!-- row -->
+    @endrole
+
     @role('admin')
         <div class="row">
             <div class="col-12 col-xl-12 stretch-card">
