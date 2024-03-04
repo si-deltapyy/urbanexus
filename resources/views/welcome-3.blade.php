@@ -96,7 +96,7 @@
                                             <li><a href="#">Informasi</a>
                                                 <ul class="submenu">
                                                     <li><a href="/Agenda">Agenda</a></li>
-                                                    <li><a href="/Berita">Berita</a></li>
+                                                    <li><a href="/berita">Berita</a></li>
                                                 </ul><!-- /.submenu -->
                                             </li>
                                             <li><a href="#komoditas">Komoditas Pasar</a></li>
@@ -251,6 +251,112 @@
                 </div>
             </div><!-- END REVOLUTION SLIDER -->
 
+            <section id="penduduk" class="flat-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+
+
+                        <!-- start -->
+                        <div class="col-md-7 col-sm-12 d-flex align-items-stretch my-2">
+                            <div class="card mb-2 shadow w-100 h-300 " style="height: 500px;">
+                                <div class="card-body">
+                                    <h7 class="text-muted text-left"><i class="fa fa-newspaper"></i> <b>Berita Terkini</b></h7>
+                                    <div class="row pt-3">
+                                        <div class="col-sm-12">
+                                            <div class="col-md-12 justify-content-center mb-4">
+                                                <div class="col-sm-3 overflow-hidden" style="height: 120px;">
+                                                    <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
+                                                        class="img-fluid cropped-img" alt="Berita">
+                                                </div>
+                                                <div class="col-8 overflow-hidden" style="height: 120px;"">
+                                                    <h5 class="title-slide"><a href="urban/berita/2">Judul Berita untuk
+                                                            landing page</a></h5>
+                                                    <span class="badge text-bg-primary">26, Desember 2023</span>
+                                                    <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
+                                                        aside
+                                                    </p>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#">
+                                        <small>Sumber: Urban Nexus</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+
+                        <!-- start jk -->
+                        <div class="col-md-5 col-sm-12 d-flex align-items-stretch my-2">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="card mb-2 shadow w-100 h-300" style="height: 300px;">
+                                    <h6 class="text-muted text-center pt-3">Komoditas Pasar
+                                        <div class="card-body overflow-scroll">
+                                            </h6>
+                                            <div class="row text-center pt-3">
+                                                <table class="table" border="0">
+                                                    <tbody>
+                                                    @foreach ($data['data'] as $item)
+                                                        <tr>
+                                                            <td>{{ $item['komoditi'] }}</td>
+                                                            <td>Rp {{ number_format($item['price_today'], 0, ',', '.') ?? '-' }} /kg</td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="card mb-2 shadow w-100 " style="height: 170px;">
+                                        <h6 class="text-muted text-center pt-3">Berdasarkan Jenis Kelamin</h6>
+                                        <div class="card-body overflow-scroll">
+                                            
+                                            <div class="row text-center pt-3">
+                                                <table class="table" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Pemilihan Umum</td>
+                                                            <td>2 Desember 1998</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pemilihan Umum</td>
+                                                            <td>2 Desember 1998</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pemilihan Umum</td>
+                                                            <td>2 Desember 1998</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pemilihan Umum</td>
+                                                            <td>2 Desember 1998</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pemilihan Umum</td>
+                                                            <td>2 Desember 1998</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+                    </div>
+                </div>
+            </section>
+
+
+
             <section id="beritaAgenda" class="flat-row">
                 <div class="container">
                     <div class="row d-flex justify-content-between">
@@ -320,8 +426,8 @@
                             </div>
                         </div>
                         {{-- Agenda --}}
-                        <div class="col-md-5">
-                            <div class="card shadow border-0" style="height: 500px;"">
+                        <!-- <div class="col-md-5">
+                            <div class="card shadow border-0" style="height: 300px;"">
                                 <div class="card-body">
                                     <div class="text-allign-left p-3">
                                         <span style="font-size: Large;">
@@ -359,7 +465,37 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="col-md-5 col-sm-12 d-flex align-items-stretch my-2">
+                    <div class="card mb-2 shadow w-100 h-300">
+                        <div class="card-body">
+                            <h6 class="text-muted text-center  text-bg-warning rounded-3 p-1">Berdasarkan Jenis Kelamin
+                            </h6>
+                            <div class="row text-center pt-5">
+                                <div class="col-6">
+                                    <h6 class="text-muted"><i class="fas fa-male"></i> Pria</h6>
+                                    <a href="#penduduk">
+                                        <h3 class="numb-count">45</h3>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="text-muted"><i class="fas fa-female"></i> Wanita</h6>
+                                    <a href="#penduduk">
+                                        <h3 class="numb-count">485</h3>
+                                    </a>
+                                </div>
+                            </div><br>
+                            <div style="line-height: 100%" class="text-center">
+                                <small class="text-muted">Data Kependudukan Kelurahan Ratu Jaya Terbaru !</small>
+                            </div>
                         </div>
+                        <div class="card-footer">
+                            <a href="#">
+                                <small>Sumber: Urban Nexus</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
                     </div>
                 </div>
@@ -388,7 +524,7 @@
                                 <div class="clients-image" data-item="5" data-nav="false" data-dots="true"
                                     data-auto="true">
                                     <!-- CONTENT START -->
-                                    {{-- @foreach ($data['data'] as $item)
+                                     @foreach ($data['data'] as $item)
                                         <div class="card-body">
                                             <div class="card border-1 p-3">
                                                 <div class="client-item " style="height: 130px;">
@@ -417,11 +553,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach --}}
+                                    @endforeach 
 
                                     {{-- Non api --}}
 
-                                    <div class="card-body">
+                                    {{-- <div class="card-body">
                                         <div class="card border-1 p-3">
                                             <div class="client-item " style="aspect-ratio : 3/2;">
                                                 <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
@@ -436,7 +572,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <!-- CONTENT -->
                                 </div>
@@ -835,45 +971,39 @@
     </section>
 
     <section class="flat-row v0">
-        <div class="wrap-portfolio-item" data-item="6" data-nav="false" data-dots="false" data-auto="false">
-            <div class="item">
-                <div class="portfolio-thumbnail">
-                    <a class="popup-gallery" href="{{ asset('das-asset/images/portfolio/1.jpg') }}"><img
-                            src="{{ asset('das-asset/images/portfolio/1.jpg') }}" alt="image"></a>
+                <div class="wrap-portfolio-item" data-item="6" data-nav="false" data-dots="false" data-auto="false">
+                    <div class="item">
+                        <div class="portfolio-thumbnail">
+                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="portfolio-thumbnail">
+                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="portfolio-thumbnail">
+                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="portfolio-thumbnail">
+                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="portfolio-thumbnail">
+                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="portfolio-thumbnail">
+                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="portfolio-thumbnail">
-                    <a class="popup-gallery" href="images/portfolio/2.jpg"><img
-                            src="{{ asset('das-asset/images/portfolio/2.jpg') }}" alt="image"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="portfolio-thumbnail">
-                    <a class="popup-gallery" href="images/portfolio/3.jpg"><img
-                            src="{{ asset('das-asset/images/portfolio/3.jpg') }}" alt="image"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="portfolio-thumbnail">
-                    <a class="popup-gallery" href="images/portfolio/4.jpg"><img
-                            src="{{ asset('das-asset/images/portfolio/4.jpg') }}" alt="image"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="portfolio-thumbnail">
-                    <a class="popup-gallery" href="images/portfolio/5.jpg"><img
-                            src="{{ asset('das-asset/images/portfolio/5.jpg') }}" alt="image"></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="portfolio-thumbnail">
-                    <a class="popup-gallery" href="images/portfolio/6.jpg"><img
-                            src="{{ asset('das-asset/images/portfolio/6.jpg') }}" alt="image"></a>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
     </main>
 
     <!-- Footer -->
