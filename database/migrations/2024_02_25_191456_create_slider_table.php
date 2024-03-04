@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->text('isi');
             $table->text('path');
+            $table->text('imgName');
 
             $table->timestamps();
         });

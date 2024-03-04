@@ -6,7 +6,7 @@
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
-              <h3>Urba<span>Nexus</span></h3>
+              <center><img src="{{ asset('das-asset/icon/logo.png') }}" style="width: 70px; margin-bottom: 10px;" alt="" ><br></center>
               <p>Selamat datang kembali! Masuk ke akun anda.</p>
               <!-- Session Status -->
               <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -50,6 +50,7 @@
               </form>
               <div class="page-links">
                 <a href="{{ route('register') }}">Register new account</a>
+                <a href="{{ route('ds') }}">Beranda</a>
               </div>
             </div>
           </div>

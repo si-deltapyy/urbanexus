@@ -96,7 +96,7 @@
                                             <li><a href="#">Informasi</a>
                                                 <ul class="submenu">
                                                     <li><a href="/Agenda">Agenda</a></li>
-                                                    <li><a href="/Berita">Berita</a></li>
+                                                    <li><a href="/berita">Berita</a></li>
                                                 </ul><!-- /.submenu -->
                                             </li>
                                             <li><a href="#komoditas">Komoditas Pasar</a></li>
@@ -251,79 +251,189 @@
                 </div>
             </div><!-- END REVOLUTION SLIDER -->
 
-            <section id="beritaAgenda" class="flat-row">
+            <section id="penduduk" class="flat-row">
                 <div class="container">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-md-7 d-flex">
-                            <div class="card-body">
-                                <div class="card shadow border-0" style="height: 600px;">
-                                    <div class="col-12">
-                                        <div class="text-allign-left p-3">
-                                            <span style="font-size: Large;">
-                                                <i class="fa fa-newspaper"></i>
-                                                <b>Berita Terkini</b>
-                                            </span>
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+
+
+                        <!-- start -->
+                        <div class="col-md-7 col-sm-12 d-flex align-items-stretch my-2">
+                            <div class="card mb-2 shadow w-100 h-300 " style="height: 500px;">
+                                <div class="card-body">
+                                    <h7 class="text-muted text-left"><i class="fa fa-newspaper"></i> <b>Berita
+                                            Terkini</b></h7>
+                                    <div class="row pt-3">
+                                        <div class="col-sm-12">
+                                            <div class="col-md-12 justify-content-center mb-4">
+                                                <div class="col-sm-3 overflow-hidden" style="height: 120px;">
+                                                    <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
+                                                        class="img-fluid cropped-img" alt="Berita">
+                                                </div>
+                                                <div class="col-8 overflow-hidden" style="height: 120px;"">
+                                                    <h5 class="title-slide"><a href="urban/berita/2">Judul Berita
+                                                            untuk
+                                                            landing page</a></h5>
+                                                    <span class="badge text-bg-primary">26, Desember 2023</span>
+                                                    <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
+                                                        aside
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div id="content-2" class="row overflow-hidden">
-                                        <div class="col-md-12 d-flex justify-content-center mb-4">
-                                            <div class="col-sm-3 overflow-hidden" style="height: 120px;">
-                                                <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
-                                                    class="img-fluid cropped-img" alt="Berita">
-                                            </div>
-                                            <div class="col-8 overflow-hidden" style="height: 120px;"">
-                                                <h5 class="title-slide"><a href="">Judul Berita untuk landing
-                                                        page</a></h5>
-                                                <span class="badge badge-danger">26, Desember 2023</span>
-                                                <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
-                                                    aside
-                                                    asdijjasdasd asdj asidjasd aisdh asidas diasdas diasdn asdiadn
-                                                    asdiasd sadiasd
-                                                    doiasd isndad isajdan
-                                                </p>
-                                            </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#">
+                                        <small>Sumber: Urban Nexus</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+
+                        <!-- start jk -->
+                        <div class="col-md-5 col-sm-12 d-flex align-items-stretch my-2">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="card mb-2 shadow w-100 h-300" style="height: 300px;">
+                                        <h6 class="text-muted text-center pt-3">Komoditas Pasar
+                                            <div class="card-body overflow-scroll">
+                                        </h6>
+                                        <div class="row text-center pt-3">
+                                            <table class="table" border="0">
+                                                <tbody>
+                                                    @foreach ($data['data'] as $item)
+                                                        <tr>
+                                                            <td>{{ $item['komoditi'] }}</td>
+                                                            <td>Rp
+                                                                {{ number_format($item['price_today'], 0, ',', '.') ?? '-' }}
+                                                                /kg</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="col-md-12 d-flex justify-content-center mb-4">
-                                            <div class="col-sm-3 overflow-hidden" style="height: 120px;">
-                                                <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
-                                                    class="img-fluid cropped-img" alt="Berita">
-                                            </div>
-                                            <div class="col-8 overflow-hidden" style="height: 120px;"">
-                                                <h5 class="title-slide"><a href="urban/berita/2">Judul Berita untuk
-                                                        landing page</a></h5>
-                                                <span class="badge text-bg-primary">26, Desember 2023</span>
-                                                <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
-                                                    aside
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex justify-content-center mb-4">
-                                            <div class="col-sm-3 overflow-hidden" style="height: 120px;">
-                                                <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
-                                                    class="img-fluid cropped-img" alt="Berita">
-                                            </div>
-                                            <div class="col-8 overflow-hidden" style="height: 120px;">
-                                                <h5 class="title-slide"><a href="">Judul Berita untuk landing
-                                                        page</a></h5>
-                                                <span class="badge badge-danger"><i class="fa fa-calendar"></i> 26,
-                                                    Desember 2023</span>
-                                                <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
-                                                    aside
-                                                    asdijjasdasd asdj asidjasd aisdh asidas diasdas diasdn asdiadn
-                                                    asdiasd sadiasd
-                                                    doiasd isndad isajdan
-                                                </p>
-                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="card mb-2 shadow w-100 " style="height: 170px;">
+                                    <h6 class="text-muted text-center pt-3">Berdasarkan Jenis Kelamin</h6>
+                                    <div class="card-body overflow-scroll">
+
+                                        <div class="row text-center pt-3">
+                                            <table class="table" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Pemilihan Umum</td>
+                                                        <td>2 Desember 1998</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pemilihan Umum</td>
+                                                        <td>2 Desember 1998</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pemilihan Umum</td>
+                                                        <td>2 Desember 1998</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pemilihan Umum</td>
+                                                        <td>2 Desember 1998</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pemilihan Umum</td>
+                                                        <td>2 Desember 1998</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {{-- Agenda --}}
-                        <div class="col-md-5">
-                            {{-- Komoditas --}}
-                            <div class="container">
-                                {{-- <div class="row">
+                    </div>
+                    <!-- end -->
+                </div>
+    </div>
+    </section>
+
+
+
+    <section id="beritaAgenda" class="flat-row">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-7 d-flex">
+                    <div class="card-body">
+                        <div class="card shadow border-0" style="height: 600px;">
+                            <div class="col-12">
+                                <div class="text-allign-left p-3">
+                                    <span style="font-size: Large;">
+                                        <i class="fa fa-newspaper"></i>
+                                        <b>Berita Terkini</b>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="content-2" class="row overflow-hidden">
+                                <div class="col-md-12 d-flex justify-content-center mb-4">
+                                    <div class="col-sm-3 overflow-hidden" style="height: 120px;">
+                                        <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
+                                            class="img-fluid cropped-img" alt="Berita">
+                                    </div>
+                                    <div class="col-8 overflow-hidden" style="height: 120px;"">
+                                        <h5 class="title-slide"><a href="">Judul Berita untuk landing
+                                                page</a></h5>
+                                        <span class="badge badge-danger">26, Desember 2023</span>
+                                        <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
+                                            aside
+                                            asdijjasdasd asdj asidjasd aisdh asidas diasdas diasdn asdiadn
+                                            asdiasd sadiasd
+                                            doiasd isndad isajdan
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex justify-content-center mb-4">
+                                    <div class="col-sm-3 overflow-hidden" style="height: 120px;">
+                                        <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
+                                            class="img-fluid cropped-img" alt="Berita">
+                                    </div>
+                                    <div class="col-8 overflow-hidden" style="height: 120px;"">
+                                        <h5 class="title-slide"><a href="urban/berita/2">Judul Berita untuk
+                                                landing page</a></h5>
+                                        <span class="badge text-bg-primary">26, Desember 2023</span>
+                                        <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
+                                            aside
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex justify-content-center mb-4">
+                                    <div class="col-sm-3 overflow-hidden" style="height: 120px;">
+                                        <img src="https://i.ibb.co/D43b74S/IMG-20231116-WA0004.jpg"
+                                            class="img-fluid cropped-img" alt="Berita">
+                                    </div>
+                                    <div class="col-8 overflow-hidden" style="height: 120px;">
+                                        <h5 class="title-slide"><a href="">Judul Berita untuk landing
+                                                page</a></h5>
+                                        <span class="badge badge-danger"><i class="fa fa-calendar"></i> 26,
+                                            Desember 2023</span>
+                                        <p>asdasd asdn asdn asind asdj asdjas asdas asidjansd asidjasd aisdi
+                                            aside
+                                            asdijjasdasd asdj asidjasd aisdh asidas diasdas diasdn asdiadn
+                                            asdiasd sadiasd
+                                            doiasd isndad isajdan
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- Agenda --}}
+                <div class="col-md-5">
+                    {{-- Komoditas --}}
+                    <div class="container">
+                        {{-- <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-allign-left p-3">
                                             <span style="font-size: Large;">
@@ -383,353 +493,345 @@
                                     </div>
                                 </div> --}}
 
-                                <div class="col-md-12">
-                                    <div class="text-allign-left p-3">
-                                        <span style="font-size: Large;">
-                                            <i class="fa fa-area-chart"></i>
-                                            <b>Komoditas Harga Pasar</b>
-                                        </span><br>
-                                        <small>
-                                            <div id="tanggal"></div>
-                                        </small>
-                                        <small>
-                                            <a href="https://dsw.depok.go.id" target="_blank">Sumber: Dinas
-                                                Perdagangan dan
-                                                Perindustrian Kota Depok</a>
-                                        </small>
-                                    </div>
-                                    <div class="container-fluid">
-                                        <div class="clients-image" data-item="1" data-nav="false" data-dots="true"
-                                            data-auto="true">
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card border-1 p-3">
-                                                    <div class="client-item ">
-                                                        <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                        <div class="m-3">
-                                                            <p><b>Rp
-                                                                    10.000/<small>Kg</small></b>
-                                                            </p>
-
-                                                            <span class="badge p-1 display-6"><i
-                                                                    class="fa fa-arrows-h"></i>
-                                                                Harga
-                                                                Tetap</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            {{-- Agenda --}}
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="text-allign-left p-3">
-                                        <span style="font-size: Large;">
-                                            <i class="fa fa-calendar"></i>
-                                            <b>Agenda</b>
-                                        </span>
-                                        <table class="table" border="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Pemilihan Umum</td>
-                                                    <td>2 Desember 1998</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pemilihan Umum</td>
-                                                    <td>2 Desember 1998</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pemilihan Umum</td>
-                                                    <td>2 Desember 1998</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pemilihan Umum</td>
-                                                    <td>2 Desember 1998</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pemilihan Umum</td>
-                                                    <td>2 Desember 1998</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End section berita dan agenda -->
-
-            <!-- Section Komoditas -->
-            <section id="komoditas" class="flat-row v8 section-client ">
-
-            </section>
-            <!-- End Section Komoditas -->
-
-
-            <!-- Start Data Penduduk -->
-            <section id="penduduk" class="flat-row" style="margin-top: -120px;">
-                <div class="container">
-                    <div class="row">
                         <div class="col-md-12">
-                            <div class="title-section">
-                                <br>
-                                <h1 class="title">Data Penduduk</h1>
-                                <div class="sub-title">
-                                    Kelurahan Ratu Jaya
-                                </div>
+                            <div class="text-allign-left p-3">
+                                <span style="font-size: Large;">
+                                    <i class="fa fa-area-chart"></i>
+                                    <b>Komoditas Harga Pasar</b>
+                                </span><br>
+                                <small>
+                                    <div id="tanggal"></div>
+                                </small>
+                                <small>
+                                    <a href="https://dsw.depok.go.id" target="_blank">Sumber: Dinas
+                                        Perdagangan dan
+                                        Perindustrian Kota Depok</a>
+                                </small>
                             </div>
-                        </div>
+                            <div class="container-fluid">
+                                <div class="clients-image" data-item="1" data-nav="false" data-dots="true"
+                                    data-auto="true">
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
 
-
-                        <!-- start -->
-                        <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
-                            <div class="card mb-2 shadow w-100">
-                                <div class="card-body">
-                                    <h6 class="text-muted text-center text-bg-warning rounded-3 p-1">Berdasarkan Umur
-                                    </h6>
-                                    <div class="row text-center pt-3">
-                                        <div class="col-sm-12">
-                                            <table class="table" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Balita</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Anak Anak</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Remaja</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Dewasa</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Lansia</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#">
-                                        <small>Sumber: Urban Nexus</small>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end -->
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
 
-                        <!-- start jk -->
-                        <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
-                            <div class="card mb-2 shadow w-100">
-                                <div class="card-body">
-                                    <h6 class="text-muted text-center  text-bg-warning rounded-3 p-1">Berdasarkan Jenis
-                                        Kelamin
-                                    </h6>
-                                    <div class="row text-center pt-5">
-                                        <div class="col-6">
-                                            <h6 class="text-muted"><i class="fas fa-male"></i> Pria</h6>
-                                            <a href="#penduduk">
-                                                <h3 class="numb-count">45</h3>
-                                            </a>
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                            <h6 class="text-muted"><i class="fas fa-female"></i> Wanita</h6>
-                                            <a href="#penduduk">
-                                                <h3 class="numb-count">485</h3>
-                                            </a>
-                                        </div>
-                                    </div><br>
-                                    <div style="line-height: 100%" class="text-center">
-                                        <small class="text-muted">Data Kependudukan Kelurahan Ratu Jaya Terbaru
-                                            !</small>
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#">
-                                        <small>Sumber: Urban Nexus</small>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end -->
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
 
-                        <!-- start jk -->
-                        <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
-                            <div class="card mb-2 shadow w-100">
-                                <div class="card-body">
-                                    <h6 class="text-muted text-center  text-bg-warning rounded-3 p-1">Berdasarkan
-                                        Status
-                                        Penduduk</h6>
-                                    <div class="row text-center pt-5">
-                                        <div class="col-6">
-                                            <h6 class="text-muted"><i class="fas fa-user"></i> Hidup</h6>
-                                            <a href="#penduduk">
-                                                <h3 class="numb-count text-success">{{ $totalpenduduk }}</h3>
-                                            </a>
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                            <h6 class="text-muted"><i class="fa fa-times-circle"></i> Meninggal</h6>
-                                            <a href="#penduduk">
-                                                <h3 class="numb-count text-danger">{{ $totalkematian }}</h3>
-                                            </a>
-                                        </div>
-                                    </div><br>
-                                    <div style="line-height: 100%" class="text-center">
-                                        <small class="text-muted">Data Kependudukan Kelurahan Ratu Jaya Terbaru
-                                            !</small>
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#">
-                                        <small>Sumber: Urban Nexus</small>
-                                    </a>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <!-- end -->
+
 
                     </div>
+                    {{-- Agenda --}}
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="text-allign-left p-3">
+                                <span style="font-size: Large;">
+                                    <i class="fa fa-calendar"></i>
+                                    <b>Agenda</b>
+                                </span>
+                                <table class="table" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
+    <!-- End section berita dan agenda -->
 
-            <!-- <section class="flat-row row-border v9">
+    <!-- Section Komoditas -->
+    <section id="komoditas" class="flat-row v8 section-client ">
+
+    </section>
+    <!-- End Section Komoditas -->
+
+
+    <!-- Start Data Penduduk -->
+    <section id="penduduk" class="flat-row" style="margin-top: -120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-section">
+                        <br>
+                        <h1 class="title">Data Penduduk</h1>
+                        <div class="sub-title">
+                            Kelurahan Ratu Jaya
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- start -->
+                <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
+                    <div class="card mb-2 shadow w-100">
+                        <div class="card-body">
+                            <h6 class="text-muted text-center text-bg-warning rounded-3 p-1">Berdasarkan Umur
+                            </h6>
+                            <div class="row text-center pt-3">
+                                <div class="col-sm-12">
+                                    <table class="table" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>Balita</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Anak Anak</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Remaja</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dewasa</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lansia</td>
+                                                <td>2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">
+                                <small>Sumber: Urban Nexus</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+
+                <!-- start jk -->
+                <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
+                    <div class="card mb-2 shadow w-100">
+                        <div class="card-body">
+                            <h6 class="text-muted text-center  text-bg-warning rounded-3 p-1">Berdasarkan Jenis
+                                Kelamin
+                            </h6>
+                            <div class="row text-center pt-5">
+                                <div class="col-6">
+                                    <h6 class="text-muted"><i class="fas fa-male"></i> Pria</h6>
+                                    <a href="#penduduk">
+                                        <h3 class="numb-count">45</h3>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="text-muted"><i class="fas fa-female"></i> Wanita</h6>
+                                    <a href="#penduduk">
+                                        <h3 class="numb-count">485</h3>
+                                    </a>
+                                </div>
+                            </div><br>
+                            <div style="line-height: 100%" class="text-center">
+                                <small class="text-muted">Data Kependudukan Kelurahan Ratu Jaya Terbaru
+                                    !</small>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">
+                                <small>Sumber: Urban Nexus</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+
+                <!-- start jk -->
+                <div class="col-md-4 col-sm-12 d-flex align-items-stretch my-2">
+                    <div class="card mb-2 shadow w-100">
+                        <div class="card-body">
+                            <h6 class="text-muted text-center  text-bg-warning rounded-3 p-1">Berdasarkan
+                                Status
+                                Penduduk</h6>
+                            <div class="row text-center pt-5">
+                                <div class="col-6">
+                                    <h6 class="text-muted"><i class="fas fa-user"></i> Hidup</h6>
+                                    <a href="#penduduk">
+                                        <h3 class="numb-count text-success">{{ $totalpenduduk }}</h3>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="text-muted"><i class="fa fa-times-circle"></i> Meninggal</h6>
+                                    <a href="#penduduk">
+                                        <h3 class="numb-count text-danger">{{ $totalkematian }}</h3>
+                                    </a>
+                                </div>
+                            </div><br>
+                            <div style="line-height: 100%" class="text-center">
+                                <small class="text-muted">Data Kependudukan Kelurahan Ratu Jaya Terbaru
+                                    !</small>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">
+                                <small>Sumber: Urban Nexus</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="flat-row row-border v9">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -787,55 +889,53 @@
                 </div>
             </section> -->
 
-            <section class="flat-row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="wrap-flat-count">
-                                <div class="title-counter">
-                                    Jumlah Total Penduduk Kelurahan Ratu Jaya
+    <section class="flat-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-flat-count">
+                        <div class="title-counter">
+                            Jumlah Total Penduduk Kelurahan Ratu Jaya
+                        </div>
+                        <div class="divider h39">
+                        </div>
+                        <div class="wrap-counter">
+                            <div class="flat-counter">
+                                <div class="content-counter">
+                                    <div class="content-number">
+                                        <span class="numb-count" data-to="{{ $totalpenduduk - $totalkematian }}"
+                                            data-speed="2000"
+                                            data-waypoint-active="yes">{{ $totalpenduduk - $totalkematian }}</span>
+                                    </div>
+                                    <div class="name-count"><b>Jumlah Penduduk</b><br>Ratu Jaya</div>
                                 </div>
-                                <div class="divider h39">
+                            </div><!-- /.flat-counter -->
+                            <div class="flat-counter">
+                                <div class="content-counter">
+                                    <div class="content-number">
+                                        <span class="numb-count" data-to="{{ $totalkeluarga }}" data-speed="2000"
+                                            data-waypoint-active="yes">{{ $totalkeluarga }}</span>
+                                    </div>
+                                    <div class="name-count"><b>Jumlah Keluarga</b><br>Ratu Jaya</div>
                                 </div>
-                                <div class="wrap-counter">
-                                    <div class="flat-counter">
-                                        <div class="content-counter">
-                                            <div class="content-number">
-                                                <span class="numb-count"
-                                                    data-to="{{ $totalpenduduk - $totalkematian }}" data-speed="2000"
-                                                    data-waypoint-active="yes">{{ $totalpenduduk - $totalkematian }}</span>
-                                            </div>
-                                            <div class="name-count"><b>Jumlah Penduduk</b><br>Ratu Jaya</div>
-                                        </div>
-                                    </div><!-- /.flat-counter -->
-                                    <div class="flat-counter">
-                                        <div class="content-counter">
-                                            <div class="content-number">
-                                                <span class="numb-count" data-to="{{ $totalkeluarga }}"
-                                                    data-speed="2000"
-                                                    data-waypoint-active="yes">{{ $totalkeluarga }}</span>
-                                            </div>
-                                            <div class="name-count"><b>Jumlah Keluarga</b><br>Ratu Jaya</div>
-                                        </div>
-                                    </div><!-- /.flat-counter -->
-                                    <div class="flat-counter">
-                                        <div class="content-counter">
-                                            <div class="content-number">
-                                                <span class="numb-count" data-to="{{ $totalkematian }}"
-                                                    data-speed="2000"
-                                                    data-waypoint-active="yes">{{ $totalkematian }}</span>
-                                            </div>
-                                            <div class="name-count"><b>Angka Kematian</b><br>Ratu Jaya</div>
-                                        </div>
-                                    </div><!-- /.flat-counter -->
+                            </div><!-- /.flat-counter -->
+                            <div class="flat-counter">
+                                <div class="content-counter">
+                                    <div class="content-number">
+                                        <span class="numb-count" data-to="{{ $totalkematian }}" data-speed="2000"
+                                            data-waypoint-active="yes">{{ $totalkematian }}</span>
+                                    </div>
+                                    <div class="name-count"><b>Angka Kematian</b><br>Ratu Jaya</div>
                                 </div>
-                            </div>
+                            </div><!-- /.flat-counter -->
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <!-- <section class="section-video parallax parallax4">
+    <!-- <section class="section-video parallax parallax4">
                 <div class="overlay-parallax style3"></div>
                 <div class="video">
                         <div class="container">
@@ -968,140 +1068,139 @@
                 </div>
             </section> -->
 
-            <section class="flat-row v9 bg-theme">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="title-section style2">
-                                <h1 class="title letter">Agenda Kami</h1>
-                                <div class="sub-title">
-                                    As an Orlando Web Design Company, we provide concierge boutique web design and SEO
-                                    <br>
-                                    services to Winter Park, Winter Garden, Winter Springs, Altamonte Springs, Baldwin
-                                    Park
-                                    (our<br>home), Sanford, Kissimmee, Casselberry, Oviedo & Clermont.
-                                </div>
-                                <div class="sub-title">Not within the Orlando metro area? No problem. Many of <span>our
-                                        clients</span> are hundreds of miles away.</div>
-                            </div>
+    <section class="flat-row v9 bg-theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-section style2">
+                        <h1 class="title letter">Agenda Kami</h1>
+                        <div class="sub-title">
+                            As an Orlando Web Design Company, we provide concierge boutique web design and SEO
+                            <br>
+                            services to Winter Park, Winter Garden, Winter Springs, Altamonte Springs, Baldwin
+                            Park
+                            (our<br>home), Sanford, Kissimmee, Casselberry, Oviedo & Clermont.
                         </div>
+                        <div class="sub-title">Not within the Orlando metro area? No problem. Many of <span>our
+                                clients</span> are hundreds of miles away.</div>
                     </div>
                 </div>
-            </section>
-
-            <section class="flat-row v0">
-                <div class="wrap-portfolio-item" data-item="6" data-nav="false" data-dots="false"
-                    data-auto="false">
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="{{ asset('das-asset/images/portfolio/1.jpg') }}"><img
-                                    src="{{ asset('das-asset/images/portfolio/1.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="images/portfolio/2.jpg"><img
-                                    src="{{ asset('das-asset/images/portfolio/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="images/portfolio/3.jpg"><img
-                                    src="{{ asset('das-asset/images/portfolio/3.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="images/portfolio/4.jpg"><img
-                                    src="{{ asset('das-asset/images/portfolio/4.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="images/portfolio/5.jpg"><img
-                                    src="{{ asset('das-asset/images/portfolio/5.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="images/portfolio/6.jpg"><img
-                                    src="{{ asset('das-asset/images/portfolio/6.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <!-- Footer -->
-        <footer id="footer" class="footer main-footer" data-fixed="true" itemscope="itemscope">
-            <div class="footer-widgets">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="wrap-widget-footer">
-                                <div class="widget widget-footer widget_menu">
-                                    <h5 class="widget-title">Menu</h5>
-                                    <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="#agendaBerita">Agenda</a></li>
-                                        <li><a href="#agendaBerita">Berita</a></li>
-                                        <li><a href="#">Tentang Kami</a></li>
-                                    </ul>
-                                </div><!-- /.widget-menu -->
-                                <div class="widget widget-footer widget_menu">
-                                    <h5 class="widget-title">Informasi</h5>
-                                    <ul>
-                                        <li><a href="#komoditas">Komoditas Pasar</a></li>
-                                        <li><a href="#penduduk">Data Penduduk</a></li>
-                                    </ul>
-                                </div><!-- /.widget-menu -->
-
-                                <div class="widget widget-footer widget_contact">
-                                    <h5 class="widget-title">Contacts</h5>
-                                    <ul class="flat-information">
-                                        <li class="address"><a href="#">Cipayung, Kota Depok, Jakarta Timur</a>
-                                        </li>
-                                        <li class="email"><a
-                                                href="mailto:urbanexus2023@gmail.com">urbanexus2023@gmail.com</a></li>
-                                        <li class="phone"><a href="#">123-456-7890</a></li>
-                                    </ul>
-                                </div>
-                                <div class="widget widget-footer widget_contact">
-                                    <h5 class="widget-title">Maps</h5>
-                                    <ul class="flat-information">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15859.15850236308!2d106.80131474384811!3d-6.421070897116987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e978ca1a7769%3A0xfdc7c55a982a654e!2sRatu%20Jaya%2C%20Cipayung%2C%20Depok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1708987708246!5m2!1sen!2sid"
-                                            width="300" height="200" style="border:0;" allowfullscreen=""
-                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!-- /.col-md-3 -->
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </div><!-- /.footer-widgets -->
-            <div class=" divider h75">
             </div>
-            <div class="footer-contact">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="logo-footer">
-                                <div id="logo-footer" class="logo">
-                                    <a href="index.html" rel="home">
-                                        <!-- <img src="{{ asset('das-asset/images/logo2.png') }}" alt="image"> -->
-                                    </a>
-                                </div><!-- /.logo -->
+        </div>
+    </section>
+
+    <section class="flat-row v0">
+        <div class="wrap-portfolio-item" data-item="6" data-nav="false" data-dots="false" data-auto="false">
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="{{ asset('das-asset/images/portfolio/1.jpg') }}"><img
+                            src="{{ asset('das-asset/images/portfolio/1.jpg') }}" alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="images/portfolio/2.jpg"><img
+                            src="{{ asset('das-asset/images/portfolio/2.jpg') }}" alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="images/portfolio/3.jpg"><img
+                            src="{{ asset('das-asset/images/portfolio/3.jpg') }}" alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="images/portfolio/4.jpg"><img
+                            src="{{ asset('das-asset/images/portfolio/4.jpg') }}" alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="images/portfolio/5.jpg"><img
+                            src="{{ asset('das-asset/images/portfolio/5.jpg') }}" alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="images/portfolio/6.jpg"><img
+                            src="{{ asset('das-asset/images/portfolio/6.jpg') }}" alt="image"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer id="footer" class="footer main-footer" data-fixed="true" itemscope="itemscope">
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wrap-widget-footer">
+                            <div class="widget widget-footer widget_menu">
+                                <h5 class="widget-title">Menu</h5>
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="#agendaBerita">Agenda</a></li>
+                                    <li><a href="#agendaBerita">Berita</a></li>
+                                    <li><a href="#">Tentang Kami</a></li>
+                                </ul>
+                            </div><!-- /.widget-menu -->
+                            <div class="widget widget-footer widget_menu">
+                                <h5 class="widget-title">Informasi</h5>
+                                <ul>
+                                    <li><a href="#komoditas">Komoditas Pasar</a></li>
+                                    <li><a href="#penduduk">Data Penduduk</a></li>
+                                </ul>
+                            </div><!-- /.widget-menu -->
+
+                            <div class="widget widget-footer widget_contact">
+                                <h5 class="widget-title">Contacts</h5>
+                                <ul class="flat-information">
+                                    <li class="address"><a href="#">Cipayung, Kota Depok, Jakarta Timur</a>
+                                    </li>
+                                    <li class="email"><a
+                                            href="mailto:urbanexus2023@gmail.com">urbanexus2023@gmail.com</a></li>
+                                    <li class="phone"><a href="#">123-456-7890</a></li>
+                                </ul>
                             </div>
-                            <div class="copy-right">
-                                <p>© 2024 Kelurahan Ratu Jaya. All Rights Reserved. <a href="#">Terms of Use</a>
-                                    and
-                                    <a href="#">Privacy Policy</a>
-                                </p>
+                            <div class="widget widget-footer widget_contact">
+                                <h5 class="widget-title">Maps</h5>
+                                <ul class="flat-information">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15859.15850236308!2d106.80131474384811!3d-6.421070897116987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e978ca1a7769%3A0xfdc7c55a982a654e!2sRatu%20Jaya%2C%20Cipayung%2C%20Depok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1708987708246!5m2!1sen!2sid"
+                                        width="300" height="200" style="border:0;" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </ul>
                             </div>
                         </div>
-                        <!-- <div class="col-md-6">
+                    </div><!-- /.col-md-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-widgets -->
+        <div class=" divider h75">
+        </div>
+        <div class="footer-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="logo-footer">
+                            <div id="logo-footer" class="logo">
+                                <a href="index.html" rel="home">
+                                    <!-- <img src="{{ asset('das-asset/images/logo2.png') }}" alt="image"> -->
+                                </a>
+                            </div><!-- /.logo -->
+                        </div>
+                        <div class="copy-right">
+                            <p>© 2024 Kelurahan Ratu Jaya. All Rights Reserved. <a href="#">Terms of Use</a>
+                                and
+                                <a href="#">Privacy Policy</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6">
                         <ul class="social-links style2">
                             <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -1109,15 +1208,15 @@
                             <li><a href="#" class="rss"><i class="fa fa-rss"></i></a></li>
                         </ul>
                     </div> -->
-                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <!-- Go Top -->
-        <a class="go-top">
-            <i class="fa fa-angle-up"></i>
-        </a>
+    <!-- Go Top -->
+    <a class="go-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
     </div>
 
     <!-- Javascript -->
