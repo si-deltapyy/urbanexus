@@ -39,6 +39,10 @@ class LandingController extends Controller
         //     'kategori' => 'kategori_value',
         //     'selisih' => 'selisih_value',
         // ]);
+        // $response = Http::post('https://dsw.depok.go.id/Html/get_harga_depok', [
+        //     'kategori' => 'kategori_value',
+        //     'selisih' => 'selisih_value',
+        // ]);
 
         $totalkeluarga = $penduduk->groupBy('no_kk')->count();
         $totalpenduduk = $penduduk->where('nama')->count();
@@ -46,7 +50,8 @@ class LandingController extends Controller
 
 
         $data = Penduduk::all();
+        // $data = $response->json();
 
-        return view('welcome-3', compact('tampilan', 'data', 'totalkeluarga', 'totalpenduduk', 'totalkematian'));
+        return view('welcome-3', compact('tampilan', 'totalkeluarga', 'totalpenduduk', 'totalkematian'));
     }
 }
