@@ -35,6 +35,13 @@
                     @endif
                 </li>
                 @if (!is_null($data))
+                    <li class="nav-item nav-category">Data Penduduk</li>
+                    <li class="nav-item">
+                        <a href="{{ route('rw.penduduk.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="users"></i>
+                            <span class="link-title">Data Penduduk</span>
+                        </a>
+                    </li>
                     <li class="nav-item nav-category">Kuisioner</li>
                     <li class="nav-item">
                         <a href="{{ route('rw.kuisioner_sb.index') }}" class="nav-link">

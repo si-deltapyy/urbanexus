@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+aa{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -132,7 +132,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
+                            @role('RW')
+                            <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('rw.penduduk.create') }}">
+                            @endrole
+                            @role('admin')
                             <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('admin.penduduk.create') }}">
+                            @endrole
                                 <i class="bi bi-plus-lg"></i>
                                 Tambah Penduduk
                             </a>
@@ -148,7 +153,7 @@
                                         <th>No KK</th>
                                         <th>RT</th>
                                         <th>RW</th>
-                                        <th>Tanggal Lahir</th>
+                                        {{-- <th>Tanggal Lahir</th>
                                         <th>Tempat Lahir</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Umur</th>
@@ -158,7 +163,7 @@
                                         <th>Agama</th>
                                         <th>Pendidikan Terakhir</th>
                                         <th>Pekerjaan</th>
-                                        <th>Alamat</th>
+                                        <th>Alamat</th> --}}
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -171,7 +176,7 @@
                                             <td class="text-wrap">{{ $p->no_kk }}</td>
                                             <td class="text-wrap">{{ $p->no_rt }}</td>
                                             <td class="text-wrap">{{ $p->no_rw }}</td>
-                                            <td class="text-wrap">{{ $p->tanggal_lahir }}</td>
+                                            {{-- <td class="text-wrap">{{ $p->tanggal_lahir }}</td>
                                             <td class="text-wrap">{{ $p->tempat_lahir }}</td>
                                             <td class="text-wrap">{{ $p->jenis_kelamin }}</td>
                                             <td class="text-wrap">{{ $p->umur }}</td>
@@ -181,11 +186,22 @@
                                             <td class="text-wrap">{{ $p->agama }}</td>
                                             <td class="text-wrap">{{ $p->pendidikan_terakhir }}</td>
                                             <td class="text-wrap">{{ $p->pekerjaan }}</td>
-                                            <td class="text-wrap">{{ $p->alamat }}</td>
+                                            <td class="text-wrap">{{ $p->alamat }}</td> --}}
                                             <td>
+                                                @role('RW')
+                                                <a href="{{ route('rw.penduduk.show', $p->id) }}"
+                                                    class="btn icon btn-sm btn-primary"><i class="bi bi-eye"></i></a>
+                                                <a href="{{ route('rw.penduduk.edit', $p->id) }}"
+                                                    class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
+                                                    <form action="{{ route('rw.penduduk.destroy', $p->id) }}" method="POST">
+                                                @endrole
+                                                @role('admin')
+                                                <a href="{{ route('admin.penduduk.show', $p->id) }}"
+                                                    class="btn icon btn-sm btn-primary"><i class="bi bi-eye"></i></a>
                                                 <a href="{{ route('admin.penduduk.edit', $p->id) }}"
                                                     class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
-                                                <form action="{{ route('admin.penduduk.destroy', $p->id) }}" method="POST">
+                                                    <form action="{{ route('admin.penduduk.destroy', $p->id) }}" method="POST">
+                                                @endrole
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn icon btn-sm btn-danger" title="Hapus"

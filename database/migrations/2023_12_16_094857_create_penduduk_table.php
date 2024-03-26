@@ -16,6 +16,8 @@ class CreatePendudukTable extends Migration
             $table->integer('no_rt');
             $table->integer('no_rw');
             $table->enum('status', ['Meninggal', 'Hidup']);
+            $table->enum('status_kependudukan', ['tetap', 'pendatang']);
+            $table->enum('disability', ['Tidak Ada', 'Tunanetra', 'Tunarungu', 'Tunagrahita', 'Tunadaksa', 'Tunalaras', 'GPPH/ADHD', 'Autisme']);
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir');
             $table->enum('gol_darah', ['A', 'AB', 'O', 'B']);
