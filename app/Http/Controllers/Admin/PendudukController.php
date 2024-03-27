@@ -105,7 +105,7 @@ class PendudukController extends Controller
         $penduduk->umur = Carbon::parse($request->tanggal_lahir)->age;
         $penduduk->save();
 
-        return redirect('/penduduk')->with('success', 'Data penduduk berhasil diupdate');
+        return redirect('admin/penduduk')->with('success', 'Data penduduk berhasil diupdate');
     }
 
     public function destroy($id)

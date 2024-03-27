@@ -33,7 +33,7 @@ class TampilanController extends Controller
         if ($request->hasFile('gambar')) {
 
             $imageName = $request->file('gambar')->getClientOriginalName(); // Mendapatkan nama file asli
-            $path = $request->file('gambar')->storeAs('public/slider', $imageName); // Menyimpan dengan nama file asli
+            $path = $request->file('gambar')->storeAs('public/slider/', $imageName); // Menyimpan dengan nama file asli
 
             Tampilan::create([
                 'judul' => $request->judul,
@@ -54,7 +54,7 @@ class TampilanController extends Controller
     
         if ($tampilan) {
             // Hapus file gambar
-            Storage::delete('public/images/'.$tampilan->path);
+            Storage::delete('public/slider/'.$tampilan->path);
     
             // Hapus data dari database
             $tampilan->delete();

@@ -1,6 +1,4 @@
-@extends('user-layout.master')
-@section('content')
-    <!-- Page title -->
+
     <div class="page-title">
         <div class="container">
             <div class="row">
@@ -226,4 +224,3 @@
             </div><!-- /.container -->
         </section>
     </main>
-@endsection

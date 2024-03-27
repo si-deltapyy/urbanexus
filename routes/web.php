@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\AdminRTController;
 use App\Http\Controllers\Admin\AdminRWController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -92,6 +94,21 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
     Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
     Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
+
+    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+    Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit');
+    Route::put('/news/{id}', [NewsController::class, 'update'])->name('news.update');
+    Route::get('/news/{id}/delete', [NewsController::class, 'confirmDelete'])->name('news.confirmDelete');
+    Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
+    Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
+    Route::get('/agenda/{id}/edit', [AgendaController::class, 'edit'])->name('agenda.edit');
+    Route::get('/agenda/tambah', [AgendaController::class, 'create'])->name('agenda.create');
+    Route::post('/agenda', [AgendaController::class, 'store'])->name('agenda.store');
+    Route::delete('/agenda/{id}', [AgendaController::class, 'destroy'])->name('agenda.destroy');
+
     Route::get('/slider', [TampilanController::class, 'index'])->name('slider');
     Route::get('/slider/tambah', [TampilanController::class, 'create'])->name('slider.create');
     Route::post('/slider', [TampilanController::class, 'store'])->name('slider.store');

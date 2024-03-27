@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-            Urba<span>Nexus</span>
+            Urban<span>Nexus</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -58,7 +58,6 @@
 
             @endrole
             @role('RT')
-                
                 <li class="nav-item nav-category">Biodata</li>
                 <li class="nav-item">
                     @if (is_null($rt) || $rt->user_id !== auth()->user()->id)
@@ -194,13 +193,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                    <a href="{{ route('admin.news.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="info"></i>
                         <span class="link-title">Berita</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                    <a href="{{ route('admin.agenda.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="info"></i>
                         <span class="link-title">Agenda</span>
                     </a>
