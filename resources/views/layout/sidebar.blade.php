@@ -35,6 +35,13 @@
                     @endif
                 </li>
                 @if (!is_null($data))
+                    <li class="nav-item nav-category">Data Penduduk</li>
+                    <li class="nav-item">
+                        <a href="{{ route('rw.penduduk.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="users"></i>
+                            <span class="link-title">Data Penduduk</span>
+                        </a>
+                    </li>
                     <li class="nav-item nav-category">Kuisioner</li>
                     <li class="nav-item">
                         <a href="{{ route('rw.kuisioner_sb.index') }}" class="nav-link">
@@ -58,6 +65,7 @@
 
             @endrole
             @role('RT')
+
                 <li class="nav-item nav-category">Biodata</li>
                 <li class="nav-item">
                     @if (is_null($rt) || $rt->user_id !== auth()->user()->id)
@@ -93,7 +101,7 @@
                         </a>
                     </li>
                 @endif
-            @endrole 
+            @endrole
 
             @role('super_admin')
                 <li class="nav-item nav-category">User</li>
@@ -194,11 +202,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.news.index') }}" class="nav-link">
+                    <a href="{{ route('admin.news.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="info"></i>
                         <span class="link-title">Berita</span>
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.agenda.index') }}" class="nav-link">
                     <a href="{{ route('admin.agenda.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="info"></i>
                         <span class="link-title">Agenda</span>
@@ -267,7 +277,7 @@
                     <x-dropdown-link :href="route('logout')"
                         onclick="event.preventDefault();
                                     this.closest('form').submit();"
-                        class="logout-button" >
+                        class="logout-button">
                         {{ __('Log Out') }}
                     </x-dropdown-link>
                 </form>

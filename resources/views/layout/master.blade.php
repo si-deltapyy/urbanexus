@@ -51,6 +51,7 @@
     <!-- base js -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/plugins/feather-icons/feather.min.js') }}"></script>
+    {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> --}}
     <script src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <!-- end base js -->
 
@@ -63,5 +64,13 @@
     <!-- end common js -->
 
     @stack('custom-scripts')
+    <script src="https://cdn.tiny.cloud/1/pyxma6c25a7j3s46f3mtn8bnmtau0avnmuuyzk922kri0cau/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    {{-- <script>
+        tinymce.init({
+            selector: 'textarea', // Apply TinyMCE to the textarea with ID "content"
+            plugins: 'advlist autolink lists link image charmap print preview anchor',
+            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+        });
+    </script> --}}
 </body>
 </html>

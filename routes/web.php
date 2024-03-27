@@ -6,13 +6,17 @@ use App\Http\Controllers\rw\RwController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\IndexController;
-use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\WebScrapingController;
 use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\AdminRTController;
 use App\Http\Controllers\Admin\AdminRWController;
+use App\Http\Controllers\rw\PendudukPJController;
+use App\Http\Controllers\Admin\PendudukController;
+use App\Http\Controllers\Admin\TampilanController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\OpsiJawabanController;
@@ -27,10 +31,6 @@ use App\Http\Controllers\super_admin\PertanyaanSAController;
 use App\Http\Controllers\Admin\SebelumBencanaAdminController;
 use App\Http\Controllers\Admin\SesudahBencanaAdminController;
 use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
-use App\Http\Controllers\Admin\PendudukController;
-use App\Http\Controllers\Admin\TampilanController;
-use App\Http\Controllers\rt\Laporan;
-use App\Http\Controllers\WebScrapingController;
 
 
 Route::get('/', function () {
@@ -83,6 +83,7 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::resource('/kuisioner_sb', SebelumBencanaAdminController::class);
     Route::resource('/kuisioner_tb', TerjadiBencanaAdminController::class);
     Route::resource('/kuisioner_sdb', SesudahBencanaAdminController::class);
+    Route::resource('/agenda', AgendaController::class);
     Route::get('/sebelum_bencana_pdf', [PDFDownloadController::class, 'sebelum_bencana'])->name('sebelum_bencana_pdf');
     Route::get('/sesudah_bencana_pdf', [PDFDownloadController::class, 'sesudah_bencana'])->name('sesudah_bencana_pdf');
     Route::get('/terjadi_bencana_pdf', [PDFDownloadController::class, 'terjadi_bencana'])->name('terjadi_bencana_pdf');
@@ -91,7 +92,8 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
     Route::get('/penduduk/tambah', [PendudukController::class, 'create'])->name('penduduk.create');
     Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
-    Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
+    Route::get('/penduduk/{id}/show', [PendudukController::class, 'show'])->name('penduduk.edit');
+    Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.show');
     Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
     Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
 
@@ -120,6 +122,13 @@ Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->
     Route::resource('/kuisioner_sb', SebelumBencanaRWController::class);
     Route::resource('/kuisioner_tb', TerjadiBencanaRwController::class);
     Route::resource('/kuisioner_sdb', SesudahBencanaRwController::class);
+    Route::get('/penduduk', [PendudukPJController::class, 'index'])->name('penduduk.index');
+    Route::get('/penduduk/tambah', [PendudukPJController::class, 'create'])->name('penduduk.create');
+    Route::post('/penduduk', [PendudukPJController::class, 'store'])->name('penduduk.store');
+    Route::get('/penduduk/{id}/edit', [PendudukPJController::class, 'edit'])->name('penduduk.edit');
+    Route::get('/penduduk/{id}/show', [PendudukPJController::class, 'show'])->name('penduduk.show');
+    Route::put('/penduduk/{id}', [PendudukPJController::class, 'update'])->name('penduduk.update');
+    Route::delete('/penduduk/{id}', [PendudukPJController::class, 'destroy'])->name('penduduk.destroy');
 });
 
 Route::middleware(['auth',  'verified', 'role:RT'])->name('rt.')->prefix('rt')->group(function () {

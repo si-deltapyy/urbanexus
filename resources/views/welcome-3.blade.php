@@ -418,15 +418,11 @@
                             </div>
                             <!-- end -->
 
-                        </div>
-                    </div>
-            </section>
-            <!-- End section berita dan agenda -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
 
-            <!-- Section Komoditas -->
-            <section id="komoditas" class="flat-row v8 section-client " style="margin-top: -100px;">
-                <div class="container">
-                    <div class="row">
                         <div class="col-md-12">
                             <div class="text-allign-left p-3">
                                 <span style="font-size: Large;">
@@ -437,80 +433,198 @@
                                     <div id="tanggal"></div>
                                 </small>
                                 <small>
-                                    <a href="https://dsw.depok.go.id" target="_blank">Sumber: Dinas Perdagangan dan
+                                    <a href="https://dsw.depok.go.id" target="_blank">Sumber: Dinas
+                                        Perdagangan dan
                                         Perindustrian Kota Depok</a>
                                 </small>
                             </div>
-                            <style>
-                                @media (max-width: 425px) {
-                                    .clients-image {
-                                        display: grid;
-                                        grid-template-columns: repeat(1, 1fr);
-                                        gap: 20px;
-                                    }
-                                    .baru{
-                                        font-size: 10px !important;
-                                    }
-                                    #cardku{
-                                        padding: 1px !important;
-                                    }
-                                    .baru2{
-                                        font-size: 8px !important;
-                                    }
-                                    .text-berita{
-                                        font-size: 11px !important;
-                                        line-height: 1.5;
-                                    }
-                                    .header-berita{
-                                        font-size: 16px !important;
-                                    }
-                                    .tanggal-berita{
-                                        font-size: 10px !important;
-                                    }
-                                }
-
-                                @media (min-width: 426px) {
-                                    .clients-image {
-                                        display: grid;
-                                        grid-template-columns: repeat(2, 1fr);
-                                        gap: 20px;
-                                    }
-                                }
-                            </style>
                             <div class="container-fluid">
-                                <div class="clients-image" data-item="5" data-nav="false" data-dots="true"
+                                <div class="clients-image" data-item="1" data-nav="false" data-dots="true"
                                     data-auto="true">
-                                    <!-- CONTENT START -->
-                                    @foreach ($data as $item)
-                                    <div id="cardku" class="card border-1 p-3">
-                                        <div class="card-body">
-                                            <div class="item mr-2" style="height: 100px;">
-                                                <div class="card-body-header">
-                                                    <h6 class="baru" style="font-size: 15px; font-weight: 100; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $item['komoditi'] }}</h6>
-                                                </div>
-                                                <div class="mr-2 mt-4">
-                                                    <p class="baru 2"><b>Rp {{ number_format($item['price_today'], 0, ',', '.') ?? '-' }}/<small>Kg</small></b></p>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        @if ($item['price_today'] >= $item['price_yesterday'] && $item['selisih'] != '0')
-                                                            <p class="badge text-bg-danger badge-danger p-2 baru2" style="font-size: 12px;"><i class="fa fa-arrow-up"></i> (Rp {{ number_format($item['selisih'], 0, ',', '.') }})</p>
-                                                        @elseif($item['price_today'] <= $item['price_yesterday'] && $item['selisih'] != '0')
-                                                            <p class="badge text-bg-success badge-success p-2 baru2" style="font-size: 12px;"><i class="fa fa-arrow-down"></i> (Rp {{ number_format($item['selisih'], 0, ',', '.') }})</p>
-                                                        @else
-                                                            <p class="badge badge-info p-2 baru2" style="font-size: 12px;"><i class="fa fa-arrows-h"></i> Harga Tetap</p>
-                                                        @endif
-                                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
-                                    <!-- CONTENT -->
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card border-1 p-3">
+                                            <div class="client-item ">
+                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                                                <div class="m-3">
+                                                    <p><b>Rp
+                                                            10.000/<small>Kg</small></b>
+                                                    </p>
+
+                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                                        Harga
+                                                        Tetap</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    {{-- Agenda --}}
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="text-allign-left p-3">
+                                <span style="font-size: Large;">
+                                    <i class="fa fa-calendar"></i>
+                                    <b>Agenda</b>
+                                </span>
+                                <table class="table" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pemilihan Umum</td>
+                                            <td>2 Desember 1998</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
+    <!-- End section berita dan agenda -->
+
+    <!-- Section Komoditas -->
+    <section id="komoditas" class="flat-row v8 section-client ">
+
+    </section>
     <!-- End Section Komoditas -->
 
 

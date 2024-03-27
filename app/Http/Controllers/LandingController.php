@@ -13,6 +13,7 @@ use App\Charts\ByCategoriesChart;
 use App\Charts\GenderPendudukChart;
 use App\Charts\StatusPendudukChart;
 use App\Models\Tampilan;
+use App\Models\News;
 use Illuminate\Support\Facades\Http;
 
 class LandingController extends Controller
@@ -32,7 +33,8 @@ class LandingController extends Controller
         return view('welcome', compact('GenderPendudukChart', 'KelompokUmur', 'StatusPendudukChart', 'totalkeluarga', 'totalpenduduk'));
     }
 
-    public function baru(){
+    public function baru()
+    {
 
         $tampilan = Tampilan::all();
         $penduduk = Penduduk::all();
