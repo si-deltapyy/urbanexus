@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\rw;
 
+use App\Models\Rw;
+use Carbon\Carbon;
+use App\Models\Penduduk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Penduduk;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
-class PendudukController extends Controller
+class PendudukPJController extends Controller
 {
     public function index()
     {
@@ -25,12 +27,17 @@ class PendudukController extends Controller
         $dewasa = Penduduk::whereBetween('umur', [21, 50])->where('status', 'Hidup')->count();
         $lansia = Penduduk::where('umur', '>', 50)->where('status', 'Hidup')->count();
 
-        return view('pages.penduduk.index', compact('penduduk', 'balita', 'anak_anak', 'remaja', 'dewasa', 'lansia'));
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+
+        return view('pages.penduduk.index', compact('penduduk', 'balita', 'anak_anak', 'remaja', 'dewasa', 'lansia', 'data'));
     }
 
     public function create()
     {
-        return view('pages.penduduk.create');
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        return view('pages.penduduk.create', compact('data'));
     }
 
     public function store(Request $request)
@@ -70,19 +77,23 @@ class PendudukController extends Controller
 
         $penduduk->save();
 
-        return redirect('/admin/penduduk')->with('success', 'Data penduduk berhasil ditambahkan');
+        return redirect('/rw/penduduk')->with('success', 'Data penduduk berhasil ditambahkan');
     }
 
     public function show($id)
     {
         $penduduk = Penduduk::find($id);
-        return view('pages.penduduk.edit', ['penduduk' => $penduduk]);
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        return view('pages.penduduk.show', ['penduduk' => $penduduk, 'data' => $data]);
     }
 
     public function edit($id)
     {
         $penduduk = Penduduk::find($id);
-        return view('pages.penduduk.edit', ['penduduk' => $penduduk]);
+        $user = Auth::user();
+        $data = Rw::where('user_id', $user->id)->first();
+        return view('pages.penduduk.edit', ['penduduk' => $penduduk, 'data' => $data]);
     }
 
     public function update(Request $request, $id)
@@ -118,7 +129,7 @@ class PendudukController extends Controller
         $penduduk->umur = Carbon::parse($request->tanggal_lahir)->age;
         $penduduk->save();
 
-        return redirect('/admin/penduduk')->with('success', 'Data penduduk berhasil diupdate');
+        return redirect('/rw/penduduk')->with('success', 'Data penduduk berhasil diupdate');
     }
 
     public function destroy($id)
@@ -126,6 +137,6 @@ class PendudukController extends Controller
         $penduduk = Penduduk::find($id);
         $penduduk->delete();
 
-        return redirect('/admin/penduduk')->with('success', 'Data penduduk berhasil dihapus');
+        return redirect('/rw/penduduk')->with('success', 'Data penduduk berhasil dihapus');
     }
 }

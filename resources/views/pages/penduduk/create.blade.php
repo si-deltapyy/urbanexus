@@ -73,7 +73,12 @@
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('admin.penduduk.index') }}">Data Penduduk</a></li>
+            @role('RW')
+                <li class="breadcrumb-item"><a href="{{ route('rw.penduduk.index') }}">Data Penduduk</a></li>
+            @endrole
+            @role('admin') 
+                <li class="breadcrumb-item"><a href="{{ route('admin.penduduk.index') }}">Data Penduduk</a></li>
+            @endrole
             <li class="breadcrumb-item active" aria-current="page">Tambah Penduduk</li>
         </ol>
     </nav>
@@ -83,7 +88,12 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Tambah Penduduk</h4>
+                    @role('RW')
+                    <form action="{{ route('rw.penduduk.store') }}" method="post" class="form form-horizontal">
+                    @endrole    
+                    @role('admin')
                     <form action="{{ route('admin.penduduk.store') }}" method="post" class="form form-horizontal">
+                    @endrole    
                         @csrf
                         <div class="form-body">
                             <div class="row">
@@ -115,7 +125,7 @@
                                 </select><br><br>
                                 
                                 <label for="gol_darah" class="mt-1">Golongan Darah</label>
-                                <select class="form-select" name="gol_dar" id="gol_dar" required>
+                                <select class="form-select" name="gol_darah" id="gol_darah" required>
                                     <option value="A">
                                         A
                                     </option>
@@ -152,6 +162,44 @@
                                     </option>
                                     <option value="Meninggal">
                                         Meninggal
+                                    </option>
+                                </select><br><br>
+
+                                <label for="status_kependudukan">Status Kependudukan</label>
+                                <select class="form-select mt-1" name="status_kependudukan" id="status_kependudukan" required>
+                                    <option value="tetap">
+                                        Tetap
+                                    </option>
+                                    <option value="pendatang">
+                                        Pendatang
+                                    </option>
+                                </select><br><br>
+
+                                <label for="disability">Disabilitas</label>
+                                <select class="form-select mt-1" name="disability" id="disability" required>
+                                    <option value="Tidak Ada">
+                                        Tidak Ada
+                                    </option>
+                                    <option value="Tunanetra">
+                                        Tunanetra
+                                    </option>
+                                    <option value="Tunarungu">
+                                        Tunarungu
+                                    </option>
+                                    <option value="Tunagrahita">
+                                        Tunagrahita
+                                    </option>
+                                    <option value="Tunadaksa">
+                                        Tunadaksa
+                                    </option>
+                                    <option value="Tunalaras">
+                                        Tunalaras
+                                    </option>
+                                    <option value="GPPH/ADHD">
+                                        GPPH/ADHD
+                                    </option>
+                                    <option value="Autisme">
+                                        Autisme
                                     </option>
                                 </select><br><br>
                                 

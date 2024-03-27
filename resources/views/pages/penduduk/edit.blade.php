@@ -22,8 +22,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Isi Kuisioner</h4>
+                    @role('RW')
+                    <form action="{{ route('rw.penduduk.update', $penduduk->id) }}" method="POST"
+                        class="form form-horizontal">
+                    @endrole
+                    @role('admin')
                     <form action="{{ route('admin.penduduk.update', $penduduk->id) }}" method="POST"
                         class="form form-horizontal">
+                    @endrole
                         @csrf
                         @method('PUT')
                         <div class="form-body">
@@ -93,6 +99,44 @@
                                     </option>
                                     <option value="Meninggal" {{ $penduduk->status === 'Meninggal' ? 'selected' : '' }}>
                                         Meninggal
+                                    </option>
+                                </select><br><br>
+
+                                <label for="status_kependudukan">Status Kependudukan</label>
+                                <select class="form-select mt-1" name="status_kependudukan" id="status_kependudukan" required>
+                                    <option value="tetap" {{ $penduduk->status_kependudukan === 'tetap' ? 'selected' : '' }}>
+                                        Tetap
+                                    </option>
+                                    <option value="pendatang" {{ $penduduk->status_kependudukan === 'pendatang' ? 'selected' : '' }}>
+                                        Pendatang
+                                    </option>
+                                </select><br><br>
+
+                                <label for="disability">Disabilitas</label>
+                                <select class="form-select mt-1" name="disability" id="disability" required>
+                                    <option value="Tidak Ada" {{ $penduduk->disability === 'Tidak Ada' ? 'selected' : '' }}>
+                                        Tidak Ada
+                                    </option>
+                                    <option value="Tunanetra" {{ $penduduk->disability === 'Tunanetra' ? 'selected' : '' }}>
+                                        Tunanetra
+                                    </option>
+                                    <option value="Tunarungu" {{ $penduduk->disability === 'Tunarungu' ? 'selected' : '' }}>
+                                        Tunarungu
+                                    </option>
+                                    <option value="Tunagrahita" {{ $penduduk->disability === 'Tunagrahita' ? 'selected' : '' }}>
+                                        Tunagrahita
+                                    </option>
+                                    <option value="Tunadaksa" {{ $penduduk->disability === 'Tunadaksa' ? 'selected' : '' }}>
+                                        Tunadaksa
+                                    </option>
+                                    <option value="Tunalaras" {{ $penduduk->disability === 'Tunalaras' ? 'selected' : '' }}>
+                                        Tunalaras
+                                    </option>
+                                    <option value="GPPH/ADHD" {{ $penduduk->disability === 'GPPH/ADHD' ? 'selected' : '' }}>
+                                        GPPH/ADHD
+                                    </option>
+                                    <option value="Autisme" {{ $penduduk->disability === 'Autisme' ? 'selected' : '' }}>
+                                        Autisme
                                     </option>
                                 </select><br><br>
 
