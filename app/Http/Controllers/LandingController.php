@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Charts\ByCategoriesChart;
 use App\Charts\GenderPendudukChart;
 use App\Charts\StatusPendudukChart;
+use App\Models\Tampilan;
+use Illuminate\Support\Facades\Http;
 
 class LandingController extends Controller
 {
@@ -17,7 +19,7 @@ class LandingController extends Controller
     {
 
         $penduduk = Penduduk::all();
-        $totalkeluarga = $penduduk->where('no_kk')->count();
+        $totalkeluarga = $penduduk->groupBy('no_kk')->count();
         $totalpenduduk = $penduduk->where('nama')->count();
 
 
@@ -26,5 +28,30 @@ class LandingController extends Controller
         $StatusPendudukChart = $StatusPendudukChart->build();
 
         return view('welcome', compact('GenderPendudukChart', 'KelompokUmur', 'StatusPendudukChart', 'totalkeluarga', 'totalpenduduk'));
+    }
+
+    public function baru(){
+
+        $tampilan = Tampilan::all();
+        $penduduk = Penduduk::all();
+
+        // $response = Http::post('https://dsw.depok.go.id/Html/get_harga_depok', [
+        //     'kategori' => 'kategori_value',
+        //     'selisih' => 'selisih_value',
+        // ]);
+        $response = Http::post('https://dsw.depok.go.id/Html/get_harga_depok', [
+            'kategori' => 'kategori_value',
+            'selisih' => 'selisih_value',
+        ]);
+
+        $totalkeluarga = $penduduk->groupBy('no_kk')->count();
+        $totalpenduduk = $penduduk->where('nama')->count();
+        $totalkematian = $penduduk->where('status', 'Meninggal')->count();
+
+
+        $data = Penduduk::all();
+        $data = $response->json();
+
+        return view('welcome-3', compact('tampilan', 'data', 'totalkeluarga', 'totalpenduduk', 'totalkematian'));
     }
 }

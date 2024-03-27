@@ -26,13 +26,19 @@ use App\Http\Controllers\Admin\SebelumBencanaAdminController;
 use App\Http\Controllers\Admin\SesudahBencanaAdminController;
 use App\Http\Controllers\Admin\TerjadiBencanaAdminController;
 use App\Http\Controllers\Admin\PendudukController;
+use App\Http\Controllers\Admin\TampilanController;
+use App\Http\Controllers\rt\Laporan;
+use App\Http\Controllers\WebScrapingController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome-3');
 });
 
-Route::get('/', [LandingController::class, 'index'])->name('welcome');
+// Route::get('/', [LandingController::class, 'index'])->name('welcome');
+Route::get('/', [LandingController::class, 'baru'])->name('ds');
+
+Route::get('/komoditasPasar', [WebScrapingController::class, 'show']);
 
 Route::get('/login', function () {
     return view('auth/login');
@@ -86,6 +92,10 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
     Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
     Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
+    Route::get('/slider', [TampilanController::class, 'index'])->name('slider');
+    Route::get('/slider/tambah', [TampilanController::class, 'create'])->name('slider.create');
+    Route::post('/slider', [TampilanController::class, 'store'])->name('slider.store');
+    Route::delete('/slider/{id}', [TampilanController::class, 'delete'])->name('slider.delete');
 });
 
 Route::middleware(['auth',  'verified', 'role:RW'])->name('rw.')->prefix('rw')->group(function () {
@@ -118,6 +128,17 @@ Route::get('/welcome-2', function () {
     return view('welcome-2');
 })->name('welcome-2');
 
+Route::get('/berita', function () {
+    return view('berita');
+})->name('berita');
+
+Route::get('/berita-single', function () {
+    return view('berita-single');
+})->name('berita-single');
+
+
+
+Route::get('/scrape-data', 'WebScrapingController@scrapeData');
 
 Route::get('/report', function () {
     return view('pages/report-pages');

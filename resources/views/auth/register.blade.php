@@ -5,6 +5,7 @@
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
+              <center><img src="{{ asset('das-asset/icon/logo.png') }}" style="width: 70px; margin-bottom: 10px;" alt="" ><br></center>
               <h3>Daftarkan akun anda</h3>
 
               <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
@@ -12,7 +13,7 @@
                 @csrf
                 <input
                   type="name"
-                  class="form-control"
+                  class="form-control "
                   id="name"
                   name="name"
                   placeholder="Nama"
@@ -52,9 +53,11 @@
                     name="role"
                     placeholder="Role"
                   >
-                    @foreach ($roles as $role)
-                    <option value="{{ $role->id }}">{{ $role->name }}</option>
-                    @endforeach
+                  @foreach ($roles as $role)
+                      @if ($role->id !== 1)
+                          <option value="{{ $role->id }}">{{ $role->name }}</option>
+                      @endif
+                  @endforeach
                   </select>
                 <div class="form-button">
                     <button id="submit" type="submit" class="ibtn">{{ __('Register') }}</button>

@@ -25,12 +25,12 @@
                     @if (is_null($data) || $data->user_id !== auth()->user()->id)
                         <a href="{{ route('rw.daftar_rw.create') }}" class="nav-link">
                             <i class="link-icon" data-feather="user"></i>
-                            <span class="link-title">Data RW</span>
+                            <span class="link-title">Data Diri</span>
                         </a>
                     @else
                         <a href="{{ route('rw.daftar_rw.index') }}" class="nav-link">
                             <i class="link-icon" data-feather="user"></i>
-                            <span class="link-title">Data RW</span>
+                            <span class="link-title">Data Diri</span>
                         </a>
                     @endif
                 </li>
@@ -58,6 +58,7 @@
 
             @endrole
             @role('RT')
+
                 <li class="nav-item nav-category">Biodata</li>
                 <li class="nav-item">
                     @if (is_null($rt) || $rt->user_id !== auth()->user()->id)
@@ -185,6 +186,25 @@
                         <span class="link-title">Report</span>
                     </a>
                 </li>
+                <li class="nav-item nav-category">Edit Tampilan</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.slider') }}" class="nav-link">
+                        <i class="link-icon" data-feather="info"></i>
+                        <span class="link-title">Slider</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="info"></i>
+                        <span class="link-title">Berita</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.kuisioner_sb.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="info"></i>
+                        <span class="link-title">Agenda</span>
+                    </a>
+                </li>
             @endrole
 
 
@@ -241,20 +261,36 @@
                 </ul>
               </div>
             </li> --}}
-
-
-
-            <li class="nav-item">
+            <li class="nav-item m-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-dropdown-link :href="route('logout')"
                         onclick="event.preventDefault();
-                                    this.closest('form').submit();">
+                                    this.closest('form').submit();"
+                        class="logout-button">
                         {{ __('Log Out') }}
                     </x-dropdown-link>
                 </form>
             </li>
+            <style>
+                .logout-button {
+                    background-color: #fff;
+                    color: #000;
+                    border: 1px solid #007bff;
+                    border-radius: 4px;
+                    text-align: center;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+
+                .logout-button:hover {
+                    background-color: gray;
+                    border-color: #000;
+                    color: #000;
+                }
+            </style>
         </ul>
     </div>
 </nav>
