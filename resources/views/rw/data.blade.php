@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('nama_rw') is-invalid @enderror"
-                                            id="nama_rw" name="nama_rw" value="{{ $data->nama_rw }}" disabled>
+                                            id="nama_rw" name="nama_rw" value="{{ $data->nama_rw }}" disabled required>
                                         @error('nama_rw')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                            id="email" name="email" value="{{ $data->email }}" disabled>
+                                            id="email" name="email" value="{{ $data->email }}" disabled required>
                                         @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('no_hp') is-invalid @enderror"
-                                            id="no_hp" name="no_hp" value="{{ $data->no_hp }}" disabled>
+                                            id="no_hp" name="no_hp" value="{{ $data->no_hp }}" disabled required>
                                         @error('no_hp')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -69,7 +69,8 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror"
-                                            id="pekerjaan" name="pekerjaan" value="{{ $data->pekerjaan }}" disabled>
+                                            id="pekerjaan" name="pekerjaan" value="{{ $data->pekerjaan }}" disabled
+                                            required>
                                         @error('pekerjaan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -82,7 +83,8 @@
                                     <div class="col-md-8 form-group">
                                         <input type="text"
                                             class="form-control @error('alamat_kantor') is-invalid @enderror"
-                                            id="alamat_kantor" name="alamat_kantor" value="{{ $data->alamat_kantor }}" disabled>
+                                            id="alamat_kantor" name="alamat_kantor" value="{{ $data->alamat_kantor }}"
+                                            disabled required>
                                         @error('alamat_kantor')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -95,7 +97,8 @@
                                     <div class="col-md-8 form-group">
                                         <input type="text"
                                             class="form-control @error('alamat_rumah') is-invalid @enderror"
-                                            id="alamat_rumah" name="alamat_rumah" value="{{ $data->alamat_rumah }}" disabled>
+                                            id="alamat_rumah" name="alamat_rumah" value="{{ $data->alamat_rumah }}"
+                                            disabled required>
                                         @error('alamat_rumah')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
