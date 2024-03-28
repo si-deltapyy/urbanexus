@@ -117,14 +117,14 @@
                         <span class="link-title">Role</span>
                     </a>
                 </li>
-                <li class="nav-item nav-category">Kuisioner</li>
+                {{-- <li class="nav-item nav-category">Kuisioner</li>
                 <li class="nav-item">
                     <a href="{{ route('super_admin.daftar_pertanyaan.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="folder-plus"></i>
                         <span class="link-title">Daftar Kuisioner</span>
                     </a>
-                </li>
-                <li class="nav-item nav-category">Respon Kuisioner</li>
+                </li> --}}
+                {{-- <li class="nav-item nav-category">Respon Kuisioner</li>
                 <li class="nav-item">
                     <a href="{{ route('super_admin.kuisioner_sb.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="message-square"></i>
@@ -142,7 +142,7 @@
                         <i class="link-icon" data-feather="message-square"></i>
                         <span class="link-title">Sesudah Bencana</span>
                     </a>
-                </li>
+                </li> --}}
             @endrole
 
             @role('admin')
@@ -160,7 +160,7 @@
                         <span class="link-title">Daftar RW/RT</span>
                     </a>
                 </li>
-                <li class="nav-item nav-category">Kuisioner</li>
+                {{-- <li class="nav-item nav-category">Kuisioner</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.pertanyaan.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="folder-plus"></i>
@@ -185,7 +185,7 @@
                         <i class="link-icon" data-feather="message-square"></i>
                         <span class="link-title">Sesudah Bencana</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route('admin.report') }}" class="nav-link">
@@ -201,18 +201,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a href="{{ route('admin.news.index') }}" class="nav-link">
-                        <a href="{{ route('admin.news.index') }}" class="nav-link">
-                            <i class="link-icon" data-feather="info"></i>
-                            <span class="link-title">Berita</span>
-                        </a>
+                        <i class="link-icon" data-feather="info"></i>
+                        <span class="link-title">Berita</span>
+                    </a>
                 </li>
                 <li class="nav-item">
+
                     <a href="{{ route('admin.agenda.index') }}" class="nav-link">
-                        <a href="{{ route('admin.agenda.index') }}" class="nav-link">
-                            <i class="link-icon" data-feather="info"></i>
-                            <span class="link-title">Agenda</span>
-                        </a>
+                        <i class="link-icon" data-feather="info"></i>
+                        <span class="link-title">Agenda</span>
+                    </a>
                 </li>
             @endrole
 

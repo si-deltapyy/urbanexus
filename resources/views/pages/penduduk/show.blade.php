@@ -31,7 +31,7 @@
         }
 
         .child-4 {
-            width: 15% !important;
+            width: 30% !important;
         }
 
         .child-5 {
@@ -87,7 +87,21 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3 desktop-behavior child-4">
+                                <div class="row mt-3 desktop-behavior child-1">
+                                    <div class="col-md-4" style="width:90%">
+                                        <label>Tempat Lahir</label>
+                                    </div>
+                                    <div class="col-md-8 form-group" style="width:90%">
+                                        <input type="text"
+                                            class="form-control @error('alamat_kantor') is-invalid @enderror"
+                                            id="alamat_kantor" name="alamat_kantor" value="{{ $penduduk->tempat_lahir }}"
+                                            disabled required>
+                                        @error('alamat_kantor')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mt-3 desktop-behavior child-5">
                                     <div class="col-md-4" style="width:90%">
                                         <label>No RT</label>
                                     </div>
@@ -99,7 +113,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3 desktop-behavior child-4">
+                                <div class="row mt-3 desktop-behavior child-5">
                                     <div class="col-md-4" style="width:90%">
                                         <label>No RW</label>
                                     </div>
@@ -168,20 +182,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3 desktop-behavior child-2">
-                                    <div class="col-md-4" style="width:90%">
-                                        <label>Tempat Lahir</label>
-                                    </div>
-                                    <div class="col-md-8 form-group" style="width:90%">
-                                        <input type="text"
-                                            class="form-control @error('alamat_kantor') is-invalid @enderror"
-                                            id="alamat_kantor" name="alamat_kantor"
-                                            value="{{ $penduduk->tempat_lahir }}" disabled required>
-                                        @error('alamat_kantor')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
+
                                 <div class="row mt-3 desktop-behavior child-5">
                                     <div class="col-md-4" style="width:90%">
                                         <label>Golongan Darah</label>
@@ -269,7 +270,7 @@
                                 </div>
 
                                 <div class="row mt-3 desktop-behavior">
-                                    <div class="col-md-4" style="width:90%">
+                                    <div class="col-md-4" style="width:95%">
                                         <label>alamat</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
