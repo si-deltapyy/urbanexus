@@ -92,8 +92,8 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
     Route::get('/penduduk/tambah', [PendudukController::class, 'create'])->name('penduduk.create');
     Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
-    Route::get('/penduduk/{id}/show', [PendudukController::class, 'show'])->name('penduduk.edit');
-    Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.show');
+    Route::get('/penduduk/{id}/show', [PendudukController::class, 'show'])->name('penduduk.show');
+    Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
     Route::put('/penduduk/{id}', [PendudukController::class, 'update'])->name('penduduk.update');
     Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
 

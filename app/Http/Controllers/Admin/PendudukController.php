@@ -76,7 +76,7 @@ class PendudukController extends Controller
     public function show($id)
     {
         $penduduk = Penduduk::find($id);
-        return view('pages.penduduk.edit', ['penduduk' => $penduduk]);
+        return view('pages.penduduk.show', ['penduduk' => $penduduk]);
     }
 
     public function edit($id)
