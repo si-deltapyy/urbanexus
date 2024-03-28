@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Charts\BarChart;
 use App\Models\Penduduk;
+use App\Models\Agenda;
+use App\Models\News;
 use App\Charts\TestChart;
 use App\Charts\KelompokUmur;
 use Illuminate\Http\Request;
@@ -36,25 +38,50 @@ class LandingController extends Controller
 
         $tampilan = Tampilan::all();
         $penduduk = Penduduk::all();
+        $agenda = Agenda::all();
         $news = News::all();
 
-        // $response = Http::post('https://dsw.depok.go.id/Html/get_harga_depok', [
-        //     'kategori' => 'kategori_value',
-        //     'selisih' => 'selisih_value',
-        // ]);
-        $response = Http::post('https://dsw.depok.go.id/Html/get_harga_depok', [
-            'kategori' => 'kategori_value',
-            'selisih' => 'selisih_value',
-        ]);
 
-        $totalkeluarga = $penduduk->groupBy('no_kk')->count();
-        $totalpenduduk = $penduduk->where('nama')->count();
-        $totalkematian = $penduduk->where('status', 'Meninggal')->count();
+        $responseCuaca = Http::get('https://www.depok.go.id/api/cuacaBMKG');
+        $responseKomoditas = Http::get('https://www.depok.go.id/api/harga-komoditas');
 
+        $angkaPenduduk = [
+            'keluarga' => $penduduk->groupBy('no_kk')->count(),
+            'penduduk' => $penduduk->where('nama')->count(),
+            'kematian' => $penduduk->where('status', 'Meninggal')->count()
+        ];
 
-        $data = Penduduk::all();
-        $data = $response->json();
+        $jenis_kelamin = [
+            'Perempuan' => $penduduk->where('jenis_kelamin', 'Perempuan')->count(),
+            'Laki-laki' => $penduduk->where('jenis_kelamin', 'Laki-laki')->count()
+        ];
 
-        return view('welcome-3', compact('tampilan', 'data', 'totalkeluarga', 'totalpenduduk', 'totalkematian', 'news'));
+        $umur = [
+            'balita' => $penduduk->filter(function ($p) {
+                return $p->umur >= 1 && $p->umur <= 5 && $p->status == 'Hidup';
+            })->count(),
+        
+            'anak_anak' => $penduduk->filter(function ($p) {
+                return $p->umur >= 6 && $p->umur <= 12 && $p->status == 'Hidup';
+            })->count(),
+        
+            'remaja' => $penduduk->filter(function ($p) {
+                return $p->umur >= 13 && $p->umur <= 20 && $p->status == 'Hidup';
+            })->count(),
+        
+            'dewasa' => $penduduk->filter(function ($p) {
+                return $p->umur >= 21 && $p->umur <= 50 && $p->status == 'Hidup';
+            })->count(),
+        
+            'lansia' => $penduduk->filter(function ($p) {
+                return $p->umur > 50 && $p->status == 'Hidup';
+            })->count()
+        ];
+        
+
+        $cuaca = $responseCuaca->json();
+        $data = $responseKomoditas->json();
+
+        return view('welcome-3', compact('tampilan', 'cuaca', 'news', 'agenda', 'umur', 'data', 'jenis_kelamin', 'angkaPenduduk'));
     }
 }

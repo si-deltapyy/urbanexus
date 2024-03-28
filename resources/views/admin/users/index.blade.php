@@ -79,7 +79,7 @@
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Data RT</a></li>
+            <li class="breadcrumb-item"><a href="#">Data user</a></li>
             <li class="breadcrumb-item active" aria-current="page">Detail Data</li>
         </ol>
     </nav>

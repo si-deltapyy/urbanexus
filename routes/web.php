@@ -105,6 +105,12 @@ Route::middleware(['auth',  'verified', 'role:admin'])->name('admin.')->prefix('
     Route::get('/news/{id}/delete', [NewsController::class, 'confirmDelete'])->name('news.confirmDelete');
     Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
 
+    Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
+    Route::get('/agenda/{id}/edit', [AgendaController::class, 'edit'])->name('agenda.edit');
+    Route::get('/agenda/tambah', [AgendaController::class, 'create'])->name('agenda.create');
+    Route::post('/agenda', [AgendaController::class, 'store'])->name('agenda.store');
+    Route::delete('/agenda/{id}', [AgendaController::class, 'destroy'])->name('agenda.destroy');
+
     Route::get('/slider', [TampilanController::class, 'index'])->name('slider');
     Route::get('/slider/tambah', [TampilanController::class, 'create'])->name('slider.create');
     Route::post('/slider', [TampilanController::class, 'store'])->name('slider.store');

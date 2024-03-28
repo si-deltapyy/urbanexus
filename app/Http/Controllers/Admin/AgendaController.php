@@ -57,8 +57,9 @@ class AgendaController extends Controller
             ->with('success', 'Agenda updated successfully');
     }
 
-    public function destroy(Agenda $agenda)
+    public function destroy($id)
     {
+        $agenda = Agenda::find($id);
         $agenda->delete();
 
         return redirect()->route('admin.agenda.index')

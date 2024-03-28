@@ -150,7 +150,7 @@ aa{{-- <!DOCTYPE html>
                                     <tr class="text-wrap" style="width: 6rem;">
                                         <th>Nama</th>
                                         <th>NIK</th>
-                                        <th>No KK</th>
+                                        <!-- <th>No KK</th> -->
                                         <th>RT</th>
                                         <th>RW</th>
                                         {{-- <th>Tanggal Lahir</th>
@@ -173,7 +173,7 @@ aa{{-- <!DOCTYPE html>
                                         <tr>
                                             <td class="text-wrap">{{ $p->nama }}</td>
                                             <td class="text-wrap">{{ $p->nik }}</td>
-                                            <td class="text-wrap">{{ $p->no_kk }}</td>
+                                            <!-- <td class="text-wrap">{{ $p->no_kk }}</td> -->
                                             <td class="text-wrap">{{ $p->no_rt }}</td>
                                             <td class="text-wrap">{{ $p->no_rw }}</td>
                                             {{-- <td class="text-wrap">{{ $p->tanggal_lahir }}</td>
@@ -181,7 +181,7 @@ aa{{-- <!DOCTYPE html>
                                             <td class="text-wrap">{{ $p->jenis_kelamin }}</td>
                                             <td class="text-wrap">{{ $p->umur }}</td>
                                             <td class="text-wrap">{{ $p->status }}</td>
-                                            <td class="text-wrap">{{ $p->gol_darah }}</td>
+                                             <td class="text-wrap">{{ $p->gol_darah }}</td>
                                             <td class="text-wrap">{{ $p->status_kawin }}</td>
                                             <td class="text-wrap">{{ $p->agama }}</td>
                                             <td class="text-wrap">{{ $p->pendidikan_terakhir }}</td>
@@ -207,6 +207,7 @@ aa{{-- <!DOCTYPE html>
                                                     <button class="btn icon btn-sm btn-danger" title="Hapus"
                                                         onclick="return confirm('Are you sure?')">
                                                         <i class="bi bi-trash3-fill"></i>
+                                                        hapus
                                                     </button>
                                                 </form>
                                             </td>
