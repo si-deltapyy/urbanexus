@@ -42,7 +42,7 @@
                             <span class="link-title">Data Penduduk</span>
                         </a>
                     </li>
-                    <li class="nav-item nav-category">Kuisioner</li>
+                    {{-- <li class="nav-item nav-category">Kuisioner</li>
                     <li class="nav-item">
                         <a href="{{ route('rw.kuisioner_sb.index') }}" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>
@@ -60,7 +60,7 @@
                             <i class="link-icon" data-feather="message-square"></i>
                             <span class="link-title">Sesudah Bencana</span>
                         </a>
-                    </li>
+                    </li> --}}
                 @endif
 
             @endrole
@@ -202,17 +202,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.news.index') }}" class="nav-link">
-                    <a href="{{ route('admin.news.index') }}" class="nav-link">
-                        <i class="link-icon" data-feather="info"></i>
-                        <span class="link-title">Berita</span>
-                    </a>
+                        <a href="{{ route('admin.news.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="info"></i>
+                            <span class="link-title">Berita</span>
+                        </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.agenda.index') }}" class="nav-link">
-                    <a href="{{ route('admin.agenda.index') }}" class="nav-link">
-                        <i class="link-icon" data-feather="info"></i>
-                        <span class="link-title">Agenda</span>
-                    </a>
+                        <a href="{{ route('admin.agenda.index') }}" class="nav-link">
+                            <i class="link-icon" data-feather="info"></i>
+                            <span class="link-title">Agenda</span>
+                        </a>
                 </li>
             @endrole
 

@@ -9,6 +9,41 @@
     <link href="{{ asset('assets/plugins/flatpickr/flatpickr.min.css') }}" rel="stylesheet" />
 @endpush
 
+<style scoped>
+    @media (min-width : 710px) {
+
+        .desktop-behavior {
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+        }
+
+        .child-1 {
+            width: 30% !important;
+        }
+
+        .child-2 {
+            width: 40% !important;
+        }
+
+        .child-3 {
+            width: 60% !important;
+        }
+
+        .child-4 {
+            width: 15% !important;
+        }
+
+        .child-5 {
+            width: 25% !important;
+        }
+
+        .child-6 {
+            width: 50% !important;
+        }
+    }
+</style>
+
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
@@ -28,8 +63,7 @@
                         @csrf
                         <div class="form-body">
                             <div class="row">
-                                <div class="row mt-3"
-                                    style="width : 40%; display:flex; flex-direction:column; padding:0px;">
+                                <div class="child-2 row mt-3 desktop-behavior">
                                     <div class="col-md-4">
                                         <label>Nama </label>
                                     </div>
@@ -41,8 +75,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 30%; display:flex; flex-direction:column; padding:0px;">
+                                <div class="child-1 row mt-3 desktop-behavior">
                                     <div class="col-md-4">
                                         <label>NIK </label>
                                     </div>
@@ -54,8 +87,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
+                                <div class="row mt-3 desktop-behavior child-4">
                                     <div class="col-md-4" style="width:90%">
                                         <label>No RT</label>
                                     </div>
@@ -67,8 +99,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
+                                <div class="row mt-3 desktop-behavior child-4">
                                     <div class="col-md-4" style="width:90%">
                                         <label>No RW</label>
                                     </div>
@@ -81,9 +112,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Status</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -96,9 +126,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Status Kependudukan</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -111,9 +140,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Kebutuhan Khusus</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -126,9 +154,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Tanggal Lahir</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -141,9 +168,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3"
-                                    style="width : 15%; display:flex; flex-direction:column; padding:0px;">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-2">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Tempat Lahir</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -156,8 +182,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Golongan Darah</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -170,8 +196,23 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
+                                        <label>Umur</label>
+                                    </div>
+                                    <div class="col-md-8 form-group" style="width:90%">
+                                        <input type="text"
+                                            class="form-control @error('alamat_kantor') is-invalid @enderror"
+                                            id="alamat_kantor" name="alamat_kantor" value="{{ $penduduk->umur }}"
+                                            disabled required>
+                                        @error('alamat_kantor')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Agama</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -184,8 +225,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Jenis Kelamin</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -198,8 +239,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Pendidika Terakhir</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -212,8 +253,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
+                                <div class="row mt-3 desktop-behavior child-5">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>Pekerjaan</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
@@ -226,28 +267,15 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
+
+                                <div class="row mt-3 desktop-behavior">
+                                    <div class="col-md-4" style="width:90%">
                                         <label>alamat</label>
                                     </div>
                                     <div class="col-md-8 form-group" style="width:90%">
                                         <input type="text"
                                             class="form-control @error('alamat_kantor') is-invalid @enderror"
                                             id="alamat_kantor" name="alamat_kantor" value="{{ $penduduk->alamat }}"
-                                            disabled required>
-                                        @error('alamat_kantor')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
-                                        <label>Umur</label>
-                                    </div>
-                                    <div class="col-md-8 form-group" style="width:90%">
-                                        <input type="text"
-                                            class="form-control @error('alamat_kantor') is-invalid @enderror"
-                                            id="alamat_kantor" name="alamat_kantor" value="{{ $penduduk->umur }}"
                                             disabled required>
                                         @error('alamat_kantor')
                                             <div class="invalid-feedback">{{ $message }}</div>

@@ -97,7 +97,7 @@
                                                 </div>
                                             </div>
                                             <a href="/login" class="btn btn-active btn-dark">Login</a>
-                                            <a href="/register" class="mr-3"> / Register</a>
+                                            {{-- <a href="/register" class="mr-3"> / Register</a> --}}
                                         </aside>
                                     </div>
                                     <div class="btn-menu">
@@ -236,388 +236,400 @@
             </div><!-- END REVOLUTION SLIDER -->
 
             <section id="beritaAgenda" class="flat-row">
-                    <div class="container">
-                        <div class="row">
-                            <!-- start -->
-                            <div class="col-md-7 col-sm-12 d-flex align-items-stretch my-2" >
-                                <div class="card mb-2 shadow w-100">
-                                    <div class="card-body">
-                                        <h6 class="text-muted text-left">Berita</h6>
-                                        <div class="row pt-3">
-                                            <div class="col-sm-12">
-                                                <div class="row pl-3">
-                                                    @if(count($news) > 0)
-                                                        <!-- Berita awal -->
-                                                        @foreach($news as $berita)
+                <div class="container">
+                    <div class="row">
+                        <!-- start -->
+                        <div class="col-md-7 col-sm-12 d-flex align-items-stretch my-2">
+                            <div class="card mb-2 shadow w-100">
+                                <div class="card-body">
+                                    <h6 class="text-muted text-left">Berita</h6>
+                                    <div class="row pt-3">
+                                        <div class="col-sm-12">
+                                            <div class="row pl-3">
+                                                @if (count($news) > 0)
+                                                    <!-- Berita awal -->
+                                                    @foreach ($news as $berita)
                                                         <div>
-                                                            <div class="col-sm-3 overflow-hidden mb-3 mt-2" style="height: 150px;">
-                                                                <img src="{{ asset($berita->image_path) }}" class="img-fluid cropped-img " alt="Berita">
+                                                            <div class="col-sm-3 overflow-hidden mb-3 mt-2"
+                                                                style="height: 150px;">
+                                                                <img src="{{ asset($berita->image_path) }}"
+                                                                    class="img-fluid cropped-img " alt="Berita">
                                                             </div>
-                                                            <div class="col-9 overflow-hidden" style="height: 120px;"">
+                                                            <div class="col-9 overflow-hidden"
+                                                                style="height: 120px;"">
                                                                 <h5 class="title-slide header-berita">
                                                                     <a href="">{{ $berita->title }}</a>
                                                                 </h5>
-                                                            <span class="badge badge-danger tanggal-berita">
-                                                                <i class="fa fa-calendar mr-2"></i>
-                                                                <?php
+                                                                <span class="badge badge-danger tanggal-berita">
+                                                                    <i class="fa fa-calendar mr-2"></i>
+                                                                    <?php
                                                                     $dateString = $berita->created_at;
                                                                     $date = new DateTime($dateString);
                                                                     $formattedDate = $date->format('j, M Y - H:i');
-
+                                                                    
                                                                     echo $formattedDate;
-                                                                ?>
-                                                            </span>
-                                                            <span style="font-size: 13px;"><i class="fa fa-user text-muted"></i> {{ $berita->author }}</span>
+                                                                    ?>
+                                                                </span>
+                                                                <span style="font-size: 13px;"><i
+                                                                        class="fa fa-user text-muted"></i>
+                                                                    {{ $berita->author }}</span>
                                                                 <p class="text-berita">
                                                                     <?php
-                                                                        $text = $berita->content;
-                                                                        $words = str_word_count($text, 1);
-                                                                        
-                                                                        if (count($words) > 12) {
-                                                                            $trimmedText = implode(' ', array_slice($words, 0, 12)) . ' ...';
-                                                                        } else {
-                                                                            $trimmedText = $text;
-                                                                        }
-                                                                        
-                                                                        echo $trimmedText;
+                                                                    $text = $berita->content;
+                                                                    $words = str_word_count($text, 1);
+                                                                    
+                                                                    if (count($words) > 12) {
+                                                                        $trimmedText = implode(' ', array_slice($words, 0, 12)) . ' ...';
+                                                                    } else {
+                                                                        $trimmedText = $text;
+                                                                    }
+                                                                    
+                                                                    echo $trimmedText;
                                                                     ?>
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <!-- Berita End -->
-                                                        @endforeach
-                                                    @else
+                                                    @endforeach
+                                                @else
                                                     <div>
                                                         <div class="col-sm-12 overflow-hidden" style="height: 150px;">
                                                             <h7 class="text-muted"><i>tidak ada berita</i></h7>
                                                         </div>
-                                                    </div>      
-                                                    @endif
-                                                    <div>
-                                                        <a class=" justify-content-end" href="/berita-single">Selengkapnya <i class="fa fa-arrow-right"></i> </a>
                                                     </div>
-                                                    <!-- end col -->
+                                                @endif
+                                                <div>
+                                                    <a class=" justify-content-end" href="/berita-single">Selengkapnya
+                                                        <i class="fa fa-arrow-right"></i> </a>
                                                 </div>
+                                                <!-- end col -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- end -->
+                        </div>
+                        <!-- end -->
 
-                            <!-- start jk -->
-                            <div class="col-md-5 col-sm-12 d-flex align-items-stretch my-2">
-                                <div class="row">
-                                    <div class="col-md-7 col-sm-12 d-flex align-items-stretch" >
-                                        <div class="card mb-2 shadow w-100">
+                        <!-- start jk -->
+                        <div class="col-md-5 col-sm-12 d-flex align-items-stretch my-2">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-12 d-flex align-items-stretch">
+                                    <div class="card mb-2 shadow w-100">
                                         <p class="text-muted text-center pt-3" id="dateTime"></p>
-                                            <script>
-                                                function updateDateTime() {
-                                                    var now = new Date();
-                                                    var day = now.getDate();
-                                                    var monthNames = [
-                                                        "Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
-                                                        "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
-                                                    ];
-                                                    var monthIndex = now.getMonth();
-                                                    var year = now.getFullYear();
-                                                    var hours = now.getHours();
-                                                    var minutes = now.getMinutes();
-                                                    var seconds = now.getSeconds();
+                                        <script>
+                                            function updateDateTime() {
+                                                var now = new Date();
+                                                var day = now.getDate();
+                                                var monthNames = [
+                                                    "Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
+                                                    "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
+                                                ];
+                                                var monthIndex = now.getMonth();
+                                                var year = now.getFullYear();
+                                                var hours = now.getHours();
+                                                var minutes = now.getMinutes();
+                                                var seconds = now.getSeconds();
 
-                                                    // Menambahkan nol di depan angka jika angka tersebut kurang dari 10
-                                                    day = day < 10 ? '0' + day : day;
-                                                    hours = hours < 10 ? '0' + hours : hours;
-                                                    minutes = minutes < 10 ? '0' + minutes : minutes;
-                                                    seconds = seconds < 10 ? '0' + seconds : seconds;
+                                                // Menambahkan nol di depan angka jika angka tersebut kurang dari 10
+                                                day = day < 10 ? '0' + day : day;
+                                                hours = hours < 10 ? '0' + hours : hours;
+                                                minutes = minutes < 10 ? '0' + minutes : minutes;
+                                                seconds = seconds < 10 ? '0' + seconds : seconds;
 
-                                                    // Menampilkan tanggal, bulan, tahun, jam, menit, dan detik
-                                                    var dateTimeString = day + ' ' + monthNames[monthIndex] + ' ' + year + ' - ' + hours + ':' + minutes + ':' + seconds + ' WIB' ;
+                                                // Menampilkan tanggal, bulan, tahun, jam, menit, dan detik
+                                                var dateTimeString = day + ' ' + monthNames[monthIndex] + ' ' + year + ' - ' + hours + ':' + minutes + ':' +
+                                                    seconds + ' WIB';
 
-                                                    // Memasukkan nilai dateTimeString ke dalam elemen dengan ID 'dateTime'
-                                                    document.getElementById('dateTime').textContent = dateTimeString;
-                                                }
+                                                // Memasukkan nilai dateTimeString ke dalam elemen dengan ID 'dateTime'
+                                                document.getElementById('dateTime').textContent = dateTimeString;
+                                            }
 
-                                                // Memanggil fungsi updateDateTime setiap detik
-                                                setInterval(updateDateTime, 1000);
+                                            // Memanggil fungsi updateDateTime setiap detik
+                                            setInterval(updateDateTime, 1000);
 
-                                                // Memanggil fungsi updateDateTime untuk pertama kali
-                                                updateDateTime();
-                                            </script>
-                                            <div class="card-body">
-                                                <h3 class="text-center" style="color:#03a9f5;"><i class="{{ $cuaca['suhu'][0]['icon']['icon'] }}"></i> {{ $cuaca['suhu'][0]['value']; }} &deg;C</h3>
-                                                <p class="text-center text-muted mb-2">{{ $cuaca['suhu'][0]['icon']['desc']; }}</p>
-                                                <div class="row ">
-                                                    <div class="col-7">
-                                                        @foreach ($cuaca['suhu'] as $index => $item)
-                                                            @if($index === 0)
-                                                                @continue
-                                                            @endif
-                                                            <p class="text-center">{{ $item['time'] }}</p>
-                                                        @endforeach
-                                                    </div>
-                                                        <div class="col-5">
-                                                            @foreach ($cuaca['suhu'] as $index => $item)
-                                                                @if($index === 0)
-                                                                    @continue
-                                                                @endif
-                                                                <p class="text-center opacity-50"><i class="{{ $item['icon']['icon'] }}"></i> {{ $item['value'] }} &deg;C</p>
-                                                            @endforeach
-                                                        </div>
+                                            // Memanggil fungsi updateDateTime untuk pertama kali
+                                            updateDateTime();
+                                        </script>
+                                        <div class="card-body">
+                                            <h3 class="text-center" style="color:#03a9f5;"><i
+                                                    class="{{ $cuaca['suhu'][0]['icon']['icon'] }}"></i>
+                                                {{ $cuaca['suhu'][0]['value'] }} &deg;C</h3>
+                                            <p class="text-center text-muted mb-2">
+                                                {{ $cuaca['suhu'][0]['icon']['desc'] }}</p>
+                                            <div class="row ">
+                                                <div class="col-7">
+                                                    @foreach ($cuaca['suhu'] as $index => $item)
+                                                        @if ($index === 0)
+                                                            @continue
+                                                        @endif
+                                                        <p class="text-center">{{ $item['time'] }}</p>
+                                                    @endforeach
+                                                </div>
+                                                <div class="col-5">
+                                                    @foreach ($cuaca['suhu'] as $index => $item)
+                                                        @if ($index === 0)
+                                                            @continue
+                                                        @endif
+                                                        <p class="text-center opacity-50"><i
+                                                                class="{{ $item['icon']['icon'] }}"></i>
+                                                            {{ $item['value'] }} &deg;C</p>
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                            <div class="card-footer">
-                                                <a href="https://www.bmkg.go.id/">
-                                                    <small>Sumber: BMKG Indonesia</small>
-                                                </a>
-                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="https://www.bmkg.go.id/">
+                                                <small>Sumber: BMKG Indonesia</small>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 col-sm-12 d-flex align-items-stretch" >
-                                        <div class="card mb-2 shadow w-100">
-                                            <h6 class="text-muted text-center pt-3">Cuaca</h6>
-                                            <div class="card-body">
-                                                <h3 class="text-center" style="color:#03a9f5;">kasih apa</h3>
-                                                
-                                            </div>
+                                </div>
+                                <div class="col-md-5 col-sm-12 d-flex align-items-stretch">
+                                    <div class="card mb-2 shadow w-100">
+                                        <h6 class="text-muted text-center pt-3">Cuaca</h6>
+                                        <div class="card-body">
+                                            <h3 class="text-center" style="color:#03a9f5;">kasih apa</h3>
+
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-sm-12 d-flex align-items-stretch" style="height: 150px;">
-                                        <div class="card mb-2 shadow w-100">
-                                            <h6 class="card-header text-center pt-3 bg-gray text-dark"><i class="fa fa-calendar"></i> Agenda</h6>
-                                            <div class="card-body overflow-auto">
-                                                @if(count($agenda) > 0)
-                                                    <table style="width: 100%;">
-                                                        <tbody>
-                                                            @foreach($agenda as $list)
+                                </div>
+                                <div class="col-md-12 col-sm-12 d-flex align-items-stretch" style="height: 150px;">
+                                    <div class="card mb-2 shadow w-100">
+                                        <h6 class="card-header text-center pt-3 bg-gray text-dark"><i
+                                                class="fa fa-calendar"></i> Agenda</h6>
+                                        <div class="card-body overflow-auto">
+                                            @if (count($agenda) > 0)
+                                                <table style="width: 100%;">
+                                                    <tbody>
+                                                        @foreach ($agenda as $list)
                                                             <tr>
                                                                 <td>
                                                                     <?php
-                                                                        $dateString = $list->tanggal;
-                                                                        $date = new DateTime($dateString);
-                                                                        $formattedDate = $date->format('j M Y');
-
-                                                                        echo $formattedDate;
+                                                                    $dateString = $list->tanggal;
+                                                                    $date = new DateTime($dateString);
+                                                                    $formattedDate = $date->format('j M Y');
+                                                                    
+                                                                    echo $formattedDate;
                                                                     ?>
                                                                 </td>
                                                                 <td>{{ $list->name }}</td>
                                                                 <td>{{ $list->place }}</td>
                                                             </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                @else
-                                                    <div class="text-center">
-                                                        <h6 style="font-size: 14px;"><i>tidak ada agenda</i></h6>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end -->
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-
-                        <div class="col-md-12">
-                            <div class="text-allign-left p-3">
-                                <span style="font-size: Large;">
-                                    <i class="fa fa-area-chart"></i>
-                                    <b>Komoditas Harga Pasar</b>
-                                </span><br>
-                                <small>
-                                    <div id="tanggal"></div>
-                                </small>
-                                <small>
-                                    <a href="https://dsw.depok.go.id" target="_blank">Sumber: Dinas
-                                        Perdagangan dan
-                                        Perindustrian Kota Depok</a>
-                                </small>
-                            </div>
-                            <div class="container-fluid">
-                                <div class="clients-image" data-item="1" data-nav="false" data-dots="true"
-                                    data-auto="true">
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @else
+                                                <div class="text-center">
+                                                    <h6 style="font-size: 14px;"><i>tidak ada agenda</i></h6>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card border-1 p-3">
-                                            <div class="client-item ">
-                                                <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
-                                                <div class="m-3">
-                                                    <p><b>Rp
-                                                            10.000/<small>Kg</small></b>
-                                                    </p>
-
-                                                    <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
-                                                        Harga
-                                                        Tetap</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-
+                        <!-- end -->
 
                     </div>
-                    {{-- Agenda --}}
-                    <div class="card shadow border-0">
-                        <div class="card-body">
-                            <div class="text-allign-left p-3">
-                                <span style="font-size: Large;">
-                                    <i class="fa fa-calendar"></i>
-                                    <b>Agenda</b>
-                                </span>
-                                <table class="table" border="0">
-                                    <tbody>
-                                        <tr>
-                                            <td>Pemilihan Umum</td>
-                                            <td>2 Desember 1998</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pemilihan Umum</td>
-                                            <td>2 Desember 1998</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pemilihan Umum</td>
-                                            <td>2 Desember 1998</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pemilihan Umum</td>
-                                            <td>2 Desember 1998</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pemilihan Umum</td>
-                                            <td>2 Desember 1998</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                </div>
+                </div>
+    </div>
+    </div> --}}
+
+    <div class="col-md-12">
+        <div class="text-allign-left p-3">
+            <span style="font-size: Large;">
+                <i class="fa fa-area-chart"></i>
+                <b>Komoditas Harga Pasar</b>
+            </span><br>
+            <small>
+                <div id="tanggal"></div>
+            </small>
+            <small>
+                <a href="https://dsw.depok.go.id" target="_blank">Sumber: Dinas
+                    Perdagangan dan
+                    Perindustrian Kota Depok</a>
+            </small>
+        </div>
+        <div class="container-fluid">
+            <div class="clients-image" data-item="1" data-nav="false" data-dots="true" data-auto="true">
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card border-1 p-3">
+                        <div class="client-item ">
+                            <small>Beras Raja Lele goreng bakar madu kecap abcde</small>
+                            <div class="m-3">
+                                <p><b>Rp
+                                        10.000/<small>Kg</small></b>
+                                </p>
+
+                                <span class="badge p-1 display-6"><i class="fa fa-arrows-h"></i>
+                                    Harga
+                                    Tetap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
+
+
+    </div>
+    {{-- Agenda --}}
+    <div class="card shadow border-0">
+        <div class="card-body">
+            <div class="text-allign-left p-3">
+                <span style="font-size: Large;">
+                    <i class="fa fa-calendar"></i>
+                    <b>Agenda</b>
+                </span>
+                <table class="table" border="0">
+                    <tbody>
+                        <tr>
+                            <td>Pemilihan Umum</td>
+                            <td>2 Desember 1998</td>
+                        </tr>
+                        <tr>
+                            <td>Pemilihan Umum</td>
+                            <td>2 Desember 1998</td>
+                        </tr>
+                        <tr>
+                            <td>Pemilihan Umum</td>
+                            <td>2 Desember 1998</td>
+                        </tr>
+                        <tr>
+                            <td>Pemilihan Umum</td>
+                            <td>2 Desember 1998</td>
+                        </tr>
+                        <tr>
+                            <td>Pemilihan Umum</td>
+                            <td>2 Desember 1998</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </section>
     <!-- End section berita dan agenda -->
 
@@ -727,7 +739,8 @@
                                 <div class="col-6">
                                     <h6 class="text-muted"><i class="fas fa-user"></i> Hidup</h6>
                                     <a href="#penduduk">
-                                        <h3 class="numb-count text-success">{{ $angkaPenduduk['penduduk'] - $angkaPenduduk['kematian']  }}</h3>
+                                        <h3 class="numb-count text-success">
+                                            {{ $angkaPenduduk['penduduk'] - $angkaPenduduk['kematian'] }}</h3>
                                     </a>
                                 </div>
                                 <div class="col-6">
@@ -826,9 +839,10 @@
                             <div class="flat-counter">
                                 <div class="content-counter">
                                     <div class="content-number">
-                                        <span class="numb-count" data-to="{{ $angkaPenduduk['penduduk'] - $angkaPenduduk['kematian']  }}"
+                                        <span class="numb-count"
+                                            data-to="{{ $angkaPenduduk['penduduk'] - $angkaPenduduk['kematian'] }}"
                                             data-speed="2000"
-                                            data-waypoint-active="yes">{{ $angkaPenduduk['penduduk'] - $angkaPenduduk['kematian']  }}</span>
+                                            data-waypoint-active="yes">{{ $angkaPenduduk['penduduk'] - $angkaPenduduk['kematian'] }}</span>
                                     </div>
                                     <div class="name-count"><b>Jumlah Penduduk</b><br>Ratu Jaya</div>
                                 </div>
@@ -836,7 +850,8 @@
                             <div class="flat-counter">
                                 <div class="content-counter">
                                     <div class="content-number">
-                                        <span class="numb-count" data-to="{{ $angkaPenduduk['keluarga'] }}" data-speed="2000"
+                                        <span class="numb-count" data-to="{{ $angkaPenduduk['keluarga'] }}"
+                                            data-speed="2000"
                                             data-waypoint-active="yes">{{ $angkaPenduduk['keluarga'] }}</span>
                                     </div>
                                     <div class="name-count"><b>Jumlah Keluarga</b><br>Ratu Jaya</div>
@@ -845,7 +860,8 @@
                             <div class="flat-counter">
                                 <div class="content-counter">
                                     <div class="content-number">
-                                        <span class="numb-count" data-to="{{ $angkaPenduduk['kematian'] }}" data-speed="2000"
+                                        <span class="numb-count" data-to="{{ $angkaPenduduk['kematian'] }}"
+                                            data-speed="2000"
                                             data-waypoint-active="yes">{{ $angkaPenduduk['kematian'] }}</span>
                                     </div>
                                     <div class="name-count"><b>Angka Kematian</b><br>Ratu Jaya</div>
@@ -1011,39 +1027,45 @@
     </section>
 
     <section class="flat-row v0">
-                <div class="wrap-portfolio-item" data-item="6" data-nav="false" data-dots="false" data-auto="false">
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="portfolio-thumbnail">
-                            <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}" alt="image"></a>
-                        </div>
-                    </div>
+        <div class="wrap-portfolio-item" data-item="6" data-nav="false" data-dots="false" data-auto="false">
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}"
+                            alt="image"></a>
                 </div>
-            </section>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}"
+                            alt="image"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="portfolio-thumbnail">
+                    <a class="popup-gallery" href="img/2.jpg"><img src="{{ asset('img/2.jpg') }}"
+                            alt="image"></a>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
     <!-- Footer -->

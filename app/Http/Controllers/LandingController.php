@@ -13,7 +13,6 @@ use App\Charts\ByCategoriesChart;
 use App\Charts\GenderPendudukChart;
 use App\Charts\StatusPendudukChart;
 use App\Models\Tampilan;
-use App\Models\News;
 use Illuminate\Support\Facades\Http;
 
 class LandingController extends Controller
@@ -60,24 +59,24 @@ class LandingController extends Controller
             'balita' => $penduduk->filter(function ($p) {
                 return $p->umur >= 1 && $p->umur <= 5 && $p->status == 'Hidup';
             })->count(),
-        
+
             'anak_anak' => $penduduk->filter(function ($p) {
                 return $p->umur >= 6 && $p->umur <= 12 && $p->status == 'Hidup';
             })->count(),
-        
+
             'remaja' => $penduduk->filter(function ($p) {
                 return $p->umur >= 13 && $p->umur <= 20 && $p->status == 'Hidup';
             })->count(),
-        
+
             'dewasa' => $penduduk->filter(function ($p) {
                 return $p->umur >= 21 && $p->umur <= 50 && $p->status == 'Hidup';
             })->count(),
-        
+
             'lansia' => $penduduk->filter(function ($p) {
                 return $p->umur > 50 && $p->status == 'Hidup';
             })->count()
         ];
-        
+
 
         $cuaca = $responseCuaca->json();
         $data = $responseKomoditas->json();

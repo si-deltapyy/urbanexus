@@ -133,15 +133,15 @@ aa{{-- <!DOCTYPE html>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             @role('RW')
-                            <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('rw.penduduk.create') }}">
-                            @endrole
-                            @role('admin')
-                            <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('admin.penduduk.create') }}">
-                            @endrole
-                                <i class="bi bi-plus-lg"></i>
-                                Tambah Penduduk
-                            </a>
-                            {{-- <a href="{{ route('admin.sebelum_bencana_pdf') }}" class="btn btn-primary btn-md-12 mb-3">Unduh
+                                <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('rw.penduduk.create') }}">
+                                @endrole
+                                @role('admin')
+                                    <a class="btn btn-primary btn-md-12 mb-3" href="{{ route('admin.penduduk.create') }}">
+                                    @endrole
+                                    <i class="bi bi-plus-lg"></i>
+                                    Tambah Penduduk
+                                </a>
+                                {{-- <a href="{{ route('admin.sebelum_bencana_pdf') }}" class="btn btn-primary btn-md-12 mb-3">Unduh
                             PDF</a> --}}
                         </div>
                         <div class="table-responsive">
@@ -187,29 +187,32 @@ aa{{-- <!DOCTYPE html>
                                             <td class="text-wrap">{{ $p->pendidikan_terakhir }}</td>
                                             <td class="text-wrap">{{ $p->pekerjaan }}</td>
                                             <td class="text-wrap">{{ $p->alamat }}</td> --}}
-                                            <td>
+                                            <td style="display: flex; max-height: 34px; justify-content: space-between;">
                                                 @role('RW')
-                                                <a href="{{ route('rw.penduduk.show', $p->id) }}"
-                                                    class="btn icon btn-sm btn-primary"><i class="bi bi-eye"></i></a>
-                                                <a href="{{ route('rw.penduduk.edit', $p->id) }}"
-                                                    class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
-                                                    <form action="{{ route('rw.penduduk.destroy', $p->id) }}" method="POST">
-                                                @endrole
-                                                @role('admin')
-                                                <a href="{{ route('admin.penduduk.show', $p->id) }}"
-                                                    class="btn icon btn-sm btn-primary"><i class="bi bi-eye"></i></a>
-                                                <a href="{{ route('admin.penduduk.edit', $p->id) }}"
-                                                    class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
-                                                    <form action="{{ route('admin.penduduk.destroy', $p->id) }}" method="POST">
-                                                @endrole
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn icon btn-sm btn-danger" title="Hapus"
-                                                        onclick="return confirm('Are you sure?')">
-                                                        <i class="bi bi-trash3-fill"></i>
-                                                        hapus
-                                                    </button>
-                                                </form>
+                                                    <a href="{{ route('rw.penduduk.show', $p->id) }}"
+                                                        class="btn icon btn-sm btn-primary"><i class="bi bi-eye"></i></a>
+                                                    <a href="{{ route('rw.penduduk.edit', $p->id) }}"
+                                                        class="btn icon btn-sm btn-success"><i class="bi bi-pencil-square"></i></a>
+                                                    <form style="width: 40%" action="{{ route('rw.penduduk.destroy', $p->id) }}"
+                                                        method="POST">
+                                                    @endrole
+                                                    @role('admin')
+                                                        <a href="{{ route('admin.penduduk.show', $p->id) }}"
+                                                            class="btn icon btn-sm btn-primary"><i class="bi bi-eye"></i></a>
+                                                        <a href="{{ route('admin.penduduk.edit', $p->id) }}"
+                                                            class="btn icon btn-sm btn-success"><i
+                                                                class="bi bi-pencil-square"></i></a>
+                                                        <form action="{{ route('admin.penduduk.destroy', $p->id) }}"
+                                                            method="POST">
+                                                        @endrole
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn icon btn-sm btn-danger" title="Hapus"
+                                                            onclick="return confirm('Are you sure?')">
+                                                            <i class="bi bi-trash3-fill"></i>
+                                                            hapus
+                                                        </button>
+                                                    </form>
                                             </td>
                                         </tr>
                                         @php $nomorIterasi++ @endphp
